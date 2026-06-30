@@ -1,95 +1,331 @@
 <!DOCTYPE html>
-<html lang="UTF-8">
-    <Head>
-        <meta charset="-8"
-        <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-        <title>Local Skills & Micro-jobs</title>
-      </Head>
-      <link rel="stylesheet" href="style.css">
-        <body>
-            <header>
-                <h1>Impressed Hub</h1>
-                <p>Connecting local talent with everybody's tasks right in your community.</p>
-                <nav>
-                    <ul>
-                        <li><a href="#about">About</a></li>
-                         <li><a href="#jobs">Browse Jobs</a></li>
-                          <li><a href="#post-job">Post a Task</a></li>
-                    </ul>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressed Hub - Freelance Marketplace</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-                </nav>
-            </header>
+    <header>
+        <div class="logo">Impressed Hub</div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#browse-jobs">Browse Jobs</a>
+            <a href="#post-task">Post a Task</a>
+        </nav>
+    </header>
 
+    <section class="hero">
+        <h1>Connect with Top Creative Talents</h1>
+        <p>Your ultimate micro-job network for photography, high-end video editing, and digital creation.</p>
+        <a href="#browse-jobs" class="cta-btn">Explore Gigs</a>
+    </section>
+
+    <section id="about" class="about-section">
+        <h2>About Impressed Hub</h2>
+        <p>Impressed Hub is a dedicated digital freelance workspace designed to streamline collaboration between creative visionaries and clients. Whether you need professional video packages assembled, high-tier modeling portfolios shot, or expert media consultation, we host the creative driving force to get it done efficiently.</p>
+    </section>
+
+    <section id="browse-jobs" class="jobs-section">
+        <h2>Available Tasks & Micro-Jobs</h2>
+        
+        <div id="tasks-container" class="job-grid">
             
+            <div class="job-card system-card">
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1622737133809-d95047b9e673?auto=format&fit=crop&w=600&q=80" alt="Video Editing">
+                </div>
+                <div class="card-content">
+                    <h3>Need a 45-second Runway Modeling Intro Video Edited</h3>
+                    <p class="category-tag">Creative Arts / Videography</p>
+                    <p class="price-range"><strong>Budget Range:</strong> KES 3,500 - KES 7,000</p>
+                    <p>Looking for an editor to assemble raw footage of a pageantry contestant. Needs clean transitions, professional sound tracking, and export optimized for social media voting campaigns.</p>
+                    <button class="apply-btn">Apply Now</button>
+                </div>
+            </div>
 
-            <main>
-                <section id="about">
-                    <h2>Why Impressed Hub</h2>
-                    <p>Big job boards are overwhelming. Impressed Hub is built for the micro-economy. Whether you are a freelance creator looking for a local gig,a student offering tutoring, or someone who just needs a quick hand moving apartments,this is your hyper-local hub</p>
-                </section>
+            <div class="job-card system-card">
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=80" alt="Photography">
+                </div>
+                <div class="card-content">
+                    <h3>Looking for a Professional High-Fashion Portfolio Shoot</h3>
+                    <p class="category-tag">Photography / Modeling</p>
+                    <p class="price-range"><strong>Budget Range:</strong> KES 5,000 - KES 12,000</p>
+                    <p>Seeking a photographer experienced with creative studio lighting, outdoor runway apparel styling (trench coats, berets, formal wear), and high-end editorial color grading.</p>
+                    <button class="apply-btn">Apply Now</button>
+                </div>
+            </div>
 
+        </div>
+    </section>
+
+    <section id="post-task" class="post-task-section">
+        <h2>Post a Micro-Job</h2>
+        <p>Need specialized creative work done? Fill out the details below to broadcast your task to our talent pool immediately.</p>
+        
+        <div class="task-form">
+            <input type="hidden" id="edit-task-index" value="">
+
+            <div class="form-group">
+                <label for="task-title">Task Title</label>
+                <input type="text" id="task-title" placeholder="e.g., Edit CapCut transitions for TikTok reel">
+            </div>
+            
+            <div class="form-group">
+                <label for="task-category">Category</label>
+                <select id="task-category">
+                    <option value="Video Editing & Production">Video Editing & Production</option>
+                    <option value="Photography & Styling">Photography & Styling</option>
+                    <option value="Digital Branding & Strategy">Digital Branding & Strategy</option>
+                    <option value="General Micro-Task">General Micro-Task</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="task-min-price">Min Budget (KES)</label>
+                    <input type="number" id="task-min-price" placeholder="e.g., 1500">
+                </div>
+                <div class="form-group">
+                    <label for="task-max-price">Max Budget (KES)</label>
+                    <input type="number" id="task-max-price" placeholder="e.g., 4000">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="task-desc">Task Description</label>
+                <textarea id="task-desc" rows="5" placeholder="Describe the project parameters, software preferences, and estimated turnaround time..."></textarea>
+            </div>
+
+            <button id="post-task-btn" class="submit-btn">Broadcast Task</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Impressed Hub. Built for creators, by creators.</p>
+    </footer>
+
+    <div id="confirmation-modal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-icon confirm-icon">?</div>
+            <h3 id="confirm-title">Are you sure?</h3>
+            <p id="confirm-message">Please confirm your selection to proceed.</p>
+            <div class="modal-actions">
+                <button id="cancel-action-btn" class="modal-btn cancel-btn">Cancel</button>
+                <button id="proceed-action-btn" class="modal-btn proceed-btn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="alert-modal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-icon alert-success-icon">✓</div>
+            <h3 id="alert-title">Success!</h3>
+            <p id="alert-message">Action processed smoothly.</p>
+            <button id="close-alert-btn" class="modal-close-btn">Dismiss</button>
+        </div>
+    </div>
+
+    <script>
+        // ADMIN MANAGEMENT KEY (Change "admin123" to whatever secret password you want)
+        const ADMIN_SECRET_KEY = "admin123";
+
+        // DOM Elements
+        const confirmModal = document.getElementById('confirmation-modal');
+        const confirmTitle = document.getElementById('confirm-title');
+        const confirmMessage = document.getElementById('confirm-message');
+        const proceedBtn = document.getElementById('proceed-action-btn');
+        const cancelBtn = document.getElementById('cancel-action-btn');
+
+        const alertModal = document.getElementById('alert-modal');
+        const alertTitle = document.getElementById('alert-title');
+        const alertMessage = document.getElementById('alert-message');
+        const closeAlertBtn = document.getElementById('close-alert-btn');
+
+        let activeCallback = null; // Holds the operation function waiting for approval
+
+        // Open Dialog Flow Helper
+        function requestConfirmation(title, message, onProceed) {
+            confirmTitle.innerText = title;
+            confirmMessage.innerText = message;
+            confirmModal.classList.add('active');
+            activeCallback = onProceed;
+        }
+
+        // Close functions
+        cancelBtn.addEventListener('click', () => {
+            confirmModal.classList.remove('active');
+            activeCallback = null;
+        });
+
+        proceedBtn.addEventListener('click', () => {
+            confirmModal.classList.remove('active');
+            if (activeCallback) activeCallback();
+        });
+
+        function showSuccessAlert(title, message) {
+            alertTitle.innerText = title;
+            alertMessage.innerText = message;
+            alertModal.classList.add('active');
+        }
+
+        closeAlertBtn.addEventListener('click', () => alertModal.classList.remove('active'));
+
+        // Admin Security Lock Check
+        function verifyAdminAuthorization() {
+            const accessKey = prompt("Admin Access Required:\nEnter your private credential key to edit or delete content:");
+            if (accessKey === ADMIN_SECRET_KEY) {
+                return true;
+            } else {
+                alert("Access Denied: Invalid configuration credentials.");
+                return false;
+            }
+        }
+
+        // A. LISTEN FOR APPLICATIONS WITH DUAL OPTIONS
+        document.getElementById('tasks-container').addEventListener('click', function(e) {
+            if (e.target && e.target.classList.contains('apply-btn')) {
+                const card = e.target.closest('.job-card');
+                const jobTitle = card.querySelector('h3').innerText;
                 
-                <section id="jobs">
-                    <h2>Current Micro-jobs & Services</h2>
+                requestConfirmation(
+                    "Confirm Application",
+                    `Would you like to submit your creative profile workspace for:\n"${jobTitle}"?`,
+                    function() {
+                        showSuccessAlert("Application Submitted!", "Your credentials have been logged. The client will reach out via your dashboard contacts.");
+                    }
+                );
+            }
+        });
 
-                    <div class="job-grid">
+        // B. FORM SUBMISSION (HANDLES BOTH NEW POSTS AND SAVED EDITS)
+        const postTaskBtn = document.getElementById('post-task-btn');
+        if (postTaskBtn) {
+            postTaskBtn.addEventListener('click', function(e) {
+                e.preventDefault();
 
-                    <article>
-                        <h3>Need a 45-second Promotional video edited</h3>
-                        <p>Looking for someone to quickly assemble and add a clean soundtrack to a 45-second intro and promos. Footages are already Shot</p>
-                        <p><em>Budget: Fixed Rate|Location:Remote|Local</em></p>
-                        <Button type="button">Apply</Button>
-                    </article>
+                const title = document.getElementById('task-title').value.trim();
+                const category = document.getElementById('task-category').value;
+                const minPrice = document.getElementById('task-min-price').value.trim();
+                const maxPrice = document.getElementById('task-max-price').value.trim();
+                const desc = document.getElementById('task-desc').value.trim();
+                const editIndex = document.getElementById('edit-task-index').value;
 
-                    <article>
-                        <h3>Looking for a Local Event Photographer</h3>
-                        <p><strong>Category:</strong> Creative Arts/Photography</p>
-                        <p>Need a photographer for a community event Next Month. Must have their own equipment</p>
-                        <p><em>Budget: Per Hour| Location: In-Person</em></p>
-                        <button type="button"> APPLY</button>
-                    </article>
+                if (!title || !desc || !minPrice || !maxPrice) {
+                    alert('Please complete all form fields, including pricing bounds, before transmitting.');
+                    return;
+                }
 
-                    </div>
+                const actionTitle = editIndex !== "" ? "Confirm Modification" : "Confirm Post Broadcast";
+                const actionMsg = editIndex !== "" ? "Are you sure you want to save these changes to this task?" : "Are you sure you want to broadcast this micro-job live to the network?";
+
+                requestConfirmation(actionTitle, actionMsg, function() {
+                    let savedTasks = JSON.parse(localStorage.getItem('hubTasks')) || [];
+                    const taskData = { title, category, minPrice, maxPrice, desc };
+
+                    if (editIndex !== "") {
+                        // Update existing entry
+                        savedTasks[parseInt(editIndex)] = taskData;
+                        document.getElementById('edit-task-index').value = "";
+                        postTaskBtn.innerText = "Broadcast Task";
+                        postTaskBtn.style.backgroundColor = "#111827";
+                        showSuccessAlert("Task Modified!", "The changes have been applied to the live board layout.");
+                    } else {
+                        // Append new entry
+                        savedTasks.push(taskData);
+                        showSuccessAlert("Task Broadcast Live!", "Your project details are now visible to the network community.");
+                    }
+
+                    localStorage.setItem('hubTasks', JSON.stringify(savedTasks));
                     
-                </section>
+                    // Clear fields
+                    document.getElementById('task-title').value = '';
+                    document.getElementById('task-min-price').value = '';
+                    document.getElementById('task-max-price').value = '';
+                    document.getElementById('task-desc').value = '';
+
+                    renderDynamicTasks();
+                });
+            });
+        }
+
+        // C. RENDER TASKS WITH ADMIN EDIT AND DELETE KNOTS
+        function renderDynamicTasks() {
+            const container = document.getElementById('tasks-container');
+            let savedTasks = JSON.parse(localStorage.getItem('hubTasks')) || [];
+
+            // Strip current custom nodes
+            const existingDynamicCards = container.querySelectorAll('.dynamic-card');
+            existingDynamicCards.forEach(card => card.remove());
+
+            savedTasks.forEach((task, index) => {
+                const jobCard = document.createElement('div');
+                jobCard.className = 'job-card dynamic-card';
                 
-
-                <section id="Post-job">
-                    <h2>Need Something Done? Post What you want done</h2>
-                    <p>Fill out the form below to list a micro-job or offer your Proffessional Services to the Neighbourhood</p>
-
-                    <form action="#" Method="POST">
-                        <div>
-                            <label for="Task-title">Task/Service Title</label>
-                            <input type="text" id="Task-title"
-                            name="Task-title" placeholder="e.g.,Audio Transcription help needed"required>
-                        </div>
-
-                       
-                        <div>
-                            <label for="Category">Category:</label>
-                            <Select id="Category" name="category">
-                                <option value="=digital">Digital Freelance (coding,audio,web)</option>
-                                <option value="creative">Creative(Photography,video,Modelling)</option>
-                                <option value="Manual">Manual labor(Moving,Repairs)</option>
-                                <option value="Other">Other Micro-Jobs</option>
-                            </Select>
-                        </div>
+                jobCard.innerHTML = `
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80" alt="Tech Graphic">
+                    </div>
+                    <div class="card-content">
+                        <h3>${task.title}</h3>
+                        <p class="category-tag">${task.category}</p>
+                        <p class="price-range"><strong>Budget Range:</strong> KES ${Number(task.minPrice).toLocaleString()} - KES ${Number(task.maxPrice).toLocaleString()}</p>
+                        <p>${task.desc}</p>
                         
-                        
-
-                        <div>
-                            <button type="Submit">Post to the Board</button>
+                        <div class="admin-controls">
+                            <button class="edit-btn" onclick="triggerEditTask(${index})">Edit Details</button>
+                            <button class="delete-btn" onclick="triggerDeleteTask(${index})">Delete Task</button>
                         </div>
-                    </form>
-                </section>
-            </main>
-            
+                        <button class="apply-btn">Apply Now</button>
+                    </div>
+                `;
+                container.appendChild(jobCard);
+            });
+        }
 
-            <footer>
-                <p>&copy;2026 Impressed Hub. Solving local problems,together.</p>
-            </footer>
-            
-        </body>
+        // D. ADMIN OPERATIONS CONTROL
+        window.triggerEditTask = function(index) {
+            if (!verifyAdminAuthorization()) return;
+
+            let savedTasks = JSON.parse(localStorage.getItem('hubTasks')) || [];
+            const task = savedTasks[index];
+
+            // Load data into entry structures
+            document.getElementById('task-title').value = task.title;
+            document.getElementById('task-category').value = task.category;
+            document.getElementById('task-min-price').value = task.minPrice;
+            document.getElementById('task-max-price').value = task.maxPrice;
+            document.getElementById('task-desc').value = task.desc;
+            document.getElementById('edit-task-index').value = index;
+
+            // Shift button state to clear context change
+            postTaskBtn.innerText = "Save Changes (Index: " + index + ")";
+            postTaskBtn.style.backgroundColor = "#d97706"; // Amber notice tone
+
+            // Scroll down to the editing pane cleanly
+            document.getElementById('post-task').scrollIntoView({ behavior: 'smooth' });
+        };
+
+        window.triggerDeleteTask = function(index) {
+            if (!verifyAdminAuthorization()) return;
+
+            requestConfirmation(
+                "Remove Broadcast Card",
+                "Are you completely certain you want to destroy this entry card permanently? This path is irreversible.",
+                function() {
+                    let savedTasks = JSON.parse(localStorage.getItem('hubTasks')) || [];
+                    savedTasks.splice(index, 1); // Extract element out
+                    localStorage.setItem('hubTasks', JSON.stringify(savedTasks));
+                    renderDynamicTasks();
+                    showSuccessAlert("Card Destroyed", "The job listing has been purged from system local cache.");
+                }
+            );
+        };
+
+        document.addEventListener('DOMContentLoaded', renderDynamicTasks);
+    </script>
+</body>
 </html>
