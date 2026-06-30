@@ -66,7 +66,7 @@
         <h2>Post a Micro-Job</h2>
         <p>Need specialized creative work done? Fill out the details below to broadcast your task to our talent pool immediately.</p>
         
-        <div class="task-form">
+        <div class="task-form-container">
             <input type="hidden" id="edit-task-index" value="">
 
             <div class="form-group">
@@ -100,7 +100,7 @@
                 <textarea id="task-desc" rows="5" placeholder="Describe the project parameters, software preferences, and estimated turnaround time..."></textarea>
             </div>
 
-            <button id="post-task-btn" class="submit-btn">Broadcast Task</button>
+            <button type="button" id="post-task-btn" class="submit-btn">Broadcast Task</button>
         </div>
     </section>
 
@@ -114,8 +114,8 @@
             <h3 id="confirm-title">Are you sure?</h3>
             <p id="confirm-message">Please confirm your selection to proceed.</p>
             <div class="modal-actions">
-                <button id="cancel-action-btn" class="modal-btn cancel-btn">Cancel</button>
-                <button id="proceed-action-btn" class="modal-btn proceed-btn">Confirm</button>
+                <button type="button" id="cancel-action-btn" class="modal-btn cancel-btn">Cancel</button>
+                <button type="button" id="proceed-action-btn" class="modal-btn proceed-btn">Confirm</button>
             </div>
         </div>
     </div>
@@ -125,12 +125,12 @@
             <div class="modal-icon alert-success-icon">✓</div>
             <h3 id="alert-title">Success!</h3>
             <p id="alert-message">Action processed smoothly.</p>
-            <button id="close-alert-btn" class="modal-close-btn">Dismiss</button>
+            <button type="button" id="close-alert-btn" class="modal-close-btn">Dismiss</button>
         </div>
     </div>
 
     <script>
-        // ADMIN MANAGEMENT KEY (Change "admin123" to whatever secret password you want)
+        // ADMIN MANAGEMENT KEY
         const ADMIN_SECRET_KEY = "admin123";
 
         // DOM Elements
@@ -145,7 +145,7 @@
         const alertMessage = document.getElementById('alert-message');
         const closeAlertBtn = document.getElementById('close-alert-btn');
 
-        let activeCallback = null; // Holds the operation function waiting for approval
+        let activeCallback = null;
 
         // Open Dialog Flow Helper
         function requestConfirmation(title, message, onProceed) {
@@ -227,14 +227,12 @@
                     const taskData = { title, category, minPrice, maxPrice, desc };
 
                     if (editIndex !== "") {
-                        // Update existing entry
                         savedTasks[parseInt(editIndex)] = taskData;
                         document.getElementById('edit-task-index').value = "";
                         postTaskBtn.innerText = "Broadcast Task";
                         postTaskBtn.style.backgroundColor = "#111827";
                         showSuccessAlert("Task Modified!", "The changes have been applied to the live board layout.");
                     } else {
-                        // Append new entry
                         savedTasks.push(taskData);
                         showSuccessAlert("Task Broadcast Live!", "Your project details are now visible to the network community.");
                     }
@@ -252,12 +250,11 @@
             });
         }
 
-        // C. RENDER TASKS WITH ADMIN EDIT AND DELETE KNOTS
+        // C. RENDER TASKS WITH ADMIN EDIT AND DELETE CONTROL NODES
         function renderDynamicTasks() {
             const container = document.getElementById('tasks-container');
             let savedTasks = JSON.parse(localStorage.getItem('hubTasks')) || [];
 
-            // Strip current custom nodes
             const existingDynamicCards = container.querySelectorAll('.dynamic-card');
             existingDynamicCards.forEach(card => card.remove());
 
@@ -286,14 +283,12 @@
             });
         }
 
-        // D. ADMIN OPERATIONS CONTROL
         window.triggerEditTask = function(index) {
             if (!verifyAdminAuthorization()) return;
 
             let savedTasks = JSON.parse(localStorage.getItem('hubTasks')) || [];
             const task = savedTasks[index];
 
-            // Load data into entry structures
             document.getElementById('task-title').value = task.title;
             document.getElementById('task-category').value = task.category;
             document.getElementById('task-min-price').value = task.minPrice;
@@ -301,11 +296,9 @@
             document.getElementById('task-desc').value = task.desc;
             document.getElementById('edit-task-index').value = index;
 
-            // Shift button state to clear context change
             postTaskBtn.innerText = "Save Changes (Index: " + index + ")";
-            postTaskBtn.style.backgroundColor = "#d97706"; // Amber notice tone
+            postTaskBtn.style.backgroundColor = "#d97706";
 
-            // Scroll down to the editing pane cleanly
             document.getElementById('post-task').scrollIntoView({ behavior: 'smooth' });
         };
 
@@ -317,7 +310,7 @@
                 "Are you completely certain you want to destroy this entry card permanently? This path is irreversible.",
                 function() {
                     let savedTasks = JSON.parse(localStorage.getItem('hubTasks')) || [];
-                    savedTasks.splice(index, 1); // Extract element out
+                    savedTasks.splice(index, 1);
                     localStorage.setItem('hubTasks', JSON.stringify(savedTasks));
                     renderDynamicTasks();
                     showSuccessAlert("Card Destroyed", "The job listing has been purged from system local cache.");
