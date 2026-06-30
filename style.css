@@ -1,234 +1,52 @@
-/* --- GLOBAL STYLES & RESET --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* --- EXTRA EXTENDED STYLES FOR THE APPLICATION FORM MODAL --- */
+.asset-form-box {
+    max-width: 500px !important;
+    text-align: left !important;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background-color: #f9fafb;
-    color: #1f2937;
-    line-height: 1.6;
-}
-
-/* --- NAVIGATION HEADER --- */
-header {
-    background-color: #111827;
-    color: #ffffff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.2rem 5%;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-header .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #10b981;
-}
-
-header nav {
-    display: flex;
-    gap: 2rem;
-}
-
-header nav a {
-    color: #9ca3af;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-header nav a:hover {
-    color: #ffffff;
-}
-
-/* --- HERO SECTION --- */
-.hero {
-    background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.85)), 
-                url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-    color: #ffffff;
-    text-align: center;
-    padding: 6rem 1rem;
-}
-
-.hero h1 {
-    font-size: 2.8rem;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    color: #d1d5db;
-    max-width: 600px;
-    margin: 0 auto 2rem auto;
-}
-
-.cta-btn {
-    display: inline-block;
+.modal-icon.form-icon {
     background-color: #10b981;
-    color: white;
-    text-decoration: none;
-    padding: 0.8rem 2rem;
-    border-radius: 6px;
-    font-weight: 600;
+    margin: 0 auto 0.5rem auto !important;
 }
 
-/* --- SECTIONS --- */
-section {
-    padding: 4rem 10%;
-}
-
-section h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+.asset-form-box h3 {
     text-align: center;
+    margin-bottom: 0.25rem;
     color: #111827;
 }
 
-.about-section {
-    background-color: #ffffff;
-    max-width: 800px;
-    margin: 3rem auto;
-    border-radius: 12px;
-    text-align: center;
-}
-
-/* --- JOB GRID --- */
-.job-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.job-card {
-    background-color: #ffffff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #e5e7eb;
-}
-
-.card-image-wrapper {
-    width: 100%;
-    height: 180px;
-    overflow: hidden;
-}
-
-.card-image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.card-content {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.category-tag {
-    display: inline-block;
-    color: #059669;
-    background-color: #ecfdf5;
-    padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    align-self: flex-start;
-}
-
-.price-range {
-    font-size: 0.95rem;
-    color: #111827;
-    margin-bottom: 0.75rem;
-    background: #f3f4f6;
-    padding: 0.4rem 0.6rem;
-    border-radius: 6px;
-}
-
-.card-content p {
-    font-size: 0.95rem;
-    color: #4b5563;
+.modal-form-group {
     margin-bottom: 1rem;
-}
-
-/* ADMIN BUTTON CONTROL LAYOUT */
-.admin-controls {
     display: flex;
-    gap: 0.5rem;
-    margin-bottom: 0.75rem;
-    margin-top: auto;
+    flex-direction: column;
 }
 
-.edit-btn, .delete-btn {
-    flex: 1;
-    padding: 0.4rem;
+.modal-form-group label {
     font-size: 0.85rem;
     font-weight: 600;
+    margin-bottom: 0.35rem;
+    color: #374151;
+}
+
+.modal-form-group input {
+    width: 100%;
+    padding: 0.65rem;
     border: 1px solid #d1d5db;
     border-radius: 6px;
-    cursor: pointer;
-    background-color: #ffffff;
-    transition: background 0.2s;
+    font-size: 0.95rem;
+    outline: none;
 }
 
-.edit-btn { color: #d97706; border-color: #f59e0b; }
-.edit-btn:hover { background-color: #fef3c7; }
-.delete-btn { color: #dc2626; border-color: #f87171; }
-.delete-btn:hover { background-color: #fee2e2; }
-
-.apply-btn {
-    background-color: #10b981;
-    color: white;
-    border: none;
-    padding: 0.75rem;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
+.modal-form-group input:focus {
+    border-color: #10b981;
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.1);
 }
 
-/* FORM ELEMENTS */
-.post-task-section { background-color: #ffffff; }
-.task-form { max-width: 600px; margin: 0 auto; background-color: #f9fafb; padding: 2rem; border-radius: 12px; border: 1px solid #e5e7eb; }
-.form-row { display: flex; gap: 1rem; }
-.form-row .form-group { flex: 1; }
-.form-group { margin-bottom: 1.25rem; }
-.form-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem; }
-.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 6px; font-size: 1rem; outline: none; }
-.form-group input:focus, .form-group textarea:focus { border-color: #10b981; }
-.submit-btn { width: 100%; background-color: #111827; color: white; border: none; padding: 0.8rem; border-radius: 6px; font-weight: 600; cursor: pointer; }
-
-/* MODAL STRUCTURES */
-.modal-overlay {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center;
-    opacity: 0; pointer-events: none; transition: opacity 0.2s ease; z-index: 1000;
+.modal-form-row {
+    display: flex;
+    gap: 1rem;
 }
-.modal-overlay.active { opacity: 1; pointer-events: auto; }
-.modal-box { background-color: #ffffff; padding: 2rem; border-radius: 16px; text-align: center; max-width: 400px; width: 90%; transform: scale(0.9); transition: transform 0.2s ease; }
-.modal-overlay.active .modal-box { transform: scale(1); }
 
-.modal-icon { width: 50px; height: 50px; color: white; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; border-radius: 50%; margin: 0 auto 1rem auto; font-weight: bold; }
-.confirm-icon { background-color: #3b82f6; }
-.alert-success-icon { background-color: #10b981; }
-
-.modal-actions { display: flex; gap: 1rem; margin-top: 1.5rem; }
-.modal-btn { flex: 1; padding: 0.65rem; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; }
-.cancel-btn { background-color: #e5e7eb; color: #374151; }
-.proceed-btn { background-color: #3b82f6; color: white; }
-.modal-close-btn { background-color: #111827; color: white; border: none; padding: 0.6rem 2rem; border-radius: 6px; font-weight: 600; cursor: pointer; margin-top: 1rem; }
+.modal-form-row .modal-form-group {
+    flex: 1;
+}

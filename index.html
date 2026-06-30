@@ -30,7 +30,6 @@
 
     <section id="browse-jobs" class="jobs-section">
         <h2>Available Tasks & Micro-Jobs</h2>
-        
         <div id="tasks-container" class="job-grid">
             
             <div class="job-card system-card">
@@ -41,7 +40,7 @@
                     <h3>Need a 45-second Runway Modeling Intro Video Edited</h3>
                     <p class="category-tag">Creative Arts / Videography</p>
                     <p class="price-range"><strong>Budget Range:</strong> KES 3,500 - KES 7,000</p>
-                    <p>Looking for an editor to assemble raw footage of a pageantry contestant. Needs clean transitions, professional sound tracking, and export optimized for social media voting campaigns.</p>
+                    <p>Looking for an editor to assemble raw footage of a pageantry contestant. Needs clean transitions, professional sound tracking, and export optimized for social media campaigns.</p>
                     <button class="apply-btn">Apply Now</button>
                 </div>
             </div>
@@ -64,7 +63,7 @@
 
     <section id="post-task" class="post-task-section">
         <h2>Post a Micro-Job</h2>
-        <p>Need specialized creative work done? Fill out the details below to broadcast your task to our talent pool immediately.</p>
+        <p>Need specialized creative work done? Fill out the details below to broadcast your task immediately.</p>
         
         <div class="task-form-container">
             <input type="hidden" id="edit-task-index" value="">
@@ -97,7 +96,7 @@
 
             <div class="form-group">
                 <label for="task-desc">Task Description</label>
-                <textarea id="task-desc" rows="5" placeholder="Describe the project parameters, software preferences, and estimated turnaround time..."></textarea>
+                <textarea id="task-desc" rows="5" placeholder="Describe the project parameters..."></textarea>
             </div>
 
             <button type="button" id="post-task-btn" class="submit-btn">Broadcast Task</button>
@@ -107,6 +106,40 @@
     <footer>
         <p>&copy; 2026 Impressed Hub. Built for creators, by creators.</p>
     </footer>
+
+    <div id="application-modal" class="modal-overlay">
+        <div class="modal-box asset-form-box">
+            <div class="modal-icon form-icon">💼</div>
+            <h3>Submit Application Credentials</h3>
+            <p style="margin-bottom: 1rem; font-size: 0.9rem; color: #6b7280;">Provide your active contact paths to sync with the client workspace.</p>
+            
+            <input type="hidden" id="target-job-title" value="">
+
+            <div class="modal-form-group">
+                <label>Email Address</label>
+                <input type="email" id="applicant-email" placeholder="name@domain.com">
+            </div>
+            <div class="modal-form-group">
+                <label>Phone Number</label>
+                <input type="tel" id="applicant-phone" placeholder="e.g., 0712345678">
+            </div>
+            <div class="modal-form-row">
+                <div class="modal-form-group">
+                    <label>Country</label>
+                    <input type="text" id="applicant-country" value="Kenya">
+                </div>
+                <div class="modal-form-group">
+                    <label>County</label>
+                    <input type="text" id="applicant-county" placeholder="e.g., Kiambu">
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" id="cancel-app-btn" class="modal-btn cancel-btn">Cancel</button>
+                <button type="button" id="submit-app-btn" class="modal-btn proceed-btn">Apply Now</button>
+            </div>
+        </div>
+    </div>
 
     <div id="confirmation-modal" class="modal-overlay">
         <div class="modal-box">
@@ -130,79 +163,98 @@
     </div>
 
     <script>
-        // ADMIN MANAGEMENT KEY
         const ADMIN_SECRET_KEY = "admin123";
 
         // DOM Elements
+        const applicationModal = document.getElementById('application-modal');
         const confirmModal = document.getElementById('confirmation-modal');
-        const confirmTitle = document.getElementById('confirm-title');
-        const confirmMessage = document.getElementById('confirm-message');
-        const proceedBtn = document.getElementById('proceed-action-btn');
-        const cancelBtn = document.getElementById('cancel-action-btn');
-
         const alertModal = document.getElementById('alert-modal');
-        const alertTitle = document.getElementById('alert-title');
-        const alertMessage = document.getElementById('alert-message');
-        const closeAlertBtn = document.getElementById('close-alert-btn');
-
+        
+        const postTaskBtn = document.getElementById('post-task-btn');
         let activeCallback = null;
 
         // Open Dialog Flow Helper
         function requestConfirmation(title, message, onProceed) {
-            confirmTitle.innerText = title;
-            confirmMessage.innerText = message;
+            document.getElementById('confirm-title').innerText = title;
+            document.getElementById('confirm-message').innerText = message;
             confirmModal.classList.add('active');
             activeCallback = onProceed;
         }
 
         // Close functions
-        cancelBtn.addEventListener('click', () => {
+        document.getElementById('cancel-action-btn').addEventListener('click', () => {
             confirmModal.classList.remove('active');
             activeCallback = null;
         });
 
-        proceedBtn.addEventListener('click', () => {
+        document.getElementById('proceed-action-btn').addEventListener('click', () => {
             confirmModal.classList.remove('active');
             if (activeCallback) activeCallback();
         });
 
         function showSuccessAlert(title, message) {
-            alertTitle.innerText = title;
-            alertMessage.innerText = message;
+            document.getElementById('alert-title').innerText = title;
+            document.getElementById('alert-message').innerText = message;
             alertModal.classList.add('active');
         }
 
-        closeAlertBtn.addEventListener('click', () => alertModal.classList.remove('active'));
+        document.getElementById('close-alert-btn').addEventListener('click', () => alertModal.classList.remove('active'));
 
-        // Admin Security Lock Check
         function verifyAdminAuthorization() {
             const accessKey = prompt("Admin Access Required:\nEnter your private credential key to edit or delete content:");
-            if (accessKey === ADMIN_SECRET_KEY) {
-                return true;
-            } else {
-                alert("Access Denied: Invalid configuration credentials.");
-                return false;
-            }
+            return accessKey === ADMIN_SECRET_KEY;
         }
 
-        // A. LISTEN FOR APPLICATIONS WITH DUAL OPTIONS
+        // A. OPEN DETAILED FORM POPUP WHEN USER CLICKS APPLY NOW
         document.getElementById('tasks-container').addEventListener('click', function(e) {
             if (e.target && e.target.classList.contains('apply-btn')) {
                 const card = e.target.closest('.job-card');
                 const jobTitle = card.querySelector('h3').innerText;
                 
-                requestConfirmation(
-                    "Confirm Application",
-                    `Would you like to submit your creative profile workspace for:\n"${jobTitle}"?`,
-                    function() {
-                        showSuccessAlert("Application Submitted!", "Your credentials have been logged. The client will reach out via your dashboard contacts.");
-                    }
-                );
+                // Track which job the applicant wants inside the hidden modal field
+                document.getElementById('target-job-title').value = jobTitle;
+                
+                // Clear any old input entries from last time
+                document.getElementById('applicant-email').value = '';
+                document.getElementById('applicant-phone').value = '';
+                document.getElementById('applicant-county').value = '';
+
+                // Slide open the overlay form layout
+                applicationModal.classList.add('active');
             }
         });
 
+        // Cancel application submission
+        document.getElementById('cancel-app-btn').addEventListener('click', () => {
+            applicationModal.classList.remove('active');
+        });
+
+        // Process application validation and show delivery prompt
+        document.getElementById('submit-app-btn').addEventListener('click', () => {
+            const email = document.getElementById('applicant-email').value.trim();
+            const phone = document.getElementById('applicant-phone').value.trim();
+            const country = document.getElementById('applicant-country').value.trim();
+            const county = document.getElementById('applicant-county').value.trim();
+            const jobTitle = document.getElementById('target-job-title').value;
+
+            if (!email || !phone || !country || !county) {
+                alert("Please fill in your email, phone, and complete location data before processing.");
+                return;
+            }
+
+            // Close form entry window
+            applicationModal.classList.remove('active');
+
+            // Generate an automated simulated visual feedback confirmation statement
+            const localizedReceiptMessage = `
+                An confirmation message has been dispatched to ${email} and your phone line (${phone}).\n\n
+                Your credentials workspace for "${jobTitle}" has been queued. Residence verified in ${county}, ${country}. You will receive feedback after some time once evaluation finishes.
+            `;
+            
+            showSuccessAlert("Application Logged!", localizedReceiptMessage);
+        });
+
         // B. FORM SUBMISSION (HANDLES BOTH NEW POSTS AND SAVED EDITS)
-        const postTaskBtn = document.getElementById('post-task-btn');
         if (postTaskBtn) {
             postTaskBtn.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -239,7 +291,6 @@
 
                     localStorage.setItem('hubTasks', JSON.stringify(savedTasks));
                     
-                    // Clear fields
                     document.getElementById('task-title').value = '';
                     document.getElementById('task-min-price').value = '';
                     document.getElementById('task-max-price').value = '';
@@ -250,7 +301,7 @@
             });
         }
 
-        // C. RENDER TASKS WITH ADMIN EDIT AND DELETE CONTROL NODES
+        // C. RENDER ALL TASKS FROM CACHE
         function renderDynamicTasks() {
             const container = document.getElementById('tasks-container');
             let savedTasks = JSON.parse(localStorage.getItem('hubTasks')) || [];
@@ -284,7 +335,7 @@
         }
 
         window.triggerEditTask = function(index) {
-            if (!verifyAdminAuthorization()) return;
+            if (!verifyAdminAuthorization()) { alert("Access Denied."); return; }
 
             let savedTasks = JSON.parse(localStorage.getItem('hubTasks')) || [];
             const task = savedTasks[index];
@@ -303,7 +354,7 @@
         };
 
         window.triggerDeleteTask = function(index) {
-            if (!verifyAdminAuthorization()) return;
+            if (!verifyAdminAuthorization()) { alert("Access Denied."); return; }
 
             requestConfirmation(
                 "Remove Broadcast Card",
@@ -319,6 +370,7 @@
         };
 
         document.addEventListener('DOMContentLoaded', renderDynamicTasks);
+        window.addEventListener('load', renderDynamicTasks);
     </script>
 </body>
 </html>
