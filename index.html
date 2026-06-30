@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Impressed Hub - Freelance Marketplace</title>
     <link rel="stylesheet" href="style.css">
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // CRITICAL: Replace this string with your true Public Key from EmailJS Account Settings
+            emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");
+        })();
+    </script>
 </head>
 <body>
 
@@ -25,7 +33,7 @@
 
     <section id="about" class="about-section">
         <h2>About Impressed Hub</h2>
-        <p>Impressed Hub is a dedicated digital freelance workspace designed to streamline collaboration between creative visionaries and clients. Whether you need professional video packages assembled, high-tier modeling portfolios shot, or expert media consultation, we host the creative driving force to get it done efficiently.</p>
+        <p>Impressed Hub is a dedicated digital freelance workspace designed to streamline collaboration between creative visionaries and clients.</p>
     </section>
 
     <section id="browse-jobs" class="jobs-section">
@@ -40,7 +48,7 @@
                     <h3>Need a 45-second Runway Modeling Intro Video Edited</h3>
                     <p class="category-tag">Creative Arts / Videography</p>
                     <p class="price-range"><strong>Budget Range:</strong> KES 3,500 - KES 7,000</p>
-                    <p>Looking for an editor to assemble raw footage of a pageantry contestant. Needs clean transitions, professional sound tracking, and export optimized for social media campaigns.</p>
+                    <p>Looking for an editor to assemble raw footage of a pageantry contestant. Needs clean transitions and optimized sound tracking.</p>
                     <button class="apply-btn">Apply Now</button>
                 </div>
             </div>
@@ -53,7 +61,7 @@
                     <h3>Looking for a Professional High-Fashion Portfolio Shoot</h3>
                     <p class="category-tag">Photography / Modeling</p>
                     <p class="price-range"><strong>Budget Range:</strong> KES 5,000 - KES 12,000</p>
-                    <p>Seeking a photographer experienced with creative studio lighting, outdoor runway apparel styling (trench coats, berets, formal wear), and high-end editorial color grading.</p>
+                    <p>Seeking a photographer experienced with creative studio lighting and outdoor runway apparel styling.</p>
                     <button class="apply-btn">Apply Now</button>
                 </div>
             </div>
@@ -63,65 +71,51 @@
 
     <section id="post-task" class="post-task-section">
         <h2>Post a Micro-Job</h2>
-        <p>Need specialized creative work done? Fill out the details below to broadcast your task immediately.</p>
-        
         <div class="task-form-container">
             <input type="hidden" id="edit-task-index" value="">
-
             <div class="form-group">
                 <label for="task-title">Task Title</label>
-                <input type="text" id="task-title" placeholder="e.g., Edit CapCut transitions for TikTok reel">
+                <input type="text" id="task-title" placeholder="e.g., Edit CapCut transitions">
             </div>
-            
             <div class="form-group">
                 <label for="task-category">Category</label>
                 <select id="task-category">
                     <option value="Video Editing & Production">Video Editing & Production</option>
                     <option value="Photography & Styling">Photography & Styling</option>
-                    <option value="Digital Branding & Strategy">Digital Branding & Strategy</option>
-                    <option value="General Micro-Task">General Micro-Task</option>
                 </select>
             </div>
-
             <div class="form-row">
                 <div class="form-group">
                     <label for="task-min-price">Min Budget (KES)</label>
-                    <input type="number" id="task-min-price" placeholder="e.g., 1500">
+                    <input type="number" id="task-min-price">
                 </div>
                 <div class="form-group">
                     <label for="task-max-price">Max Budget (KES)</label>
-                    <input type="number" id="task-max-price" placeholder="e.g., 4000">
+                    <input type="number" id="task-max-price">
                 </div>
             </div>
-
             <div class="form-group">
                 <label for="task-desc">Task Description</label>
-                <textarea id="task-desc" rows="5" placeholder="Describe the project parameters..."></textarea>
+                <textarea id="task-desc" rows="4"></textarea>
             </div>
-
             <button type="button" id="post-task-btn" class="submit-btn">Broadcast Task</button>
         </div>
     </section>
-
-    <footer>
-        <p>&copy; 2026 Impressed Hub. Built for creators, by creators.</p>
-    </footer>
 
     <div id="application-modal" class="modal-overlay">
         <div class="modal-box asset-form-box">
             <div class="modal-icon form-icon">💼</div>
             <h3>Submit Application Credentials</h3>
-            <p style="margin-bottom: 1rem; font-size: 0.9rem; color: #6b7280;">Provide your active contact paths to sync with the client workspace.</p>
+            <p style="margin-bottom: 1rem; font-size: 0.9rem; color: #6b7280; text-align: center;">Provide details to receive your automated tracking messages.</p>
             
             <input type="hidden" id="target-job-title" value="">
-
             <div class="modal-form-group">
-                <label>Email Address</label>
-                <input type="email" id="applicant-email" placeholder="name@domain.com">
+                <label>Your Email Address</label>
+                <input type="email" id="applicant-email" placeholder="you@domain.com" required>
             </div>
             <div class="modal-form-group">
                 <label>Phone Number</label>
-                <input type="tel" id="applicant-phone" placeholder="e.g., 0712345678">
+                <input type="tel" id="applicant-phone" placeholder="e.g., 0712345678" required>
             </div>
             <div class="modal-form-row">
                 <div class="modal-form-group">
@@ -133,22 +127,9 @@
                     <input type="text" id="applicant-county" placeholder="e.g., Kiambu">
                 </div>
             </div>
-
             <div class="modal-actions">
                 <button type="button" id="cancel-app-btn" class="modal-btn cancel-btn">Cancel</button>
-                <button type="button" id="submit-app-btn" class="modal-btn proceed-btn">Apply Now</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="confirmation-modal" class="modal-overlay">
-        <div class="modal-box">
-            <div class="modal-icon confirm-icon">?</div>
-            <h3 id="confirm-title">Are you sure?</h3>
-            <p id="confirm-message">Please confirm your selection to proceed.</p>
-            <div class="modal-actions">
-                <button type="button" id="cancel-action-btn" class="modal-btn cancel-btn">Cancel</button>
-                <button type="button" id="proceed-action-btn" class="modal-btn proceed-btn">Confirm</button>
+                <button type="button" id="submit-app-btn" class="modal-btn proceed-btn">Submit & Send Alert</button>
             </div>
         </div>
     </div>
@@ -156,80 +137,30 @@
     <div id="alert-modal" class="modal-overlay">
         <div class="modal-box">
             <div class="modal-icon alert-success-icon">✓</div>
-            <h3 id="alert-title">Success!</h3>
-            <p id="alert-message">Action processed smoothly.</p>
+            <h3 id="alert-title">Dispatched!</h3>
+            <p id="alert-message">Processing communication links...</p>
             <button type="button" id="close-alert-btn" class="modal-close-btn">Dismiss</button>
         </div>
     </div>
 
     <script>
         const ADMIN_SECRET_KEY = "admin123";
-
-        // DOM Elements
         const applicationModal = document.getElementById('application-modal');
-        const confirmModal = document.getElementById('confirmation-modal');
         const alertModal = document.getElementById('alert-modal');
-        
-        const postTaskBtn = document.getElementById('post-task-btn');
-        let activeCallback = null;
 
-        // Open Dialog Flow Helper
-        function requestConfirmation(title, message, onProceed) {
-            document.getElementById('confirm-title').innerText = title;
-            document.getElementById('confirm-message').innerText = message;
-            confirmModal.classList.add('active');
-            activeCallback = onProceed;
-        }
-
-        // Close functions
-        document.getElementById('cancel-action-btn').addEventListener('click', () => {
-            confirmModal.classList.remove('active');
-            activeCallback = null;
-        });
-
-        document.getElementById('proceed-action-btn').addEventListener('click', () => {
-            confirmModal.classList.remove('active');
-            if (activeCallback) activeCallback();
-        });
-
-        function showSuccessAlert(title, message) {
-            document.getElementById('alert-title').innerText = title;
-            document.getElementById('alert-message').innerText = message;
-            alertModal.classList.add('active');
-        }
-
-        document.getElementById('close-alert-btn').addEventListener('click', () => alertModal.classList.remove('active'));
-
-        function verifyAdminAuthorization() {
-            const accessKey = prompt("Admin Access Required:\nEnter your private credential key to edit or delete content:");
-            return accessKey === ADMIN_SECRET_KEY;
-        }
-
-        // A. OPEN DETAILED FORM POPUP WHEN USER CLICKS APPLY NOW
+        // OPEN POPUP
         document.getElementById('tasks-container').addEventListener('click', function(e) {
             if (e.target && e.target.classList.contains('apply-btn')) {
                 const card = e.target.closest('.job-card');
-                const jobTitle = card.querySelector('h3').innerText;
-                
-                // Track which job the applicant wants inside the hidden modal field
-                document.getElementById('target-job-title').value = jobTitle;
-                
-                // Clear any old input entries from last time
-                document.getElementById('applicant-email').value = '';
-                document.getElementById('applicant-phone').value = '';
-                document.getElementById('applicant-county').value = '';
-
-                // Slide open the overlay form layout
+                document.getElementById('target-job-title').value = card.querySelector('h3').innerText;
                 applicationModal.classList.add('active');
             }
         });
 
-        // Cancel application submission
-        document.getElementById('cancel-app-btn').addEventListener('click', () => {
-            applicationModal.classList.remove('active');
-        });
+        document.getElementById('cancel-app-btn').addEventListener('click', () => applicationModal.remove('active'));
+        document.getElementById('close-alert-btn').addEventListener('click', () => alertModal.remove('active'));
 
-        // Process application validation and show delivery prompt
+        // LIVE EXTERNAL FORM PROCESSING
         document.getElementById('submit-app-btn').addEventListener('click', () => {
             const email = document.getElementById('applicant-email').value.trim();
             const phone = document.getElementById('applicant-phone').value.trim();
@@ -237,140 +168,63 @@
             const county = document.getElementById('applicant-county').value.trim();
             const jobTitle = document.getElementById('target-job-title').value;
 
-            if (!email || !phone || !country || !county) {
-                alert("Please fill in your email, phone, and complete location data before processing.");
+            if (!email || !phone || !county) {
+                alert("Please fill all data boxes completely.");
                 return;
             }
 
-            // Close form entry window
-            applicationModal.classList.remove('active');
+            // Change button state to show real network loading activity
+            const submitBtn = document.getElementById('submit-app-btn');
+            submitBtn.innerText = "Transmitting Live Messages...";
+            submitBtn.style.opacity = "0.5";
 
-            // Generate an automated simulated visual feedback confirmation statement
-            const localizedReceiptMessage = `
-                An confirmation message has been dispatched to ${email} and your phone line (${phone}).\n\n
-                Your credentials workspace for "${jobTitle}" has been queued. Residence verified in ${county}, ${country}. You will receive feedback after some time once evaluation finishes.
-            `;
-            
-            showSuccessAlert("Application Logged!", localizedReceiptMessage);
+            // PACKAGE DATA DICTIONARY FOR THE API ENGINE
+            const templateParams = {
+                applicant_email: email,
+                applicant_phone: phone,
+                applicant_country: country,
+                applicant_county: county,
+                job_title: jobTitle
+            };
+
+            // TRIGGER LIVE SERVER EMAIL DISPATCH ROUTE WITH YOUR EXACT PRODUCTION KEYS
+            emailjs.send("service_gwh7cbe", "template_ux4ngmk", templateParams)
+                .then(function(response) {
+                    applicationModal.classList.remove('active');
+                    submitBtn.innerText = "Submit & Send Alert";
+                    submitBtn.style.opacity = "1";
+
+                    document.getElementById('alert-title').innerText = "Messages Transmitted!";
+                    document.getElementById('alert-message').innerText = `Success! A live confirmation tracking message has officially dropped into your inbox at ${email}. Evaluation queued for ${county}.`;
+                    alertModal.classList.add('active');
+                }, function(error) {
+                    alert("Network Pipeline Refused: Verify your EmailJS Token configurations inside index.html.");
+                    submitBtn.innerText = "Submit & Send Alert";
+                    submitBtn.style.opacity = "1";
+                });
         });
 
-        // B. FORM SUBMISSION (HANDLES BOTH NEW POSTS AND SAVED EDITS)
-        if (postTaskBtn) {
-            postTaskBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-
-                const title = document.getElementById('task-title').value.trim();
-                const category = document.getElementById('task-category').value;
-                const minPrice = document.getElementById('task-min-price').value.trim();
-                const maxPrice = document.getElementById('task-max-price').value.trim();
-                const desc = document.getElementById('task-desc').value.trim();
-                const editIndex = document.getElementById('edit-task-index').value;
-
-                if (!title || !desc || !minPrice || !maxPrice) {
-                    alert('Please complete all form fields, including pricing bounds, before transmitting.');
-                    return;
-                }
-
-                const actionTitle = editIndex !== "" ? "Confirm Modification" : "Confirm Post Broadcast";
-                const actionMsg = editIndex !== "" ? "Are you sure you want to save these changes to this task?" : "Are you sure you want to broadcast this micro-job live to the network?";
-
-                requestConfirmation(actionTitle, actionMsg, function() {
-                    let savedTasks = JSON.parse(localStorage.getItem('hubTasks')) || [];
-                    const taskData = { title, category, minPrice, maxPrice, desc };
-
-                    if (editIndex !== "") {
-                        savedTasks[parseInt(editIndex)] = taskData;
-                        document.getElementById('edit-task-index').value = "";
-                        postTaskBtn.innerText = "Broadcast Task";
-                        postTaskBtn.style.backgroundColor = "#111827";
-                        showSuccessAlert("Task Modified!", "The changes have been applied to the live board layout.");
-                    } else {
-                        savedTasks.push(taskData);
-                        showSuccessAlert("Task Broadcast Live!", "Your project details are now visible to the network community.");
-                    }
-
-                    localStorage.setItem('hubTasks', JSON.stringify(savedTasks));
-                    
-                    document.getElementById('task-title').value = '';
-                    document.getElementById('task-min-price').value = '';
-                    document.getElementById('task-max-price').value = '';
-                    document.getElementById('task-desc').value = '';
-
-                    renderDynamicTasks();
-                });
-            });
-        }
-
-        // C. RENDER ALL TASKS FROM CACHE
+        // SYSTEM CARDS RENDER HOOKS
         function renderDynamicTasks() {
             const container = document.getElementById('tasks-container');
             let savedTasks = JSON.parse(localStorage.getItem('hubTasks')) || [];
-
-            const existingDynamicCards = container.querySelectorAll('.dynamic-card');
-            existingDynamicCards.forEach(card => card.remove());
-
+            container.querySelectorAll('.dynamic-card').forEach(card => card.remove());
             savedTasks.forEach((task, index) => {
                 const jobCard = document.createElement('div');
                 jobCard.className = 'job-card dynamic-card';
-                
                 jobCard.innerHTML = `
-                    <div class="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80" alt="Tech Graphic">
-                    </div>
+                    <div class="card-image-wrapper"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80"></div>
                     <div class="card-content">
                         <h3>${task.title}</h3>
                         <p class="category-tag">${task.category}</p>
-                        <p class="price-range"><strong>Budget Range:</strong> KES ${Number(task.minPrice).toLocaleString()} - KES ${Number(task.maxPrice).toLocaleString()}</p>
+                        <p class="price-range"><strong>Budget:</strong> KES ${Number(task.minPrice).toLocaleString()} - KES ${Number(task.maxPrice).toLocaleString()}</p>
                         <p>${task.desc}</p>
-                        
-                        <div class="admin-controls">
-                            <button class="edit-btn" onclick="triggerEditTask(${index})">Edit Details</button>
-                            <button class="delete-btn" onclick="triggerDeleteTask(${index})">Delete Task</button>
-                        </div>
                         <button class="apply-btn">Apply Now</button>
-                    </div>
-                `;
+                    </div>`;
                 container.appendChild(jobCard);
             });
         }
-
-        window.triggerEditTask = function(index) {
-            if (!verifyAdminAuthorization()) { alert("Access Denied."); return; }
-
-            let savedTasks = JSON.parse(localStorage.getItem('hubTasks')) || [];
-            const task = savedTasks[index];
-
-            document.getElementById('task-title').value = task.title;
-            document.getElementById('task-category').value = task.category;
-            document.getElementById('task-min-price').value = task.minPrice;
-            document.getElementById('task-max-price').value = task.maxPrice;
-            document.getElementById('task-desc').value = task.desc;
-            document.getElementById('edit-task-index').value = index;
-
-            postTaskBtn.innerText = "Save Changes (Index: " + index + ")";
-            postTaskBtn.style.backgroundColor = "#d97706";
-
-            document.getElementById('post-task').scrollIntoView({ behavior: 'smooth' });
-        };
-
-        window.triggerDeleteTask = function(index) {
-            if (!verifyAdminAuthorization()) { alert("Access Denied."); return; }
-
-            requestConfirmation(
-                "Remove Broadcast Card",
-                "Are you completely certain you want to destroy this entry card permanently? This path is irreversible.",
-                function() {
-                    let savedTasks = JSON.parse(localStorage.getItem('hubTasks')) || [];
-                    savedTasks.splice(index, 1);
-                    localStorage.setItem('hubTasks', JSON.stringify(savedTasks));
-                    renderDynamicTasks();
-                    showSuccessAlert("Card Destroyed", "The job listing has been purged from system local cache.");
-                }
-            );
-        };
-
         document.addEventListener('DOMContentLoaded', renderDynamicTasks);
-        window.addEventListener('load', renderDynamicTasks);
     </script>
 </body>
 </html>
