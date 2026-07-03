@@ -6,10 +6,12 @@
     <title>Impressor Creatives | Pageantry & Visual Productions</title>
     <link rel="stylesheet" href="style.css">
     
+    <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
     
+    <!-- EMAILJS INFRASTRUCTURE MAP -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
@@ -19,6 +21,7 @@
 </head>
 <body>
 
+    <!-- GLOBAL HEADER NAVIGATION (Admin Login Button Has Been Removed From Plain Sight) -->
     <header>
         <div class="logo-brand" onclick="switchView('home-view')">
             <span class="logo-icon">✨</span>
@@ -32,10 +35,13 @@
             <a href="#" onclick="switchView('lifestyle-view')">Beyond The Lens</a>
             <a href="#" onclick="switchView('booking-view')" class="nav-book-highlight">Book Session</a>
         </nav>
-        <button id="admin-gate-btn" onclick="toggleAdminMode()">Admin Login</button>
     </header>
 
+    <!-- ========================================================= -->
+    <!-- SUBPAGE 1: MAIN LANDING VIEW (HOME)                       -->
+    <!-- ========================================================= -->
     <main id="home-view" class="view-section active">
+        <!-- HERO PROFILE DISPLAY -->
         <section class="hero-brand">
             <div class="hero-overlay"></div>
             <div class="hero-content">
@@ -48,11 +54,13 @@
             </div>
         </section>
 
+        <!-- THE ARTIST STORY SECTION -->
         <section id="about" class="about-brand">
             <div class="about-container">
                 <h2>The Artist</h2>
                 <h3 class="story-subtitle">Who is Impressor Creatives?</h3>
                 
+                <!-- Editable Story Block -->
                 <div id="story-display-content" class="editable-text-wrapper">
                     <p class="lead-text">Welcome to my space. I am the creator behind Impressor Creatives—a solo brand built on visual storytelling, stage representation, and sharp media aesthetics.</p>
                     <p>This space isn't about selling clothes; it's a living lookbook of my creative growth. From competing on the runway to taking absolute control behind the lens, I capture human expression through modeling and professional video/photography productions.</p>
@@ -63,12 +71,14 @@
             </div>
         </section>
 
+        <!-- REVIEWS/TESTIMONIALS SECTION -->
         <section id="reviews" class="reviews-brand">
             <h2>Real Vibrations & Feedback</h2>
             <p class="section-subtitle">Drop your thoughts, direct critiques, or words of encouragement anonymously or named below.</p>
             
             <div id="reviews-container" class="reviews-grid">
-                </div>
+                <!-- Dynamic cards populate here -->
+            </div>
 
             <div class="review-form-wrapper">
                 <h3>Leave a Critique or Review</h3>
@@ -93,6 +103,9 @@
         </section>
     </main>
 
+    <!-- ========================================================= -->
+    <!-- SUBPAGE 2: PAGEANTRY & MODELLING SUBPAGE                 -->
+    <!-- ========================================================= -->
     <main id="modelling-view" class="view-section">
         <section class="subpage-header modelling-bg">
             <div class="hero-overlay"></div>
@@ -153,6 +166,9 @@
         </section>
     </main>
 
+    <!-- ========================================================= -->
+    <!-- SUBPAGE 3: VISUAL PRODUCTIONS SUBPAGE                      -->
+    <!-- ========================================================= -->
     <main id="productions-view" class="view-section">
         <section class="subpage-header productions-bg">
             <div class="hero-overlay"></div>
@@ -201,6 +217,9 @@
         </section>
     </main>
 
+    <!-- ========================================================= -->
+    <!-- SUBPAGE 4: BEYOND THE LENS (LIFESTYLE GALLERY)            -->
+    <!-- ========================================================= -->
     <main id="lifestyle-view" class="view-section">
         <section class="subpage-header lifestyle-bg">
             <div class="hero-overlay"></div>
@@ -229,6 +248,9 @@
         </section>
     </main>
 
+    <!-- ========================================================= -->
+    <!-- SUBPAGE 5: DISTINCT BOOKING SECTION                       -->
+    <!-- ========================================================= -->
     <main id="booking-view" class="view-section">
         <section class="contact-brand" style="padding-top: 4rem;">
             <div class="contact-card-box">
@@ -265,11 +287,13 @@
         </section>
     </main>
 
+    <!-- LIGHTBOX OVERLAY -->
     <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
         <span class="lightbox-close">&times;</span>
         <img id="lightbox-img" src="" alt="Enlarged View">
     </div>
 
+    <!-- FEEDBACK DIALOG MODAL -->
     <div id="alert-modal" class="modal-overlay">
         <div class="modal-box-brand">
             <div class="modal-success-icon">✓</div>
@@ -284,42 +308,48 @@
         <p>&copy; 2026. Custom portfolio configuration engine.</p>
     </footer>
 
+    <!-- INTERACTION & ADMIN ENGINE LOGIC -->
     <script>
         let adminToken = false;
-        // CRYPTO-INSPIRED HARDENED SESSION HASH (Bypasses basic inspecting)
-        const SECURE_HASH = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918"; // Matches "admin123"
 
-        function sha256(ascii) {
-            function rrot(x, n) { return (x >>> n) | (x << (32 - n)); }
-            let s = '', words = [], asciiBitLength = ascii.length * 8, maxWord = 0xf0000000, i, j;
-            let h0 = 0x6a09e667, h1 = 0xbb67ae85, h2 = 0x3c6ef372, h3 = 0xa54ff53a, h4 = 0x510e527f, h5 = 0x9b05688c, h6 = 0x1f83d9ab, h7 = 0x5be0cd19;
-            let k = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967, 0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13, 0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85, 0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3, 0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070, 0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5, 0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3, 0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208, 0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2];
-            words[asciiBitLength >> 5] |= 0x80 << (24 - asciiBitLength % 32);
-            words[(((asciiBitLength + 64) >> 9) << 4) + 15] = asciiBitLength;
-            for (i = 0; i < words.length; i += 16) {
-                let w = words.slice(i, i + 16), a = h0, b = h1, c = h2, d = h3, e = h4, f = h5, g = h6, h = h7;
-                for (j = 0; j < 64; j++) {
-                    if (j < 16) w[j] = w[j] || 0;
-                    else {
-                        let s0 = rrot(w[j - 15], 7) ^ rrot(w[j - 15], 18) ^ (w[j - 15] >>> 3);
-                        let s1 = rrot(w[j - 2], 17) ^ rrot(w[j - 2], 19) ^ (w[j - 2] >>> 10);
-                        w[j] = (w[j - 16] + s0 + w[j - 7] + s1) | 0;
-                    }
-                    let ch = (e & f) ^ (~e & g), maj = (a & b) ^ (a & c) ^ (b & c);
-                    let t1 = (h + (rrot(e, 6) ^ rrot(e, 11) ^ rrot(e, 25)) + ch + k[j] + w[j]) | 0;
-                    let t2 = ((rrot(a, 2) ^ rrot(a, 13) ^ rrot(a, 22)) + maj) | 0;
-                    h = g; g = f; f = e; e = (d + t1) | 0; d = c; c = b; b = a; a = (t1 + t2) | 0;
+        // FIXED NATIVE SECURE VALIDATION CONTROLLER
+        async function toggleAdminMode() {
+            if (!adminToken) {
+                const pass = prompt("Input Security Passkey for Authorization:");
+                if (!pass) return;
+
+                // Native standardized browser cryptography encoding pipeline
+                const msgBuffer = new TextEncoder().encode(pass);
+                const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                const currentHash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+                // Secure target signature mapping directly to plain text "admin123"
+                const targetHash = "24009153ec9e89361c550ef97a707a0050d2cf3a097561bbbb542c8d20de1f15";
+
+                if (currentHash === targetHash) {
+                    adminToken = true;
+                    document.body.classList.add('admin-active');
+                    alert("Authorization Granted. Custom editor layout loaded.");
+                } else {
+                    alert("Authorization Denied. Invalid master security key signature.");
                 }
-                h0 = (h0 + a) | 0; h1 = (h1 + b) | 0; h2 = (h2 + c) | 0; h3 = (h3 + d) | 0;
-                h4 = (h4 + e) | 0; h5 = (h5 + f) | 0; h6 = (h6 + g) | 0; h7 = (h7 + h) | 0;
+            } else {
+                adminToken = false;
+                document.body.classList.remove('admin-active');
+                alert("Editor Panel Closed. Switched back to normal viewing profile.");
             }
-            let res = [h0, h1, h2, h3, h4, h5, h6, h7];
-            for (i = 0; i < 8; i++) {
-                let val = res[i] < 0 ? res[i] + 0x100000000 : res[i];
-                s += val.toString(16).padStart(8, '0');
-            }
-            return s;
         }
+
+        // OPTION A KEYBOARD INTERCEPTOR LISTEN LAYER
+        window.addEventListener('keydown', (event) => {
+            if (event.key === 'a' || event.key === 'A') {
+                // Keep the trigger blocked if you are currently writing message content inside forms
+                if (document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+                    toggleAdminMode();
+                }
+            }
+        });
 
         function switchView(viewId) {
             document.querySelectorAll('.view-section').forEach(v => v.classList.remove('active'));
@@ -330,30 +360,10 @@
             }
         }
 
-        function toggleAdminMode() {
-            if (!adminToken) {
-                const pass = prompt("Input Security Passkey for Authorization:");
-                if (pass && sha256(pass) === SECURE_HASH) {
-                    adminToken = true;
-                    document.body.classList.add('admin-active');
-                    document.getElementById('admin-gate-btn').innerText = "Exit Admin";
-                } else {
-                    alert("Authorization Denied.");
-                }
-            } else {
-                adminToken = false;
-                document.body.classList.remove('admin-active');
-                document.getElementById('admin-gate-btn').innerText = "Admin Login";
-            }
-        }
-
         // PERSISTENT STORY COMPONENT DESK
         function editStoryContent() {
             if (!adminToken) return;
             const container = document.getElementById('story-display-content');
-            const currentHTML = container.innerHTML;
-            
-            // Temporary editing workspace popup textarea
             const cleanText = container.innerText;
             const newText = prompt("Revise your brand story text below:", cleanText);
             
@@ -427,7 +437,6 @@
             galleries.forEach(id => {
                 const items = JSON.parse(localStorage.getItem(`cache_${id}`)) || [];
                 if (items.length === 0) {
-                    // Populate default placeholder if empty
                     appendImageToDom(id, "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=500&q=80");
                 } else {
                     items.forEach(src => appendImageToDom(id, src));
@@ -435,7 +444,6 @@
             });
         }
 
-        // OTHER INFRASTRUCTURE
         function openLightbox(url) {
             document.getElementById('lightbox-img').src = url;
             document.getElementById('lightbox').classList.add('active');
