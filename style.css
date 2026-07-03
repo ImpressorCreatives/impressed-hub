@@ -1,4 +1,4 @@
-/* --- RESET CORE BASIS --- */
+/* --- RESET BASIS --- */
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +12,6 @@ html {
     color: #f3f4f6;
 }
 
-/* --- THE NEW DISTINCT TYPOGRAPHY LOGO STYLE BRANDING --- */
 .logo-brand {
     display: flex;
     align-items: center;
@@ -26,7 +25,6 @@ html {
     font-size: 2rem;
     letter-spacing: -0.5px;
     color: #d4af37;
-    text-transform: capitalize;
 }
 
 .logo-brand .sub-title-capture {
@@ -40,7 +38,6 @@ html {
     margin-left: 0.2rem;
 }
 
-/* --- GLOBAL VIEW CONTROL ACTION MODES --- */
 .view-section {
     display: none;
     min-height: 90vh;
@@ -56,7 +53,6 @@ html {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- FIXED NAVIGATION HEADER --- */
 header {
     position: fixed;
     top: 0;
@@ -92,16 +88,9 @@ header nav a:hover, header nav a.nav-book-highlight {
     padding: 0.4rem 0.8rem;
     font-size: 0.75rem;
     cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
-#admin-gate-btn:hover {
-    border-color: #d4af37;
-    color: #d4af37;
-}
-
-/* --- SECURE HIDING OF FORMS PANELS --- */
+/* --- SECURITY FORM VISIBILITY LAWS --- */
 .admin-controls, .admin-only {
     display: none !important;
 }
@@ -114,7 +103,21 @@ body.admin-active .admin-only {
     display: inline-block !important;
 }
 
-/* --- HERO PROFILE DISPLAY DECOR --- */
+.file-upload-zone {
+    background: #070707;
+    padding: 1.5rem;
+    border: 1px solid #1f1f1f;
+    margin-top: 1rem;
+}
+
+.divider-text {
+    margin: 1rem 0;
+    font-size: 0.7rem;
+    color: #4b5563;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
 .hero-brand {
     position: relative;
     height: 75vh;
@@ -127,29 +130,14 @@ body.admin-active .admin-only {
 
 .hero-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(to top, #0d0d0d, rgba(13, 13, 13, 0.4));
 }
 
-.hero-content h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    color: #ffffff;
-}
+.hero-content { position: relative; z-index: 10; max-width: 800px; }
+.hero-content h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; line-height: 1.2; margin-bottom: 1rem; color: #ffffff; }
+.hero-content p { font-size: 1rem; color: #9ca3af; margin-bottom: 2rem; }
 
-.hero-content p {
-    font-size: 1rem;
-    color: #9ca3af;
-    margin-bottom: 2rem;
-    letter-spacing: 1px;
-}
-
-/* SUBPAGE HEADER DECOR */
 .subpage-header {
     position: relative;
     height: 35vh;
@@ -164,94 +152,74 @@ body.admin-active .admin-only {
 .lifestyle-bg { background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover; }
 
 .subpage-header-content { position: relative; z-index: 5; }
-.subpage-header-content h2 { text-align: left; font-size: 2.8rem; }
-.subpage-header-content p { color: #d4af37; font-size: 0.95rem; }
+.subpage-header-content h2 { font-size: 2.8rem; }
 
-/* BUTTON SYSTEMS */
 .gold-cta, .outline-cta {
-    padding: 0.8rem 1.8rem;
-    font-weight: 600;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    cursor: pointer;
-    transition: all 0.3s;
+    padding: 0.8rem 1.8rem; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: all 0.3s;
 }
 .gold-cta { background: #d4af37; border: none; color: #111111; margin-right: 1rem;}
 .outline-cta { background: transparent; border: 1px solid #ffffff; color: #ffffff; }
-.outline-cta:hover { background: #ffffff; color: #111111; }
 
-/* STORY WRAPPER Layout */
 .about-brand { padding: 5rem 6%; background: #0a0a0a; }
 .about-container { max-width: 800px; margin: 0 auto; text-align: center; }
 .story-subtitle { font-family: 'Playfair Display', serif; font-style: italic; color: #d4af37; margin-bottom: 2rem; }
 .editable-text-wrapper p { font-size: 0.95rem; line-height: 1.8; color: #9ca3af; margin-bottom: 1.5rem; }
-.admin-edit-btn { background: #d4af37; color:#111; border:none; padding:0.6rem 1.2rem; font-weight:600; text-transform:uppercase; font-size:0.75rem; cursor:pointer; }
 
-/* ADVOCACY CARD STYLE */
 .advocacy-banner { padding: 4rem 6%; display: flex; justify-content: center; }
 .advocacy-card { background: #0a0a0a; border: 1px dashed #d4af37; padding: 3rem; text-align: center; max-width: 750px; }
-.advocacy-badge { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: #d4af37; display: block; margin-bottom: 0.5rem; }
-.advocacy-card h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #ffffff; margin-bottom: 1rem; }
-.advocacy-card p { font-size: 0.9rem; color: #9ca3af; line-height: 1.7; }
+.advocacy-badge { font-size: 0.7rem; text-transform: uppercase; color: #d4af37; display: block; margin-bottom: 0.5rem; }
 
-/* PORTFOLIO STRUCTURES */
 .portfolio-details { padding: 4rem 6%; max-width: 1000px; margin: 0 auto; }
-.section-header-left h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; }
-.section-header-left p { color: #6b7280; font-size: 0.9rem; margin-bottom: 2.5rem; }
-
+.info-timeline { margin-bottom: 3rem; }
 .timeline-item { background: #0a0a0a; border-left: 2px solid #374151; padding: 1.5rem 2rem; margin-bottom: 1rem; position: relative; }
 .timeline-meta { display: flex; justify-content: space-between; }
-.timeline-year { font-size: 0.75rem; color: #d4af37; font-weight: 600; }
-.timeline-item h4 { font-family: 'Playfair Display', serif; font-size: 1.2rem; }
-.timeline-desc { font-size: 0.9rem; color: #9ca3af; margin-top: 0.5rem; }
 
-/* RATES STYLING PACKAGES */
 .rates-section { padding: 5rem 6%; background: #0a0a0a; text-align: center; }
-.rates-section h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 3rem; }
-.rates-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto 3rem auto; }
+.rates-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 900px; margin: 3rem auto; }
 .rate-card { background: #121212; border: 1px solid #1c1c1c; padding: 2.5rem 2rem; position: relative; }
 .price-tag { display: block; color: #d4af37; font-weight: 600; margin-bottom: 1.5rem; }
 
-/* LOOKBOOK GALLERIES GRID */
 .gallery-title-divider { text-align: center; font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 4rem 0 2rem 0; }
 .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
 .gallery-item { position: relative; height: 300px; overflow: hidden; border: 1px solid #1c1c1c; cursor: pointer; }
 .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
-.img-del-btn { position: absolute; top: 5px; right: 5px; background: rgba(0,0,0,0.8); border: 1px solid red; color: red; padding: 0.2rem 0.5rem; font-size: 0.65rem; cursor: pointer; z-index: 10; }
 
-/* FORM SYSTEMS CORES */
-.form-add-wrapper { background: #121212; border: 1px dashed #374151; padding: 2rem; margin-top: 2rem; }
-.form-add-wrapper input, .form-add-wrapper textarea { width: 100%; background: #0a0a0a; border: 1px solid #262626; padding: 0.6rem 1rem; color: white; font-family: inherit; margin-bottom: 0.8rem; }
-.admin-save-btn { background: #d4af37; border: none; color: #111111; padding: 0.5rem 1.5rem; font-size: 0.75rem; font-weight: 600; cursor: pointer; }
+.form-add-wrapper { background: #121212; padding: 2rem; margin-top: 2rem; }
+.form-add-wrapper input, .form-add-wrapper textarea { width: 100%; background: #0a0a0a; border: 1px solid #262626; padding: 0.6rem 1rem; color: white; margin-bottom: 0.8rem; }
+.admin-save-btn { background: #d4af37; border: none; color: #111111; padding: 0.5rem 1.5rem; font-size: 0.75rem; cursor: pointer; font-weight:600; }
 .admin-delete-item-btn { margin-top: 1rem; background: transparent; border: 1px solid #dc2626; color: #ef4444; padding: 0.3rem 0.8rem; font-size: 0.7rem; cursor: pointer; }
+.img-del-btn { position: absolute; top: 5px; right: 5px; background: rgba(0,0,0,0.8); border: 1px solid red; color: red; padding: 0.2rem 0.5rem; font-size: 0.65rem; z-index: 10; }
 
-/* REVIEWS & FEEDBACK */
-.reviews-brand { padding: 5rem 6%; background: #0d0d0d; }
-.section-subtitle { text-align: center; color: #6b7280; font-size: 0.85rem; margin-bottom: 3.5rem; }
+.reviews-brand { padding: 5rem 6%; }
 .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 4rem; }
-.review-card-brand { background: #0a0a0a; border-left: 2px solid #d4af37; padding: 2rem; position: relative; }
-.review-card-brand .quote-text { font-style: italic; color: #d1d5db; margin-bottom: 0.8rem; font-size: 0.9rem; }
-.review-card-brand .reviewer-signature { font-size: 0.75rem; color: #6b7280; }
+.review-card-brand { background: #0a0a0a; border-left: 2px solid #d4af37; padding: 2rem; }
 
 .review-form-wrapper { background: #0a0a0a; border: 1px solid #1a1a1a; padding: 2.5rem; max-width: 750px; margin: 0 auto; }
 .form-group-brand { display: flex; flex-direction: column; margin-bottom: 1rem; width: 100%;}
-.form-group-brand label { font-size: 0.75rem; text-transform: uppercase; margin-bottom: 0.4rem; color: #9ca3af; }
-.form-group-brand input, .form-group-brand textarea, .form-group-brand select { background: #0d0d0d; border: 1px solid #222222; padding: 0.7rem 1rem; color: #ffffff; font-family: inherit; }
-.gold-submit-btn { background: transparent; border: 1px solid #d4af37; color: #d4af37; padding: 0.8rem; font-size: 0.75rem; text-transform: uppercase; font-weight: 600; cursor: pointer; width: 100%; }
-.form-row-brand { display: flex; gap: 1rem; width: 100%; }
+.form-group-brand label { font-size: 0.75rem; margin-bottom: 0.4rem; color: #9ca3af; text-transform: uppercase;}
+.form-group-brand input, .form-group-brand textarea, .form-group-brand select { background: #0d0d0d; border: 1px solid #222222; padding: 0.7rem 1rem; color: #ffffff; }
+.gold-submit-btn { background: transparent; border: 1px solid #d4af37; color: #d4af37; padding: 0.8rem; font-size: 0.75rem; text-transform: uppercase; cursor: pointer; width: 100%; font-weight: 600; }
+.form-row-brand { display: flex; gap: 1rem; }
 
-/* BOOKINGS BOX */
 .contact-card-box { background: #0a0a0a; border: 1px solid #1a1a1a; padding: 3.5rem 5%; max-width: 850px; margin: 0 auto; }
-.contact-card-box h2 { font-family: 'Playfair Display', serif; font-size: 2rem; text-align: center; }
-.contact-card-box p { text-align: center; color: #6b7280; margin-bottom: 2.5rem; font-size: 0.85rem; }
-.gold-block-btn { background: #d4af37; border: none; color: #111111; width: 100%; padding: 0.9rem; font-weight: 600; text-transform: uppercase; cursor: pointer; }
+.gold-block-btn { background: #d4af37; border: none; color: #111111; width: 100%; padding: 0.9rem; font-weight: 600; text-transform: uppercase; cursor: pointer; margin-top: 1rem; }
 
-/* LIGHTBOX INTERFACES */
 .lightbox-overlay { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.95); z-index: 3000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
 .lightbox-overlay.active { opacity: 1; pointer-events: auto; }
-#lightbox-img { max-width: 90%; max-height: 85vh; object-fit: contain; }
+.lightbox-overlay img { max-width: 90%; max-height: 85vh; object-fit: contain; }
 .lightbox-close { position: absolute; top: 20px; right: 30px; font-size: 2.5rem; color: white; cursor: pointer; }
 
-/* MODALS ALERTS */
-.modal-overlay { position: fixed;
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2500; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
+.modal-box-brand { background: #0a0a0a; border: 1px solid #222222; padding: 2.5rem; text-align: center; }
+.modal-dismiss-btn { background: transparent; border: 1px solid #4b5563; color: #9ca3af; padding: 0.5rem 1.5rem; cursor: pointer; }
+
+footer { background: #050505; text-align: center; padding: 2.5rem; margin-top: 5rem; }
+
+@media (max-width: 768px) {
+    header nav { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin: 0.5rem 0; }
+    header { flex-direction: column; position: static; }
+    .hero-brand { margin-top: 0; height: auto; padding: 4rem 5%; }
+    .form-row-brand { flex-direction: column; gap: 0; }
+    .subpage-header { margin-top: 0; height: 25vh; }
+}

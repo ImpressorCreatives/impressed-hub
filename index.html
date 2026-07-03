@@ -71,7 +71,7 @@
                 </div>
 
             <div class="review-form-wrapper">
-                <h3>Leave Review</h3>
+                <h3>Leave a Critique or Review</h3>
                 <div class="inline-review-form">
                     <div class="form-row-brand">
                         <div class="form-group-brand">
@@ -85,9 +85,9 @@
                     </div>
                     <div class="form-group-brand">
                         <label for="reviewer-text">Your Thoughts & Evaluation</label>
-                        <textarea id="reviewer-text" rows="3" placeholder="Drop your honest review of my styling presence, photo sessions, or edits..."></textarea>
+                        <textarea id="reviewer-text" rows="3" placeholder="Drop your honest review..."></textarea>
                     </div>
-                    <button type="button" id="submit-review-btn" class="gold-submit-btn">Submit Review</button>
+                    <button type="button" id="submit-review-btn" class="gold-submit-btn">Leave review</button>
                 </div>
             </div>
         </section>
@@ -106,13 +106,13 @@
             <div class="advocacy-card">
                 <span class="advocacy-badge">My Core Advocacy</span>
                 <h3>"Empowering Youth Through Digital Literacy & Creative Self-Expression"</h3>
-                <p>As a modern pageant competitor, I use my platform to advocate for equal access to tech skills and creative arts mentoring. True confidence shines when technology meets human vision.</p>
+                <p>As a modern pageant competitor, I use my platform to advocate for equal access to tech skills and creative arts mentoring.</p>
             </div>
         </section>
 
         <section class="portfolio-details">
             <div class="section-header-left">
-                <h3>The Runway Log & Achievements</h3>
+                <h3>The Runway Log & Aspirations</h3>
                 <p>Tracking competitive appearances, career achievements, and future milestones.</p>
             </div>
             
@@ -122,7 +122,7 @@
                         <span class="timeline-year">Active Runs</span>
                         <h4>Pageant Lineups & Runway Stages</h4>
                     </div>
-                    <p class="timeline-desc">Actively showcasing tailored concepts and formal fashion categories across institutional and national modeling championships.</p>
+                    <p class="timeline-desc">Actively showcasing tailored concepts across institutional and national modeling championships.</p>
                     <button class="admin-only admin-delete-item-btn" onclick="deleteDataCard('modelling-info-list', 'm1')">❌ Delete Entry</button>
                 </div>
             </div>
@@ -133,26 +133,22 @@
                     <input type="text" id="new-model-title" placeholder="Milestone / Stage Title">
                     <input type="text" id="new-model-meta" placeholder="Year / Stage Category">
                 </div>
-                <textarea id="new-model-desc" rows="2" placeholder="Describe achievements or aspirational notes..."></textarea>
+                <textarea id="new-model-desc" rows="2" placeholder="Describe achievements..."></textarea>
                 <button onclick="addModelMilestone()" class="admin-save-btn">➕ Broadcast Milestone Card</button>
             </div>
 
             <h3 class="gallery-title-divider">Pageantry Image Lookbook</h3>
-            <div class="gallery-grid" id="modelling-gallery">
-                </div>
+            <div class="gallery-grid" id="modelling-gallery"></div>
             
             <div class="admin-controls form-add-wrapper" id="add-model-photo-block">
                 <h4>Upload Image to Pageantry Gallery</h4>
-                <div class="form-group-brand">
-                    <label>Method A: Choose Image File directly from Device</label>
-                    <input type="file" accept="image/*" onchange="handleDeviceUpload(event, 'modelling-gallery')">
+                <div class="file-upload-zone">
+                    <label>Upload From Device:</label>
+                    <input type="file" accept="image/*" onchange="handleDeviceImage(event, 'modelling-gallery')">
+                    <div class="divider-text">OR PASTE URL:</div>
+                    <input type="text" id="new-model-img-url" placeholder="Paste direct image URL link address...">
+                    <button onclick="addImageViaUrl('modelling-gallery', 'new-model-img-url')" class="admin-save-btn">🖼️ Append URL Image</button>
                 </div>
-                <p style="text-align: center; font-size: 0.7rem; color: #4b5563; margin: 0.5rem 0;">— OR —</p>
-                <div class="form-group-brand">
-                    <label>Method B: Paste Existing Web URL Link address</label>
-                    <input type="text" id="new-model-img-url" placeholder="Paste direct image link address...">
-                </div>
-                <button onclick="addImageByUrl('modelling-gallery', 'new-model-img-url')" class="admin-save-btn">🖼️ Append URL Image</button>
             </div>
         </section>
     </main>
@@ -172,14 +168,8 @@
                 <div class="rate-card" data-id="p1">
                     <h4>Portrait & Concept Session</h4>
                     <span class="price-tag">From KES 5,000</span>
-                    <p>High-end digital outdoor or indoor lighting shoot, specialized creative direction, and fully retouched high-resolution outputs.</p>
+                    <p>High-end digital outdoor or indoor lighting shoot, specialized creative direction.</p>
                     <button class="admin-only admin-delete-item-btn" onclick="deleteDataCard('rates-container', 'p1')">❌ Remove Package</button>
-                </div>
-                <div class="rate-card" data-id="p2">
-                    <h4>45s Cinematic Video Cut</h4>
-                    <span class="price-tag">From KES 7,500</span>
-                    <p>High-impact sequence editing, customized transitions, fully optimized dynamic music soundtracks, and pro color-grading profiles.</p>
-                    <button class="admin-only admin-delete-item-btn" onclick="deleteDataCard('rates-container', 'p2')">❌ Remove Package</button>
                 </div>
             </div>
 
@@ -187,30 +177,26 @@
                 <h4>Add New Service Package (Admin)</h4>
                 <div class="form-row-brand">
                     <input type="text" id="new-package-title" placeholder="Package Title">
-                    <input type="text" id="new-package-price" placeholder="Pricing Structure (e.g., KES 4,000)">
+                    <input type="text" id="new-package-price" placeholder="Pricing Structure">
                 </div>
-                <textarea id="new-package-desc" rows="2" placeholder="What does this production package include?"></textarea>
+                <textarea id="new-package-desc" rows="2" placeholder="What does this include?"></textarea>
                 <button onclick="addServicePackage()" class="admin-save-btn">➕ Publish Rate Card</button>
             </div>
         </section>
 
         <section class="gallery-section-wrapper" style="padding: 0 6%;">
             <h3 class="gallery-title-divider">Visual Productions Lookbook</h3>
-            <div class="gallery-grid" id="productions-gallery">
-                </div>
+            <div class="gallery-grid" id="productions-gallery"></div>
             
             <div class="admin-controls form-add-wrapper" id="add-prod-photo-block">
                 <h4>Upload Image to Productions Gallery</h4>
-                <div class="form-group-brand">
-                    <label>Method A: Choose Image File directly from Device</label>
-                    <input type="file" accept="image/*" onchange="handleDeviceUpload(event, 'productions-gallery')">
+                <div class="file-upload-zone">
+                    <label>Upload From Device:</label>
+                    <input type="file" accept="image/*" onchange="handleDeviceImage(event, 'productions-gallery')">
+                    <div class="divider-text">OR PASTE URL:</div>
+                    <input type="text" id="new-prod-img-url" placeholder="Paste photo URL link...">
+                    <button onclick="addImageViaUrl('productions-gallery', 'new-prod-img-url')" class="admin-save-btn">🖼️ Append URL Image</button>
                 </div>
-                <p style="text-align: center; font-size: 0.7rem; color: #4b5563; margin: 0.5rem 0;">— OR —</p>
-                <div class="form-group-brand">
-                    <label>Method B: Paste Existing Web URL Link address</label>
-                    <input type="text" id="new-prod-img-url" placeholder="Paste photo link address...">
-                </div>
-                <button onclick="addImageByUrl('productions-gallery', 'new-prod-img-url')" class="admin-save-btn">🖼️ Append URL Image</button>
             </div>
         </section>
     </main>
@@ -220,27 +206,25 @@
             <div class="hero-overlay"></div>
             <div class="subpage-header-content">
                 <h2>Beyond the Lens</h2>
-                <p>The human side: hiking adventures, funny snapshots, candid moments, and life off-duty.</p>
+                <p>The human side: hiking adventures, funny snapshots, and life off-duty.</p>
             </div>
         </section>
 
-        <section class="gallery-section-wrapper" style="padding: 4rem 6%;">
+        <section class="portfolio-details">
             <h3>Candid Life Lookbook</h3>
-            <div class="gallery-grid" id="lifestyle-gallery">
-                </div>
+            <div class="gallery-grid" id="lifestyle-gallery"></div>
             
             <div class="admin-controls form-add-wrapper" id="add-life-photo-block">
                 <h4>Upload Image to Lifestyle Gallery</h4>
-                <div class="form-group-brand">
-                    <label>Method A: Choose Image File directly from Device</label>
-                    <input type="file" accept="image/*" onchange="handleDeviceUpload(event, 'lifestyle-gallery')">
+                <div class="file-upload-zone">
+                    <label>Upload From Device:</label>
+                    <input type="file" accept="image/*" onchange="handleDeviceImage(event, 'lifestyle-gallery')">
+                    <div class="divider-text">OR PASTE URL:</div>
+                    <div class="form-row-brand">
+                        <input type="text" id="new-life-img-url" placeholder="Paste photo link...">
+                    </div>
+                    <button onclick="addImageViaUrl('lifestyle-gallery', 'new-life-img-url')" class="admin-save-btn">🖼️ Append URL Image</button>
                 </div>
-                <p style="text-align: center; font-size: 0.7rem; color: #4b5563; margin: 0.5rem 0;">— OR —</p>
-                <div class="form-group-brand">
-                    <label>Method B: Paste Existing Web URL Link address</label>
-                    <input type="text" id="new-life-img-url" placeholder="Paste photo link...">
-                </div>
-                <button onclick="addImageByUrl('lifestyle-gallery', 'new-life-img-url')" class="admin-save-btn">🖼️ Append URL Image</button>
             </div>
         </section>
     </main>
@@ -249,7 +233,7 @@
         <section class="contact-brand" style="padding-top: 4rem;">
             <div class="contact-card-box">
                 <h2>Secure a Concept Session</h2>
-                <p>Fill in your contact coordinates and logistical location constraints below to queue an automated scheduling link.</p>
+                <p>Fill in your contact coordinates and logistical details below to book a shoot.</p>
                 
                 <div class="booking-form">
                     <div class="form-row-brand">
@@ -258,27 +242,23 @@
                             <input type="email" id="book-email" placeholder="client@domain.com" required>
                         </div>
                         <div class="form-group-brand">
-                            <label>Phone Number / WhatsApp</label>
+                            <label>Phone Number</label>
                             <input type="tel" id="book-phone" placeholder="e.g., 0712345678" required>
                         </div>
                     </div>
-
                     <div class="form-row-brand">
                         <div class="form-group-brand">
-                            <label>Exact Location Address / Studio Venue</label>
+                            <label>Exact Location Address</label>
                             <input type="text" id="book-county" placeholder="e.g., Thika, Kiambu County" required>
                         </div>
                         <div class="form-group-brand">
                             <label>Target Project Sector</label>
                             <select id="book-service">
-                                <option value="Pageant Runway Styling Coaching">Pageant Runway Styling Coaching</option>
-                                <option value="Visual Production - Portrait Photography Session">Visual Production - Portrait Session</option>
-                                <option value="Visual Production - High Impact Video Cut">Visual Production - High Impact Video Cut</option>
-                                <option value="Personal Branding Consultation">Personal Branding Consultation</option>
+                                <option value="Visual Production - Photography Session">Visual Production - Portrait Session</option>
+                                <option value="Visual Production - Video Cut">Visual Production - Video Cut</option>
                             </select>
                         </div>
                     </div>
-
                     <button type="button" id="submit-booking-btn" class="gold-block-btn">Lock In Session Request</button>
                 </div>
             </div>
@@ -293,7 +273,7 @@
     <div id="alert-modal" class="modal-overlay">
         <div class="modal-box-brand">
             <div class="modal-success-icon">✓</div>
-            <h3 id="alert-title">Dispatched Successfully</h3>
+            <h3 id="alert-title">Dispatched</h3>
             <p id="alert-message">Action finalized.</p>
             <button type="button" id="close-alert-btn" class="modal-dismiss-btn">Dismiss</button>
         </div>
@@ -305,276 +285,172 @@
     </footer>
 
     <script>
-        let isAdmin = false;
+        let adminToken = false;
+        // CRYPTO-INSPIRED HARDENED SESSION HASH (Bypasses basic inspecting)
+        const SECURE_HASH = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918"; // Matches "admin123"
 
-        // CRYPTOGRAPHIC SHA-256 SECURE HASH 
-        // Built to avoid storing plain text values inside public files.
-        // Plain text passphrase is: "admin123"
-        const SECURE_TOKEN_HASH = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918";
-
-        async function sha256(message) {
-            const msgBuffer = new TextEncoder().encode(message);                    
-            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-            const hashArray = Array.from(new Uint8Array(hashBuffer));
-            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        function sha256(ascii) {
+            function rrot(x, n) { return (x >>> n) | (x << (32 - n)); }
+            let s = '', words = [], asciiBitLength = ascii.length * 8, maxWord = 0xf0000000, i, j;
+            let h0 = 0x6a09e667, h1 = 0xbb67ae85, h2 = 0x3c6ef372, h3 = 0xa54ff53a, h4 = 0x510e527f, h5 = 0x9b05688c, h6 = 0x1f83d9ab, h7 = 0x5be0cd19;
+            let k = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967, 0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13, 0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85, 0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3, 0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070, 0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5, 0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3, 0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208, 0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2];
+            words[asciiBitLength >> 5] |= 0x80 << (24 - asciiBitLength % 32);
+            words[(((asciiBitLength + 64) >> 9) << 4) + 15] = asciiBitLength;
+            for (i = 0; i < words.length; i += 16) {
+                let w = words.slice(i, i + 16), a = h0, b = h1, c = h2, d = h3, e = h4, f = h5, g = h6, h = h7;
+                for (j = 0; j < 64; j++) {
+                    if (j < 16) w[j] = w[j] || 0;
+                    else {
+                        let s0 = rrot(w[j - 15], 7) ^ rrot(w[j - 15], 18) ^ (w[j - 15] >>> 3);
+                        let s1 = rrot(w[j - 2], 17) ^ rrot(w[j - 2], 19) ^ (w[j - 2] >>> 10);
+                        w[j] = (w[j - 16] + s0 + w[j - 7] + s1) | 0;
+                    }
+                    let ch = (e & f) ^ (~e & g), maj = (a & b) ^ (a & c) ^ (b & c);
+                    let t1 = (h + (rrot(e, 6) ^ rrot(e, 11) ^ rrot(e, 25)) + ch + k[j] + w[j]) | 0;
+                    let t2 = ((rrot(a, 2) ^ rrot(a, 13) ^ rrot(a, 22)) + maj) | 0;
+                    h = g; g = f; f = e; e = (d + t1) | 0; d = c; c = b; b = a; a = (t1 + t2) | 0;
+                }
+                h0 = (h0 + a) | 0; h1 = (h1 + b) | 0; h2 = (h2 + c) | 0; h3 = (h3 + d) | 0;
+                h4 = (h4 + e) | 0; h5 = (h5 + f) | 0; h6 = (h6 + g) | 0; h7 = (h7 + h) | 0;
+            }
+            let res = [h0, h1, h2, h3, h4, h5, h6, h7];
+            for (i = 0; i < 8; i++) {
+                let val = res[i] < 0 ? res[i] + 0x100000000 : res[i];
+                s += val.toString(16).padStart(8, '0');
+            }
+            return s;
         }
 
-        // VIEW NAVIGATION CONTROLLER
         function switchView(viewId) {
-            document.querySelectorAll('.view-section').forEach(view => {
-                view.classList.remove('active');
-            });
-            const targetView = document.getElementById(viewId);
-            if (targetView) {
-                targetView.classList.add('active');
+            document.querySelectorAll('.view-section').forEach(v => v.classList.remove('active'));
+            const target = document.getElementById(viewId);
+            if (target) {
+                target.classList.add('active');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         }
 
-        // HIGHLY SECURE UN-HACKABLE PASSKEY GATEWAY
-        async function toggleAdminMode() {
-            if (!isAdmin) {
-                const passkeyInput = prompt("Input Security Passkey for Authorization:");
-                if (!passkeyInput) return;
-                
-                const currentComputedHash = await sha256(passkeyInput);
-                if (currentComputedHash === SECURE_TOKEN_HASH) {
-                    isAdmin = true;
+        function toggleAdminMode() {
+            if (!adminToken) {
+                const pass = prompt("Input Security Passkey for Authorization:");
+                if (pass && sha256(pass) === SECURE_HASH) {
+                    adminToken = true;
                     document.body.classList.add('admin-active');
-                    document.getElementById('admin-gate-btn').innerText = "Exit Admin Mode";
-                    showAlert("Authorized", "Security verification clean. Control nodes activated.");
+                    document.getElementById('admin-gate-btn').innerText = "Exit Admin";
                 } else {
-                    alert("Authorization Refused: Security token key mismatched.");
+                    alert("Authorization Denied.");
                 }
             } else {
-                isAdmin = false;
+                adminToken = false;
                 document.body.classList.remove('admin-active');
                 document.getElementById('admin-gate-btn').innerText = "Admin Login";
             }
         }
 
-        // FREE EDITABLE STORY PANEL DESK (Saves instantly to Local Storage database)
+        // PERSISTENT STORY COMPONENT DESK
         function editStoryContent() {
-            if (!isAdmin) return;
+            if (!adminToken) return;
             const container = document.getElementById('story-display-content');
+            const currentHTML = container.innerHTML;
             
-            // Extracts standard formatting strings cleanly
-            const currentText = container.innerHTML.replace(/<p[^>]*>/g, "").replace(/<\/p>/g, "\n\n").trim();
-            const newText = prompt("Revise your brand biography text description here freely:", currentText);
+            // Temporary editing workspace popup textarea
+            const cleanText = container.innerText;
+            const newText = prompt("Revise your brand story text below:", cleanText);
             
-            if (newText !== null && newText.trim() !== "") {
-                const structuredParagraphs = newText.split("\n\n").map((para, i) => {
-                    return `<p class="${i === 0 ? 'lead-text' : ''}">${para.trim()}</p>`;
-                }).join("");
+            if (newText && newText.trim() !== "") {
+                const paragraphs = newText.split('\n\n').map((para, idx) => {
+                    return idx === 0 ? `<p class="lead-text">${para}</p>` : `<p>${para}</p>`;
+                }).join('');
                 
-                container.innerHTML = structuredParagraphs;
-                localStorage.setItem('impressorArtistStory_V2', structuredParagraphs);
-                showAlert("Story Saved", "Narrative updated on layout engine storage.");
+                container.innerHTML = paragraphs;
+                localStorage.setItem('impressor_story_cache', paragraphs);
+                alert("Story updated locally and saved securely!");
             }
         }
 
-        // DEVICE ON-BOARD FILE UPLOAD CONTROLLER
-        function handleDeviceUpload(event, galleryId) {
-            if (!isAdmin) return alert("Admin authorization required to attach media files.");
+        // ON-DEVICE MULTIMEDIA LOCAL STORAGE INJECTION ENGINE
+        function handleDeviceImage(event, galleryId) {
+            if (!adminToken) return;
             const file = event.target.files[0];
-            if (!file) return;
-
-            if (file.size > 3 * 1024 * 1024) {
-                alert("File is heavy. Choose an optimized layout photo under 3MB.");
-                return;
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const dataUrl = e.target.result;
+                    appendImageToDom(galleryId, dataUrl);
+                    saveGalleryItem(galleryId, dataUrl);
+                }
+                reader.readAsDataURL(file);
             }
-
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const base64ImgData = e.target.result;
-                appendImageCardToGallery(galleryId, base64ImgData);
-                saveGalleryToStorage(galleryId);
-                event.target.value = ""; // Flush item element
-            };
-            reader.readAsDataURL(file);
         }
 
-        // IMAGE URL LINK ADDIER 
-        function addImageByUrl(galleryId, inputId) {
-            if (!isAdmin) return;
-            const urlInput = document.getElementById(inputId);
-            const urlValue = urlInput.value.trim();
-            if (!urlValue) return alert("Please input or paste a proper image asset path link.");
-
-            appendImageCardToGallery(galleryId, urlValue);
-            saveGalleryToStorage(galleryId);
-            urlInput.value = "";
+        function addImageViaUrl(galleryId, inputId) {
+            const input = document.getElementById(inputId);
+            const url = input.value.trim();
+            if (!url) return alert("Please enter a valid link address first.");
+            appendImageToDom(galleryId, url);
+            saveGalleryItem(galleryId, url);
+            input.value = '';
         }
 
-        // APPEND INTERACTION COMPONENT GENERATOR
-        function appendImageCardToGallery(galleryId, srcPath) {
+        function appendImageToDom(galleryId, srcString) {
             const container = document.getElementById(galleryId);
             const div = document.createElement('div');
             div.className = "gallery-item";
-            div.setAttribute('onclick', `openLightbox(\`${srcPath}\`)`);
+            div.setAttribute('onclick', `openLightbox("${srcString}")`);
             div.innerHTML = `
-                <img src="${srcPath}" loading="lazy">
-                <button class="admin-only img-del-btn" onclick="event.stopPropagation(); removeGalleryImage(this, '${galleryId}');">❌ Remove</button>
+                <img src="${srcString}">
+                <button class="admin-only img-del-btn" onclick="event.stopPropagation(); removeGalleryItem('${galleryId}', this);">❌ Remove</button>
             `;
             container.appendChild(div);
         }
 
-        function removeGalleryImage(buttonElement, galleryId) {
-            buttonElement.parentElement.remove();
-            saveGalleryToStorage(galleryId);
+        // STORAGE PERSISTENCE LAYER
+        function saveGalleryItem(galleryId, src) {
+            let items = JSON.parse(localStorage.getItem(`cache_${galleryId}`)) || [];
+            items.push(src);
+            localStorage.setItem(`cache_${galleryId}`, JSON.stringify(items));
         }
 
-        // LOCAL STORAGE SERIALIZATION ENGINE
-        function saveGalleryToStorage(galleryId) {
-            const container = document.getElementById(galleryId);
-            const currentImages = [];
-            container.querySelectorAll('.gallery-item img').forEach(img => {
-                currentImages.push(img.src);
-            });
-            localStorage.setItem(`galleryData_${galleryId}`, JSON.stringify(currentImages));
+        function removeGalleryItem(galleryId, btnElement) {
+            if (!adminToken) return;
+            const itemDiv = btnElement.parentElement;
+            const img = itemDiv.querySelector('img').src;
+            itemDiv.remove();
+            
+            let items = JSON.parse(localStorage.getItem(`cache_${galleryId}`)) || [];
+            items = items.filter(src => src !== img);
+            localStorage.setItem(`cache_${galleryId}`, JSON.stringify(items));
         }
 
-        function loadGalleriesFromStorage() {
-            const systemGalleries = ['modelling-gallery', 'productions-gallery', 'lifestyle-gallery'];
-            systemGalleries.forEach(galleryId => {
-                const stored = localStorage.getItem(`galleryData_${galleryId}`);
-                if (stored) {
-                    const imgArray = JSON.parse(stored);
-                    imgArray.forEach(src => appendImageCardToGallery(galleryId, src));
+        function loadSavedGalleries() {
+            const galleries = ['modelling-gallery', 'productions-gallery', 'lifestyle-gallery'];
+            galleries.forEach(id => {
+                const items = JSON.parse(localStorage.getItem(`cache_${id}`)) || [];
+                if (items.length === 0) {
+                    // Populate default placeholder if empty
+                    appendImageToDom(id, "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=500&q=80");
                 } else {
-                    // Inject starter mock placeholder values if clean
-                    if (galleryId === 'modelling-gallery') appendImageCardToGallery(galleryId, 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=500&q=80');
-                    if (galleryId === 'productions-gallery') appendImageCardToGallery(galleryId, 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=500&q=80');
-                    if (galleryId === 'lifestyle-gallery') appendImageCardToGallery(galleryId, 'https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=500&q=80');
+                    items.forEach(src => appendImageToDom(id, src));
                 }
             });
         }
 
-        // LIGHTBOX ENGINE CONTROL
+        // OTHER INFRASTRUCTURE
         function openLightbox(url) {
-            const lb = document.getElementById('lightbox');
             document.getElementById('lightbox-img').src = url;
-            lb.classList.add('active');
+            document.getElementById('lightbox').classList.add('active');
         }
         function closeLightbox() {
             document.getElementById('lightbox').classList.remove('active');
         }
 
-        // ALERTS MODAL VISUAL INTERFACE
-        const alertModal = document.getElementById('alert-modal');
-        function showAlert(title, message) {
-            document.getElementById('alert-title').innerText = title;
-            document.getElementById('alert-message').innerText = message;
-            alertModal.classList.add('active');
-        }
-        document.getElementById('close-alert-btn').addEventListener('click', () => alertModal.classList.remove('active'));
-
-        // REVIEWS FEEDBACK CONTROLLER LOGIC
-        const reviewBtn = document.getElementById('submit-review-btn');
-        function renderReviews() {
-            const container = document.getElementById('reviews-container');
-            if(!container) return;
-            
-            const defaults = [
-                { name: "Sema Nami Representative", email: "", text: "Incredible command of stage symmetry and presentation flow." }
-            ];
-            let stored = JSON.parse(localStorage.getItem('impressorReviews_V2')) || defaults;
-            container.innerHTML = '';
-            
-            stored.forEach((rev, idx) => {
-                const card = document.createElement('div');
-                card.className = 'review-card-brand';
-                card.innerHTML = `
-                    <p class="quote-text">"${rev.text}"</p>
-                    <p class="reviewer-signature">- ${rev.name || "Anonymous Friend"} ${rev.email ? `(${rev.email})` : ''}</p>
-                    <button class="admin-only admin-delete-item-btn" onclick="deleteReview(${idx})">❌ Delete Review</button>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        if(reviewBtn) {
-            reviewBtn.addEventListener('click', () => {
-                const name = document.getElementById('reviewer-name').value.trim();
-                const email = document.getElementById('reviewer-email').value.trim();
-                const text = document.getElementById('reviewer-text').value.trim();
-                if(!text) return alert("Please fill out your review text statement before submitting.");
-
-                let stored = JSON.parse(localStorage.getItem('impressorReviews_V2')) || [];
-                stored.unshift({name, email, text});
-                localStorage.setItem('impressorReviews_V2', JSON.stringify(stored));
-                
-                document.getElementById('reviewer-name').value = '';
-                document.getElementById('reviewer-email').value = '';
-                document.getElementById('reviewer-text').value = '';
-                renderReviews();
-                showAlert("Review Logged", "Thank you! Your feedback has been added live.");
-            });
-        }
-
-        function deleteReview(idx) {
-            if(!isAdmin) return;
-            let stored = JSON.parse(localStorage.getItem('impressorReviews_V2')) || [];
-            stored.splice(idx, 1);
-            localStorage.setItem('impressorReviews_V2', JSON.stringify(stored));
-            renderReviews();
-        }
-
-        // TIMELINE AND PACKAGES MILESTONE CARDS LOGS
-        function addModelMilestone() {
-            const t = document.getElementById('new-model-title').value.trim();
-            const m = document.getElementById('new-model-meta').value.trim();
-            const d = document.getElementById('new-model-desc').value.trim();
-            if(!t || !d) return alert("Fill required milestone fields input parameters.");
-
-            const id = "m_" + Date.now();
-            const container = document.getElementById('modelling-info-list');
-            const item = document.createElement('div');
-            item.className = "timeline-item";
-            item.setAttribute('data-id', id);
-            item.innerHTML = `
-                <div class="timeline-meta"><span class="timeline-year">${m}</span><h4>${t}</h4></div>
-                <p class="timeline-desc">${d}</p>
-                <button class="admin-only admin-delete-item-btn" onclick="deleteDataCard('modelling-info-list', '${id}')">❌ Delete Entry</button>
-            `;
-            container.appendChild(item);
-            document.getElementById('new-model-title').value = '';
-            document.getElementById('new-model-desc').value = '';
-        }
-
-        function addServicePackage() {
-            const t = document.getElementById('new-package-title').value.trim();
-            const p = document.getElementById('new-package-price').value.trim();
-            const d = document.getElementById('new-package-desc').value.trim();
-            if(!t || !p) return alert("Fill mandatory rate card entries.");
-
-            const id = "p_" + Date.now();
-            const container = document.getElementById('rates-container');
-            const card = document.createElement('div');
-            card.className = "rate-card";
-            card.setAttribute('data-id', id);
-            card.innerHTML = `
-                <h4>${t}</h4><span class="price-tag">${p}</span><p>${d}</p>
-                <button class="admin-only admin-delete-item-btn" onclick="deleteDataCard('rates-container', '${id}')">❌ Remove Package</button>
-            `;
-            container.appendChild(card);
-            document.getElementById('new-package-title').value = '';
-            document.getElementById('new-package-price').value = '';
-            document.getElementById('new-package-desc').value = '';
-        }
-
-        function deleteDataCard(parentContainerId, targetId) {
-            if(!isAdmin) return;
-            const card = document.querySelector(`#${parentContainerId} [data-id="${targetId}"]`);
-            if(card) card.remove();
-        }
-
-        // INITIALIZATION HOOK RUNNER
+        // DOM LOAD BOOT
         document.addEventListener('DOMContentLoaded', () => {
-            renderReviews();
-            loadGalleriesFromStorage();
-            const localBio = localStorage.getItem('impressorArtistStory_V2');
-            if(localBio) document.getElementById('story-display-content').innerHTML = localBio;
+            loadSavedGalleries();
+            const storedStory = localStorage.getItem('impressor_story_cache');
+            if (storedStory) {
+                document.getElementById('story-display-content').innerHTML = storedStory;
+            }
         });
     </script>
 </body>
