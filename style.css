@@ -1,287 +1,506 @@
-/* --- GLOBAL STYLES & RESET --- */
+/* --- RESET & HIGH-END CORE STRUCTURAL BASIS --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 html {
     scroll-behavior: smooth;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #1a1a1a;
+    color: #f3f4f6;
 }
 
-body {
-    background-color: #f9fafb;
-    color: #1f2937;
-    line-height: 1.6;
+/* --- THE FANCY BRAND LOGO DESIGN LAYER --- */
+.logo-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
 }
 
-/* --- NAVIGATION HEADER --- */
-header {
-    background-color: #111827;
+.logo-brand .logo-icon {
+    font-size: 1.3rem;
+}
+
+.logo-brand .fancy-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: 1px;
+    color: #d4af37; /* Pure Luxury Gold Accent Code */
+}
+
+.logo-brand .sub-text {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
     color: #ffffff;
+    margin-left: 0.3rem;
+    border-left: 1px solid #4b5563;
+    padding-left: 0.6rem;
+}
+
+/* --- HEADER NAVIGATION STRUCTURAL BAR --- */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(17, 17, 17, 0.95);
+    border-bottom: 1px solid #2a2a2a;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.2rem 5%;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-header .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #10b981;
-}
-
-header nav {
-    display: flex;
-    gap: 2rem;
+    padding: 1rem 4%;
 }
 
 header nav a {
     color: #9ca3af;
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-left: 2rem;
+    transition: color 0.3s;
 }
 
 header nav a:hover {
-    color: #ffffff;
+    color: #d4af37;
 }
 
-/* --- HERO SECTION --- */
-.hero {
-    background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.85)), 
-                url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-    color: #ffffff;
-    text-align: center;
-    padding: 6rem 1rem;
-}
-
-.hero h1 {
-    font-size: 2.8rem;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    color: #d1d5db;
-    max-width: 600px;
-    margin: 0 auto 2rem auto;
-}
-
-.cta-btn {
-    display: inline-block;
-    background-color: #10b981;
-    color: white;
-    text-decoration: none;
-    padding: 0.8rem 2rem;
-    border-radius: 6px;
-    font-weight: 600;
-}
-
-/* --- SECTIONS --- */
-section {
-    padding: 4rem 10%;
-}
-
-section h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    color: #111827;
-}
-
-.about-section {
-    background-color: #ffffff;
-    max-width: 800px;
-    margin: 3rem auto;
-    border-radius: 12px;
-    text-align: center;
-}
-
-/* --- JOB GRID --- */
-.job-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.job-card {
-    background-color: #ffffff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+/* --- ULTRA HERO LOOKBOOK HEADER WORKSPACE --- */
+.hero-brand {
+    position: relative;
+    height: 85vh;
+    background: url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
     display: flex;
-    flex-direction: column;
-    border: 1px solid #e5e7eb;
+    align-items: center;
+    padding: 0 8%;
+    margin-top: 60px;
 }
 
-.card-image-wrapper {
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 180px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(10, 10, 10, 0.9), rgba(20, 20, 20, 0.4));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 700px;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: #d1d5db;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* --- BUTTON MATRIX ELEMENTS --- */
+.gold-cta {
+    background-color: #d4af37;
+    color: #111111;
+    text-decoration: none;
+    padding: 0.9rem 2rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 2px;
+    margin-right: 1rem;
+    display: inline-block;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.gold-cta:hover {
+    background-color: #f3cf65;
+    transform: translateY(-2px);
+}
+
+.outline-cta {
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.9rem 2rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 2px;
+    display: inline-block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.outline-cta:hover {
+    background-color: #ffffff;
+    color: #111111;
+}
+
+/* --- THE VISUAL SECTIONS DECOR --- */
+section {
+    padding: 6rem 8%;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #9ca3af;
+    font-size: 0.95rem;
+    margin-bottom: 4rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* ABOUT CONTENT SPACE */
+.about-brand {
+    background-color: #111111;
+    text-align: center;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-container .lead-text {
+    font-size: 1.2rem;
+    color: #d4af37;
+    margin-bottom: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+}
+
+.about-container p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #9ca3af;
+    font-weight: 300;
+}
+
+/* --- LOOKBOOK GRID INFRASTRUCTURE --- */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.portfolio-card {
+    background-color: #111111;
+    border: 1px solid #222222;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px);
+}
+
+.media-wrapper {
+    height: 400px;
+    width: 100%;
     overflow: hidden;
 }
 
-.card-image-wrapper img {
+.media-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.5s;
 }
 
-.card-content {
+.portfolio-card:hover .media-wrapper img {
+    transform: scale(1.05);
+}
+
+.card-meta {
     padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
 }
 
-.category-tag {
-    display: inline-block;
-    color: #059669;
-    background-color: #ecfdf5;
-    padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: 600;
+.card-meta .tag {
+    color: #d4af37;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
     margin-bottom: 0.5rem;
-    align-self: flex-start;
 }
 
-.price-range {
-    font-size: 0.95rem;
-    color: #111827;
-    margin-bottom: 0.75rem;
-    background: #f3f4f6;
-    padding: 0.4rem 0.6rem;
-    border-radius: 6px;
+.card-meta h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #ffffff;
+    font-weight: 400;
 }
 
-.card-content p {
-    font-size: 0.95rem;
-    color: #4b5563;
+/* --- REVIEWS TESTIMONIALS STRUCTURE --- */
+.reviews-brand {
+    background-color: #111111;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 5rem;
+}
+
+.review-card-brand {
+    background-color: #1a1a1a;
+    border-left: 3px solid #d4af37;
+    padding: 2rem;
+}
+
+.review-card-brand .quote-text {
+    font-style: italic;
+    color: #d1d5db;
+    line-height: 1.6;
     margin-bottom: 1rem;
+    font-size: 0.95rem;
 }
 
-/* ADMIN BUTTON CONTROL LAYOUT */
-.admin-controls {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 0.75rem;
-    margin-top: auto;
-}
-
-.edit-btn, .delete-btn {
-    flex: 1;
-    padding: 0.4rem;
-    font-size: 0.85rem;
+.review-card-brand .reviewer-signature {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888888;
     font-weight: 600;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
-    cursor: pointer;
-    background-color: #ffffff;
-    transition: background 0.2s;
 }
 
-.edit-btn { color: #d97706; border-color: #f59e0b; }
-.edit-btn:hover { background-color: #fef3c7; }
-.delete-btn { color: #dc2626; border-color: #f87171; }
-.delete-btn:hover { background-color: #fee2e2; }
-
-.apply-btn {
-    background-color: #10b981;
-    color: white;
-    border: none;
-    padding: 0.75rem;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
+/* REVIEW FORM ENTRY BOX */
+.review-form-wrapper {
+    background-color: #1a1a1a;
+    border: 1px solid #222222;
+    padding: 3rem;
+    max-width: 750px;
+    margin: 0 auto;
 }
 
-/* FORM ELEMENTS */
-.post-task-section { background-color: #ffffff; }
-.task-form-container { max-width: 600px; margin: 0 auto; background-color: #f9fafb; padding: 2rem; border-radius: 12px; border: 1px solid #e5e7eb; }
-.form-row { display: flex; gap: 1rem; }
-.form-row .form-group { flex: 1; }
-.form-group { margin-bottom: 1.25rem; }
-.form-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem; }
-.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 6px; font-size: 1rem; outline: none; }
-.form-group input:focus, .form-group textarea:focus { border-color: #10b981; }
-.submit-btn { width: 100%; background-color: #111827; color: white; border: none; padding: 0.8rem; border-radius: 6px; font-weight: 600; cursor: pointer; }
-
-/* MODAL STRUCTURES */
-.modal-overlay {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center;
-    opacity: 0; pointer-events: none; transition: opacity 0.2s ease; z-index: 1000;
-}
-.modal-overlay.active { opacity: 1; pointer-events: auto; }
-.modal-box { background-color: #ffffff; padding: 2rem; border-radius: 16px; text-align: center; max-width: 400px; width: 90%; transform: scale(0.9); transition: transform 0.2s ease; }
-.modal-overlay.active .modal-box { transform: scale(1); }
-
-.modal-icon { width: 50px; height: 50px; color: white; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; border-radius: 50%; margin: 0 auto 1rem auto; font-weight: bold; }
-.confirm-icon { background-color: #3b82f6; }
-.alert-success-icon { background-color: #10b981; }
-
-.modal-actions { display: flex; gap: 1rem; margin-top: 1.5rem; }
-.modal-btn { flex: 1; padding: 0.65rem; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; }
-.cancel-btn { background-color: #e5e7eb; color: #374151; }
-.proceed-btn { background-color: #3b82f6; color: white; }
-.modal-close-btn { background-color: #111827; color: white; border: none; padding: 0.6rem 2rem; border-radius: 6px; font-weight: 600; cursor: pointer; margin-top: 1rem; }
-
-/* --- EXTRA EXTENDED STYLES FOR THE APPLICATION FORM MODAL --- */
-.asset-form-box {
-    max-width: 500px !important;
-    text-align: left !important;
-}
-
-.modal-icon.form-icon {
-    background-color: #10b981;
-    margin: 0 auto 0.5rem auto !important;
-}
-
-.asset-form-box h3 {
+.review-form-wrapper h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
     text-align: center;
-    margin-bottom: 0.25rem;
-    color: #111827;
 }
 
-.modal-form-group {
-    margin-bottom: 1rem;
+/* --- THE LUXURY FORMS SYSTEM LAYOUT --- */
+.form-group-brand {
     display: flex;
     flex-direction: column;
+    margin-bottom: 1.25rem;
 }
 
-.modal-form-group label {
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: 0.35rem;
-    color: #374151;
+.form-group-brand label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    color: #9ca3af;
 }
 
-.modal-form-group input {
-    width: 100%;
-    padding: 0.65rem;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
+.form-group-brand input, .form-group-brand textarea, .form-group-brand select {
+    background-color: #111111;
+    border: 1px solid #2a2a2a;
+    padding: 0.8rem 1rem;
+    color: #ffffff;
+    font-family: inherit;
     font-size: 0.95rem;
     outline: none;
+    border-radius: 0;
 }
 
-.modal-form-group input:focus {
-    border-color: #10b981;
-    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.1);
+.form-group-brand input:focus, .form-group-brand textarea:focus, .form-group-brand select:focus {
+    border-color: #d4af37;
 }
 
-.modal-form-row {
+.gold-submit-btn {
+    background-color: transparent;
+    border: 1px solid #d4af37;
+    color: #d4af37;
+    padding: 0.8rem 2rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    width: 100%;
+}
+
+.gold-submit-btn:hover {
+    background-color: #d4af37;
+    color: #111111;
+}
+
+/* --- BOOKING WORKSPACE LAYOUT CONTAINER --- */
+.contact-card-box {
+    background-color: #111111;
+    border: 1px solid #222222;
+    padding: 4rem 5%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contact-card-box h2 {
+    margin-bottom: 1rem;
+}
+
+.contact-card-box p {
+    text-align: center;
+    color: #9ca3af;
+    margin-bottom: 3rem;
+    font-weight: 300;
+    font-size: 0.95rem;
+}
+
+.form-row-brand {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
-.modal-form-row .modal-form-group {
+.form-row-brand .form-group-brand {
     flex: 1;
+}
+
+.gold-block-btn {
+    background-color: #d4af37;
+    border: none;
+    color: #111111;
+    width: 100%;
+    padding: 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+.gold-block-btn:hover {
+    background-color: #f3cf65;
+}
+
+/* --- FEEDBACK DIALOG RECEIPT BLOCK --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.85);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-box-brand {
+    background-color: #111111;
+    border: 1px solid #2a2a2a;
+    padding: 3rem;
+    max-width: 450px;
+    width: 90%;
+    text-align: center;
+}
+
+.modal-success-icon {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #d4af37;
+    color: #d4af37;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin: 0 auto 1.5rem auto;
+}
+
+.modal-box-brand h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-box-brand p {
+    color: #9ca3af;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.modal-dismiss-btn {
+    background-color: transparent;
+    border: 1px solid #4b5563;
+    color: #9ca3af;
+    padding: 0.6rem 2rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.modal-dismiss-btn:hover {
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+/* --- FOOTER TERMINATION --- */
+footer {
+    background-color: #0a0a0a;
+    border-top: 1px solid #1a1a1a;
+    text-align: center;
+    padding: 3rem;
+}
+
+footer .fancy-text {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: #d4af37;
+}
+
+footer p {
+    font-size: 0.75rem;
+    color: #4b5563;
+    letter-spacing: 1px;
+}
+
+/* RESPONSIVE BREAKPOINT DESIGN ELEMENTS */
+@media (max-width: 768px) {
+    header nav { display: none; } /* Mobile navbar can be built out dynamically later */
+    .hero-content h1 { font-size: 2.3rem; }
+    .form-row-brand { flex-direction: column; gap: 0; }
+    .review-form-wrapper, .contact-card-box { padding: 2rem 5%; }
 }

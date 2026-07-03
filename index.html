@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressed Hub - Freelance Marketplace</title>
+    <title>Impressor Creatives | Elite Modeling & Photography</title>
     <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
     
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
-            // CRITICAL: Replace this string with your true Public Key from EmailJS Account Settings
+            // CRITICAL: Ensure your real EmailJS Public Key string is pasted below
             emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");
         })();
     </script>
@@ -17,214 +21,266 @@
 <body>
 
     <header>
-        <div class="logo">Impressed Hub</div>
+        <div class="logo-brand">
+            <span class="logo-icon">✨</span>
+            <span class="fancy-text">Impressor</span>
+            <span class="sub-text">Creatives</span>
+        </div>
         <nav>
-            <a href="#about">About</a>
-            <a href="#browse-jobs">Browse Jobs</a>
-            <a href="#post-task">Post a Task</a>
+            <a href="#about">The Artist</a>
+            <a href="#portfolio">Lookbook Portfolio</a>
+            <a href="#reviews">Testimonials</a>
+            <a href="#contact">Inquire / Book</a>
         </nav>
     </header>
 
-    <section class="hero">
-        <h1>Connect with Top Creative Talents</h1>
-        <p>Your ultimate micro-job network for photography, high-end video editing, and digital creation.</p>
-        <a href="#browse-jobs" class="cta-btn">Explore Gigs</a>
+    <section class="hero-brand">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>High-Fashion Modeling & Editorial Photography</h1>
+            <p>Capturing raw emotion, runway elegance, and cinematic digital visual aesthetics.</p>
+            <div class="hero-actions">
+                <a href="#portfolio" class="gold-cta">View Portfolio</a>
+                <a href="#contact" class="outline-cta">Secure Booking</a>
+            </div>
+        </div>
     </section>
 
-    <section id="about" class="about-section">
-        <h2>About Impressed Hub</h2>
-        <p>Impressed Hub is a dedicated digital freelance workspace designed to streamline collaboration between creative visionaries and clients.</p>
+    <section id="about" class="about-brand">
+        <div class="about-container">
+            <h2>The Visionary</h2>
+            <p class="lead-text">Welcome to Impressor Creatives—a solo creative brand dedicated to striking imagery, competitive runway execution, and premium post-production color grading.</p>
+            <p>Specializing in editorial apparel styling (from structural trench coats and berets to high-fashion formal runway attire), alongside studio photography and 45-second high-impact media intro edits optimized to command attention.</p>
+        </div>
     </section>
 
-    <section id="browse-jobs" class="jobs-section">
-        <h2>Available Tasks & Micro-Jobs</h2>
-        <div id="tasks-container" class="job-grid">
+    <section id="portfolio" class="portfolio-brand">
+        <h2>Curated Lookbook</h2>
+        <p class="section-subtitle">A compilation of high-tier modeling presentations and professional photography collections.</p>
+        
+        <div class="portfolio-grid">
+            <div class="portfolio-card">
+                <div class="media-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80" alt="Editorial Styling">
+                </div>
+                <div class="card-meta">
+                    <span class="tag">High-Fashion Modeling</span>
+                    <h3>Runway Lookbook & Styling</h3>
+                </div>
+            </div>
+
+            <div class="portfolio-card">
+                <div class="media-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80" alt="Studio Photography">
+                </div>
+                <div class="card-meta">
+                    <span class="tag">Studio Videography</span>
+                    <h3>Cinematic Production & Color Grading</h3>
+                </div>
+            </div>
+
+            <div class="portfolio-card">
+                <div class="media-wrapper">
+                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80" alt="Runway Pageantry">
+                </div>
+                <div class="card-meta">
+                    <span class="tag">Pageantry & Fashion</span>
+                    <h3>Editorial Editorial Portfolio Sets</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="reviews-brand">
+        <h2>Community Feedback</h2>
+        <p class="section-subtitle">What peers, models, and clients think about working with Impressor Creatives.</p>
+        
+        <div id="reviews-container" class="reviews-grid">
+            </div>
+
+        <div class="review-form-wrapper">
+            <h3>Leave a Review / Anonymous Critique</h3>
+            <div class="inline-review-form">
+                <div class="form-group-brand">
+                    <label for="reviewer-name">Name or Organization (Optional)</label>
+                    <input type="text" id="reviewer-name" placeholder="Anonymous Client">
+                </div>
+                <div class="form-group-brand">
+                    <label for="reviewer-text">Your Thoughts / Evaluation Critique</label>
+                    <textarea id="reviewer-text" rows="3" placeholder="Share your perspective on my artistry, runway presence, or photography sessions..."></textarea>
+                </div>
+                <button type="button" id="submit-review-btn" class="gold-submit-btn">Post Feedback Card</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-brand">
+        <div class="contact-card-box">
+            <h2>Secure a Session Booking / Casting</h2>
+            <p>Interested in booking a creative studio project, hiring for pageantry runways, or scheduling media editing? Drop your contact coordinates below.</p>
             
-            <div class="job-card system-card">
-                <div class="card-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1622737133809-d95047b9e673?auto=format&fit=crop&w=600&q=80" alt="Video Editing">
+            <div class="booking-form">
+                <div class="form-row-brand">
+                    <div class="form-group-brand">
+                        <label>Your Email Address</label>
+                        <input type="email" id="book-email" placeholder="client@domain.com" required>
+                    </div>
+                    <div class="form-group-brand">
+                        <label>Phone Number / WhatsApp</label>
+                        <input type="tel" id="book-phone" placeholder="e.g., 0712345678" required>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <h3>Need a 45-second Runway Modeling Intro Video Edited</h3>
-                    <p class="category-tag">Creative Arts / Videography</p>
-                    <p class="price-range"><strong>Budget Range:</strong> KES 3,500 - KES 7,000</p>
-                    <p>Looking for an editor to assemble raw footage of a pageantry contestant. Needs clean transitions and optimized sound tracking.</p>
-                    <button class="apply-btn">Apply Now</button>
-                </div>
-            </div>
 
-            <div class="job-card system-card">
-                <div class="card-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=80" alt="Photography">
+                <div class="form-row-brand">
+                    <div class="form-group-brand">
+                        <label>County of Residence</label>
+                        <input type="text" id="book-county" placeholder="e.g., Kiambu">
+                    </div>
+                    <div class="form-group-brand">
+                        <label>Required Service Sector</label>
+                        <select id="book-service">
+                            <option value="Runway Modeling / Pageant Booking">Runway Modeling / Pageant Booking</option>
+                            <option value="High-Fashion / Portrait Photography">High-Fashion / Portrait Photography</option>
+                            <option value="Advanced 45s Social Media Video Editing">Advanced 45s Social Media Video Editing</option>
+                            <option value="Creative Concept Consultation">Creative Concept Consultation</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <h3>Looking for a Professional High-Fashion Portfolio Shoot</h3>
-                    <p class="category-tag">Photography / Modeling</p>
-                    <p class="price-range"><strong>Budget Range:</strong> KES 5,000 - KES 12,000</p>
-                    <p>Seeking a photographer experienced with creative studio lighting and outdoor runway apparel styling.</p>
-                    <button class="apply-btn">Apply Now</button>
-                </div>
-            </div>
 
+                <button type="button" id="submit-booking-btn" class="gold-block-btn">Submit Booking Request</button>
+            </div>
         </div>
     </section>
-
-    <section id="post-task" class="post-task-section">
-        <h2>Post a Micro-Job</h2>
-        <div class="task-form-container">
-            <input type="hidden" id="edit-task-index" value="">
-            <div class="form-group">
-                <label for="task-title">Task Title</label>
-                <input type="text" id="task-title" placeholder="e.g., Edit CapCut transitions">
-            </div>
-            <div class="form-group">
-                <label for="task-category">Category</label>
-                <select id="task-category">
-                    <option value="Video Editing & Production">Video Editing & Production</option>
-                    <option value="Photography & Styling">Photography & Styling</option>
-                </select>
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="task-min-price">Min Budget (KES)</label>
-                    <input type="number" id="task-min-price">
-                </div>
-                <div class="form-group">
-                    <label for="task-max-price">Max Budget (KES)</label>
-                    <input type="number" id="task-max-price">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="task-desc">Task Description</label>
-                <textarea id="task-desc" rows="4"></textarea>
-            </div>
-            <button type="button" id="post-task-btn" class="submit-btn">Broadcast Task</button>
-        </div>
-    </section>
-
-    <div id="application-modal" class="modal-overlay">
-        <div class="modal-box asset-form-box">
-            <div class="modal-icon form-icon">💼</div>
-            <h3>Submit Application Credentials</h3>
-            <p style="margin-bottom: 1rem; font-size: 0.9rem; color: #6b7280; text-align: center;">Provide details to receive your automated tracking messages.</p>
-            
-            <input type="hidden" id="target-job-title" value="">
-            <div class="modal-form-group">
-                <label>Your Email Address</label>
-                <input type="email" id="applicant-email" placeholder="you@domain.com" required>
-            </div>
-            <div class="modal-form-group">
-                <label>Phone Number</label>
-                <input type="tel" id="applicant-phone" placeholder="e.g., 0712345678" required>
-            </div>
-            <div class="modal-form-row">
-                <div class="modal-form-group">
-                    <label>Country</label>
-                    <input type="text" id="applicant-country" value="Kenya">
-                </div>
-                <div class="modal-form-group">
-                    <label>County</label>
-                    <input type="text" id="applicant-county" placeholder="e.g., Kiambu">
-                </div>
-            </div>
-            <div class="modal-actions">
-                <button type="button" id="cancel-app-btn" class="modal-btn cancel-btn">Cancel</button>
-                <button type="button" id="submit-app-btn" class="modal-btn proceed-btn">Submit & Send Alert</button>
-            </div>
-        </div>
-    </div>
 
     <div id="alert-modal" class="modal-overlay">
-        <div class="modal-box">
-            <div class="modal-icon alert-success-icon">✓</div>
-            <h3 id="alert-title">Dispatched!</h3>
-            <p id="alert-message">Processing communication links...</p>
-            <button type="button" id="close-alert-btn" class="modal-close-btn">Dismiss</button>
+        <div class="modal-box-brand">
+            <div class="modal-success-icon">✓</div>
+            <h3 id="alert-title">Dispatched Successfully</h3>
+            <p id="alert-message">Action finalized.</p>
+            <button type="button" id="close-alert-btn" class="modal-dismiss-btn">Dismiss</button>
         </div>
     </div>
 
+    <footer>
+        <p class="fancy-text">Impressor Creatives</p>
+        <p>&copy; 2026. Designed for elite runway and photography architecture.</p>
+    </footer>
+
     <script>
-        const ADMIN_SECRET_KEY = "admin123";
-        const applicationModal = document.getElementById('application-modal');
         const alertModal = document.getElementById('alert-modal');
+        const closeAlertBtn = document.getElementById('close-alert-btn');
 
-        // OPEN POPUP
-        document.getElementById('tasks-container').addEventListener('click', function(e) {
-            if (e.target && e.target.classList.contains('apply-btn')) {
-                const card = e.target.closest('.job-card');
-                document.getElementById('target-job-title').value = card.querySelector('h3').innerText;
-                applicationModal.classList.add('active');
-            }
-        });
+        function showAlert(title, message) {
+            document.getElementById('alert-title').innerText = title;
+            document.getElementById('alert-message').innerText = message;
+            alertModal.classList.add('active');
+        }
 
-        document.getElementById('cancel-app-btn').addEventListener('click', () => applicationModal.remove('active'));
-        document.getElementById('close-alert-btn').addEventListener('click', () => alertModal.remove('active'));
+        if (closeAlertBtn) {
+            closeAlertBtn.addEventListener('click', () => alertModal.classList.remove('active'));
+        }
 
-        // LIVE EXTERNAL FORM PROCESSING
-        document.getElementById('submit-app-btn').addEventListener('click', () => {
-            const email = document.getElementById('applicant-email').value.trim();
-            const phone = document.getElementById('applicant-phone').value.trim();
-            const country = document.getElementById('applicant-country').value.trim();
-            const county = document.getElementById('applicant-county').value.trim();
-            const jobTitle = document.getElementById('target-job-title').value;
+        // --- SECTION A: REVIEWS CACHE AND RENDERING MANAGEMENT ---
+        const reviewBtn = document.getElementById('submit-review-btn');
+        
+        function renderReviews() {
+            const container = document.getElementById('reviews-container');
+            if(!container) return;
+            
+            // Starter placeholder reviews to keep layout populated gracefully
+            const baselineReviews = [
+                { name: "Sema Nami Pageant Reviewer", text: "Stellar performance bounds and exceptional presence on stage during contemporary modeling lineups." },
+                { name: "Creative Brand Editorial", text: "The production color grading on the short intro sequence was incredibly clean. Highly recommended for high-tier media editing projects." }
+            ];
 
-            if (!email || !phone || !county) {
-                alert("Please fill all data boxes completely.");
-                return;
-            }
+            let savedReviews = JSON.parse(localStorage.getItem('impressorReviews')) || baselineReviews;
+            container.innerHTML = '';
 
-            // Change button state to show real network loading activity
-            const submitBtn = document.getElementById('submit-app-btn');
-            submitBtn.innerText = "Transmitting Live Messages...";
-            submitBtn.style.opacity = "0.5";
-
-            // PACKAGE DATA DICTIONARY FOR THE API ENGINE
-            const templateParams = {
-                applicant_email: email,
-                applicant_phone: phone,
-                applicant_country: country,
-                applicant_county: county,
-                job_title: jobTitle
-            };
-
-            // TRIGGER LIVE SERVER EMAIL DISPATCH ROUTE WITH YOUR EXACT PRODUCTION KEYS
-            emailjs.send("service_gwh7cbe", "template_ux4ngmk", templateParams)
-                .then(function(response) {
-                    applicationModal.classList.remove('active');
-                    submitBtn.innerText = "Submit & Send Alert";
-                    submitBtn.style.opacity = "1";
-
-                    document.getElementById('alert-title').innerText = "Messages Transmitted!";
-                    document.getElementById('alert-message').innerText = `Success! A live confirmation tracking message has officially dropped into your inbox at ${email}. Evaluation queued for ${county}.`;
-                    alertModal.classList.add('active');
-                }, function(error) {
-                    alert("Network Pipeline Refused: Verify your EmailJS Token configurations inside index.html.");
-                    submitBtn.innerText = "Submit & Send Alert";
-                    submitBtn.style.opacity = "1";
-                });
-        });
-
-        // SYSTEM CARDS RENDER HOOKS
-        function renderDynamicTasks() {
-            const container = document.getElementById('tasks-container');
-            let savedTasks = JSON.parse(localStorage.getItem('hubTasks')) || [];
-            container.querySelectorAll('.dynamic-card').forEach(card => card.remove());
-            savedTasks.forEach((task, index) => {
-                const jobCard = document.createElement('div');
-                jobCard.className = 'job-card dynamic-card';
-                jobCard.innerHTML = `
-                    <div class="card-image-wrapper"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80"></div>
-                    <div class="card-content">
-                        <h3>${task.title}</h3>
-                        <p class="category-tag">${task.category}</p>
-                        <p class="price-range"><strong>Budget:</strong> KES ${Number(task.minPrice).toLocaleString()} - KES ${Number(task.maxPrice).toLocaleString()}</p>
-                        <p>${task.desc}</p>
-                        <button class="apply-btn">Apply Now</button>
-                    </div>`;
-                container.appendChild(jobCard);
+            savedReviews.forEach(review => {
+                const card = document.createElement('div');
+                card.className = 'review-card-brand';
+                card.innerHTML = `
+                    <p class="quote-text">"${review.text}"</p>
+                    <p class="reviewer-signature">- ${review.name || "Anonymous Reviewer"}</p>
+                `;
+                container.appendChild(card);
             });
         }
-        document.addEventListener('DOMContentLoaded', renderDynamicTasks);
+
+        if (reviewBtn) {
+            reviewBtn.addEventListener('click', () => {
+                const nameInput = document.getElementById('reviewer-name');
+                const textInput = document.getElementById('reviewer-text');
+                const name = nameInput.value.trim();
+                const text = textInput.value.trim();
+
+                if (!text) {
+                    alert("Please write your review comment text before executing.");
+                    return;
+                }
+
+                let savedReviews = JSON.parse(localStorage.getItem('impressorReviews')) || [
+                    { name: "Sema Nami Pageant Reviewer", text: "Stellar performance bounds and exceptional presence on stage during contemporary modeling lineups." },
+                    { name: "Creative Brand Editorial", text: "The production color grading on the short intro sequence was incredibly clean. Highly recommended for high-tier media editing projects." }
+                ];
+                
+                savedReviews.unshift({ name, text });
+                localStorage.setItem('impressorReviews', JSON.stringify(savedReviews));
+                
+                nameInput.value = '';
+                textInput.value = '';
+                
+                renderReviews();
+                showAlert("Review Logged", "Thank you! Your feedback card has been safely posted live onto the testimonials wall layout.");
+            });
+        }
+
+        // --- SECTION B: EMAILJS LIVE BOOKING DEPLOYMENT ENGINE ---
+        const bookingBtn = document.getElementById('submit-booking-btn');
+
+        if (bookingBtn) {
+            bookingBtn.addEventListener('click', () => {
+                const email = document.getElementById('book-email').value.trim();
+                const phone = document.getElementById('book-phone').value.trim();
+                const county = document.getElementById('book-county').value.trim();
+                const service = document.getElementById('book-service').value;
+
+                if (!email || !phone || !county) {
+                    alert("Please fill all data text inputs cleanly to submit.");
+                    return;
+                }
+
+                bookingBtn.innerText = "Transmitting Booking Alert...";
+                bookingBtn.style.opacity = "0.6";
+
+                const templateParams = {
+                    applicant_email: email,
+                    applicant_phone: phone,
+                    applicant_county: county,
+                    job_title: service,
+                    applicant_country: "Kenya"
+                };
+
+                // CONNECTS TO YOUR ACTIVE EMAILJS INFRASTRUCTURE ROUTE
+                emailjs.send("service_gwh7cbe", "template_ux4ngmk", templateParams)
+                    .then(function() {
+                        bookingBtn.innerText = "Submit Booking Request";
+                        bookingBtn.style.opacity = "1";
+                        
+                        document.getElementById('book-email').value = '';
+                        document.getElementById('book-phone').value = '';
+                        document.getElementById('book-county').value = '';
+                        
+                        showAlert("Booking Inbound!", `Inquiry successfully routed. A notification tracking message copy has dropped into ${email}. I will connect with you soon!`);
+                    }, function(error) {
+                        alert("Pipeline connection dropped. Please check your account Public Key setup inside the script head node.");
+                        bookingBtn.innerText = "Submit Booking Request";
+                        bookingBtn.style.opacity = "1";
+                    });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', renderReviews);
     </script>
 </body>
 </html>
