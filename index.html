@@ -198,36 +198,26 @@
                 <textarea id="new-package-desc" rows="2" placeholder="What does this include?"></textarea>
                 <button onclick="addServicePackage()" class="admin-save-btn">➕ Publish Rate Card</button>
             </div>
-        </section>
+      // FIXED DIRECT TEXT SECTOR VALIDATION
+function toggleAdminMode() {
+    if (!adminToken) {
+        const pass = prompt("Input Security Passkey for Authorization:");
+        if (!pass) return;
 
-        <section class="gallery-section-wrapper" style="padding: 0 6%;">
-            <h3 class="gallery-title-divider">Visual Productions Lookbook</h3>
-            <div class="gallery-grid" id="productions-gallery"></div>
-            
-            <div class="admin-controls form-add-wrapper" id="add-prod-photo-block">
-                <h4>Upload Image to Productions Gallery</h4>
-                <div class="file-upload-zone">
-                    <label>Upload From Device:</label>
-                    <input type="file" accept="image/*" onchange="handleDeviceImage(event, 'productions-gallery')">
-                    <div class="divider-text">OR PASTE URL:</div>
-                    <input type="text" id="new-prod-img-url" placeholder="Paste photo URL link...">
-                    <button onclick="addImageViaUrl('productions-gallery', 'new-prod-img-url')" class="admin-save-btn">🖼️ Append URL Image</button>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- ========================================================= -->
-    <!-- SUBPAGE 4: BEYOND THE LENS (LIFESTYLE GALLERY)            -->
-    <!-- ========================================================= -->
-    <main id="lifestyle-view" class="view-section">
-        <section class="subpage-header lifestyle-bg">
-            <div class="hero-overlay"></div>
-            <div class="subpage-header-content">
-                <h2>Beyond the Lens</h2>
-                <p>The human side: hiking adventures, funny snapshots, and life off-duty.</p>
-            </div>
-        </section>
+        // Direct plain-text check to bypass any browser math/encoding quirks
+        if (pass === "admin123") {
+            adminToken = true;
+            document.body.classList.add('admin-active');
+            alert("Authorization Granted. Custom editor layout loaded.");
+        } else {
+            alert("Authorization Denied. Invalid master security key signature.");
+        }
+    } else {
+        adminToken = false;
+        document.body.classList.remove('admin-active');
+        alert("Editor Panel Closed. Switched back to normal viewing profile.");
+    }
+}
 
         <section class="portfolio-details">
             <h3>Candid Life Lookbook</h3>
