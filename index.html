@@ -3,155 +3,310 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressor Creatives | Elite Modeling & Photography</title>
+    <title>Impressor Creatives | Pageantry & Visual Productions</title>
     <link rel="stylesheet" href="style.css">
     
+    <!-- GOOGLE FONTS: Playfair Display for heavy editorial style, Montserrat for clean layout -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
     
+    <!-- EMAILJS INFRASTRUCTURE MAP -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
-            // CRITICAL: Ensure your real EmailJS Public Key string is pasted below
-            emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");
+            emailjs.init("YOUR_EMAILJS_PUBLIC_KEY"); // Replace with your live Public Key string
         })();
     </script>
 </head>
 <body>
 
+    <!-- GLOBAL HEADER NAVIGATION -->
     <header>
-        <div class="logo-brand">
+        <div class="logo-brand" onclick="switchView('home-view')">
             <span class="logo-icon">✨</span>
-            <span class="fancy-text">Impressor</span>
-            <span class="sub-text">Creatives</span>
+            <span class="fancy-title-chomsky">Impressor</span>
+            <span class="sub-title-capture">Creatives</span>
         </div>
         <nav>
-            <a href="#about">The Artist</a>
-            <a href="#portfolio">Lookbook Portfolio</a>
-            <a href="#reviews">Testimonials</a>
-            <a href="#contact">Inquire / Book</a>
+            <a href="#" onclick="switchView('home-view')">Home</a>
+            <a href="#" onclick="switchView('modelling-view')">Pageantry Profile</a>
+            <a href="#" onclick="switchView('productions-view')">Visual Productions</a>
+            <a href="#" onclick="switchView('lifestyle-view')">Beyond The Lens</a>
+            <a href="#" onclick="switchView('booking-view')" class="nav-book-highlight">Book Session</a>
         </nav>
+        <button id="admin-gate-btn" onclick="toggleAdminMode()">Admin Login</button>
     </header>
 
-    <section class="hero-brand">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>High-Fashion Modeling & Editorial Photography</h1>
-            <p>Capturing raw emotion, runway elegance, and cinematic digital visual aesthetics.</p>
-            <div class="hero-actions">
-                <a href="#portfolio" class="gold-cta">View Portfolio</a>
-                <a href="#contact" class="outline-cta">Secure Booking</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="about-brand">
-        <div class="about-container">
-            <h2>The Visionary</h2>
-            <p class="lead-text">Welcome to Impressor Creatives—a solo creative brand dedicated to striking imagery, competitive runway execution, and premium post-production color grading.</p>
-            <p>Specializing in editorial apparel styling (from structural trench coats and berets to high-fashion formal runway attire), alongside studio photography and 45-second high-impact media intro edits optimized to command attention.</p>
-        </div>
-    </section>
-
-    <section id="portfolio" class="portfolio-brand">
-        <h2>Curated Lookbook</h2>
-        <p class="section-subtitle">A compilation of high-tier modeling presentations and professional photography collections.</p>
-        
-        <div class="portfolio-grid">
-            <div class="portfolio-card">
-                <div class="media-wrapper">
-                    <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80" alt="Editorial Styling">
-                </div>
-                <div class="card-meta">
-                    <span class="tag">High-Fashion Modeling</span>
-                    <h3>Runway Lookbook & Styling</h3>
+    <!-- ========================================================= -->
+    <!-- SUBPAGE 1: MAIN LANDING VIEW (HOME)                       -->
+    <!-- ========================================================= -->
+    <main id="home-view" class="view-section active">
+        <!-- HERO PROFILE DISPLAY -->
+        <section class="hero-brand">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Capturing raw emotion, runway elegance, and cinematic digital visual aesthetics.</h1>
+                <p>A unified portfolio celebrating competitive pageant runway execution and premium media production editing.</p>
+                <div class="hero-actions">
+                    <button onclick="switchView('modelling-view')" class="gold-cta">Pageantry Portfolio</button>
+                    <button onclick="switchView('productions-view')" class="outline-cta">Visual Productions</button>
                 </div>
             </div>
+        </section>
 
-            <div class="portfolio-card">
-                <div class="media-wrapper">
-                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80" alt="Studio Photography">
+        <!-- THE ARTIST STORY SECTION -->
+        <section id="about" class="about-brand">
+            <div class="about-container">
+                <h2>The Artist</h2>
+                <h3 class="story-subtitle">Who is Impressor Creatives?</h3>
+                
+                <!-- Editable Story Block -->
+                <div id="story-display-content" class="editable-text-wrapper">
+                    <p class="lead-text">Welcome to my space. I am the creator behind Impressor Creatives—a solo brand built on visual storytelling, stage representation, and sharp media aesthetics.</p>
+                    <p>This space isn't about selling clothes; it's a living lookbook of my creative growth. From competing on the runway to taking absolute control behind the lens, I capture human expression through modeling and professional video/photography productions.</p>
                 </div>
-                <div class="card-meta">
-                    <span class="tag">Studio Videography</span>
-                    <h3>Cinematic Production & Color Grading</h3>
+                <div class="admin-controls" id="story-admin-panel">
+                    <button onclick="editStoryContent()" class="admin-edit-btn">✍️ Edit My Story (Admin)</button>
                 </div>
             </div>
+        </section>
 
-            <div class="portfolio-card">
-                <div class="media-wrapper">
-                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80" alt="Runway Pageantry">
-                </div>
-                <div class="card-meta">
-                    <span class="tag">Pageantry & Fashion</span>
-                    <h3>Editorial Editorial Portfolio Sets</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="reviews" class="reviews-brand">
-        <h2>Community Feedback</h2>
-        <p class="section-subtitle">What peers, models, and clients think about working with Impressor Creatives.</p>
-        
-        <div id="reviews-container" class="reviews-grid">
-            </div>
-
-        <div class="review-form-wrapper">
-            <h3>Leave a Review / Anonymous Critique</h3>
-            <div class="inline-review-form">
-                <div class="form-group-brand">
-                    <label for="reviewer-name">Name or Organization (Optional)</label>
-                    <input type="text" id="reviewer-name" placeholder="Anonymous Client">
-                </div>
-                <div class="form-group-brand">
-                    <label for="reviewer-text">Your Thoughts / Evaluation Critique</label>
-                    <textarea id="reviewer-text" rows="3" placeholder="Share your perspective on my artistry, runway presence, or photography sessions..."></textarea>
-                </div>
-                <button type="button" id="submit-review-btn" class="gold-submit-btn">Post Feedback Card</button>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact-brand">
-        <div class="contact-card-box">
-            <h2>Secure a Session Booking / Casting</h2>
-            <p>Interested in booking a creative studio project, hiring for pageantry runways, or scheduling media editing? Drop your contact coordinates below.</p>
+        <!-- ENGAGING REVIEWS/TESTIMONIALS SECTION -->
+        <section id="reviews" class="reviews-brand">
+            <h2>Real Vibrations & Feedback</h2>
+            <p class="section-subtitle">Drop your thoughts, direct critiques, or words of encouragement anonymously or named below.</p>
             
-            <div class="booking-form">
-                <div class="form-row-brand">
-                    <div class="form-group-brand">
-                        <label>Your Email Address</label>
-                        <input type="email" id="book-email" placeholder="client@domain.com" required>
-                    </div>
-                    <div class="form-group-brand">
-                        <label>Phone Number / WhatsApp</label>
-                        <input type="tel" id="book-phone" placeholder="e.g., 0712345678" required>
-                    </div>
-                </div>
-
-                <div class="form-row-brand">
-                    <div class="form-group-brand">
-                        <label>County of Residence</label>
-                        <input type="text" id="book-county" placeholder="e.g., Kiambu">
-                    </div>
-                    <div class="form-group-brand">
-                        <label>Required Service Sector</label>
-                        <select id="book-service">
-                            <option value="Runway Modeling / Pageant Booking">Runway Modeling / Pageant Booking</option>
-                            <option value="High-Fashion / Portrait Photography">High-Fashion / Portrait Photography</option>
-                            <option value="Advanced 45s Social Media Video Editing">Advanced 45s Social Media Video Editing</option>
-                            <option value="Creative Concept Consultation">Creative Concept Consultation</option>
-                        </select>
-                    </div>
-                </div>
-
-                <button type="button" id="submit-booking-btn" class="gold-block-btn">Submit Booking Request</button>
+            <div id="reviews-container" class="reviews-grid">
+                <!-- Dynamic cards populate here -->
             </div>
-        </div>
-    </section>
 
+            <div class="review-form-wrapper">
+                <h3>Leave a Critique or Review</h3>
+                <div class="inline-review-form">
+                    <div class="form-row-brand">
+                        <div class="form-group-brand">
+                            <label for="reviewer-name">Who's this? (Name / Alias / Leave blank for anonymous)</label>
+                            <input type="text" id="reviewer-name" placeholder="e.g., Runaway Peer / Anonymous Client">
+                        </div>
+                        <div class="form-group-brand">
+                            <label for="reviewer-email">Your Email Address (Completely Optional)</label>
+                            <input type="email" id="reviewer-email" placeholder="you@example.com">
+                        </div>
+                    </div>
+                    <div class="form-group-brand">
+                        <label for="reviewer-text">Your Thoughts & Evaluation</label>
+                        <textarea id="reviewer-text" rows="3" placeholder="Drop your honest review of my styling presence, photo sessions, or edits..."></textarea>
+                    </div>
+                    <button type="button" id="submit-review-btn" class="gold-submit-btn">Post Feedback Card</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========================================================= -->
+    <!-- SUBPAGE 2: PAGEANTRY & MODELLING SUBPAGE                 -->
+    <!-- ========================================================= -->
+    <main id="modelling-view" class="view-section">
+        <section class="subpage-header modelling-bg">
+            <div class="hero-overlay"></div>
+            <div class="subpage-header-content">
+                <h2>Pageantry & Style</h2>
+                <p>Runway execution, identity display, and creative advocacy.</p>
+            </div>
+        </section>
+
+        <!-- THE PLATFORM ADVOCACY -->
+        <section class="advocacy-banner">
+            <div class="advocacy-card">
+                <span class="advocacy-badge">My Core Advocacy</span>
+                <h3>"Empowering Youth Through Digital Literacy & Creative Self-Expression"</h3>
+                <p>As a modern pageant competitor, I use my platform to advocate for equal access to tech skills and creative arts mentoring. True confidence shines when technology meets human vision.</p>
+            </div>
+        </section>
+
+        <section class="portfolio-details">
+            <div class="section-header-left">
+                <h3>The Runway Log & Aspirations</h3>
+                <p>Tracking competitive appearances, career achievements, and future milestones.</p>
+            </div>
+            
+            <div class="info-timeline" id="modelling-info-list">
+                <!-- Data item 1 -->
+                <div class="timeline-item" data-id="m1">
+                    <div class="timeline-meta">
+                        <span class="timeline-year">Active Runs</span>
+                        <h4>Pageant Lineups & Runway Stages</h4>
+                    </div>
+                    <p class="timeline-desc">Actively showcasing tailored concepts and formal fashion categories across institutional and national modeling championships.</p>
+                    <button class="admin-only admin-delete-item-btn" onclick="deleteDataCard('modelling-info-list', 'm1')">❌ Delete Entry</button>
+                </div>
+            </div>
+
+            <!-- Admin add card controls -->
+            <div class="admin-controls form-add-wrapper" id="add-model-info-block">
+                <h4>Add New Pageantry Milestone (Admin)</h4>
+                <div class="form-row-brand">
+                    <input type="text" id="new-model-title" placeholder="Milestone / Stage Title">
+                    <input type="text" id="new-model-meta" placeholder="Year / Stage Category">
+                </div>
+                <textarea id="new-model-desc" rows="2" placeholder="Describe achievements or aspirational notes..."></textarea>
+                <button onclick="addModelMilestone()" class="admin-save-btn">➕ Broadcast Milestone Card</button>
+            </div>
+
+            <!-- MODELLING GALLERY LOOKBOOK -->
+            <h3 class="gallery-title-divider">Pageantry Image Lookbook</h3>
+            <div class="gallery-grid" id="modelling-gallery">
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1000&q=80')">
+                    <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=500&q=80" alt="Runway">
+                </div>
+            </div>
+            <div class="admin-controls form-add-wrapper" id="add-model-photo-block">
+                <h4>Upload Image URL to Pageantry Gallery</h4>
+                <input type="text" id="new-model-img-url" placeholder="Paste direct image link address...">
+                <button onclick="addImageToGallery('modelling-gallery', 'new-model-img-url')" class="admin-save-btn">🖼️ Append Image</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========================================================= -->
+    <!-- SUBPAGE 3: VISUAL PRODUCTIONS SUBPAGE (PHOTO/VIDEO)        -->
+    <!-- ========================================================= -->
+    <main id="productions-view" class="view-section">
+        <section class="subpage-header productions-bg">
+            <div class="hero-overlay"></div>
+            <div class="subpage-header-content">
+                <h2>Visual Productions</h2>
+                <p>Behind the lens: high-end portrait sessions, color grading, and video cuts.</p>
+            </div>
+        </section>
+
+        <!-- RATES AND PACKAGES PANEL -->
+        <section class="rates-section">
+            <h3>Production Value & Packages</h3>
+            <div class="rates-grid" id="rates-container">
+                <div class="rate-card" data-id="p1">
+                    <h4>Portrait & Concept Session</h4>
+                    <span class="price-tag">From KES 5,000</span>
+                    <p>High-end digital outdoor or indoor lighting shoot, specialized creative direction, and fully retouched high-resolution outputs.</p>
+                    <button class="admin-only admin-delete-item-btn" onclick="deleteDataCard('rates-container', 'p1')">❌ Remove Package</button>
+                </div>
+                <div class="rate-card" data-id="p2">
+                    <h4>45s Cinematic Video Cut</h4>
+                    <span class="price-tag">From KES 7,500</span>
+                    <p>High-impact sequence editing, customized transitions, fully optimized dynamic music soundtracks, and pro color-grading profiles.</p>
+                    <button class="admin-only admin-delete-item-btn" onclick="deleteDataCard('rates-container', 'p2')">❌ Remove Package</button>
+                </div>
+            </div>
+
+            <div class="admin-controls form-add-wrapper" id="add-package-block">
+                <h4>Add New Service Package (Admin)</h4>
+                <div class="form-row-brand">
+                    <input type="text" id="new-package-title" placeholder="Package Title">
+                    <input type="text" id="new-package-price" placeholder="Pricing Structure (e.g., KES 4,000)">
+                </div>
+                <textarea id="new-package-desc" rows="2" placeholder="What does this production package include?"></textarea>
+                <button onclick="addServicePackage()" class="admin-save-btn">➕ Publish Rate Card</button>
+            </div>
+        </section>
+
+        <!-- PRODUCTIONS GALLERY LOOKBOOK -->
+        <section class="gallery-section-wrapper">
+            <h3>Visual Productions Lookbook</h3>
+            <div class="gallery-grid" id="productions-gallery">
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1000&q=80')">
+                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=500&q=80" alt="Camera Setup">
+                </div>
+            </div>
+            <div class="admin-controls form-add-wrapper" id="add-prod-photo-block">
+                <h4>Upload Image URL to Productions Gallery</h4>
+                <input type="text" id="new-prod-img-url" placeholder="Paste photo link address...">
+                <button onclick="addImageToGallery('productions-gallery', 'new-prod-img-url')" class="admin-save-btn">🖼️ Append Image</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========================================================= -->
+    <!-- SUBPAGE 4: BEYOND THE LENS (LIFESTYLE GALLERY)            -->
+    <!-- ========================================================= -->
+    <main id="lifestyle-view" class="view-section">
+        <section class="subpage-header lifestyle-bg">
+            <div class="hero-overlay"></div>
+            <div class="subpage-header-content">
+                <h2>Beyond the Lens</h2>
+                <p>The human side: hiking adventures, funny snapshots, candid moments, and life off-duty.</p>
+            </div>
+        </section>
+
+        <section class="gallery-section-wrapper">
+            <h3>Candid Life Lookbook</h3>
+            <div class="gallery-grid" id="lifestyle-gallery">
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=1000&q=80')">
+                    <img src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=500&q=80" alt="Adventure">
+                    <p class="candid-caption">Exploring outdoors</p>
+                </div>
+            </div>
+            <div class="admin-controls form-add-wrapper" id="add-life-photo-block">
+                <h4>Upload Image URL to Lifestyle Gallery</h4>
+                <div class="form-row-brand">
+                    <input type="text" id="new-life-img-url" placeholder="Paste photo link...">
+                    <input type="text" id="new-life-caption" placeholder="Candid description caption...">
+                </div>
+                <button onclick="addLifestyleImage()" class="admin-save-btn">🖼️ Append Candid Photo</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========================================================= -->
+    <!-- SUBPAGE 5: DISTINCT BOOKING SECTION                       -->
+    <!-- ========================================================= -->
+    <main id="booking-view" class="view-section">
+        <section class="contact-brand" style="padding-top: 4rem;">
+            <div class="contact-card-box">
+                <h2>Secure a Concept Session</h2>
+                <p>Fill in your contact coordinates and logistical location constraints below to queue an automated scheduling link.</p>
+                
+                <div class="booking-form">
+                    <div class="form-row-brand">
+                        <div class="form-group-brand">
+                            <label>Your Contact Email</label>
+                            <input type="email" id="book-email" placeholder="client@domain.com" required>
+                        </div>
+                        <div class="form-group-brand">
+                            <label>Phone Number / WhatsApp</label>
+                            <input type="tel" id="book-phone" placeholder="e.g., 0712345678" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row-brand">
+                        <div class="form-group-brand">
+                            <label>Exact Location Address / Studio Venue</label>
+                            <input type="text" id="book-county" placeholder="e.g., Thika, Kiambu County" required>
+                        </div>
+                        <div class="form-group-brand">
+                            <label>Target Project Sector</label>
+                            <select id="book-service">
+                                <option value="Pageant Runway Styling Coaching">Pageant Runway Styling Coaching</option>
+                                <option value="Visual Production - Portrait Photography Session">Visual Production - Portrait Session</option>
+                                <option value="Visual Production - High Impact Video Cut">Visual Production - High Impact Video Cut</option>
+                                <option value="Personal Branding Consultation">Personal Branding Consultation</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="button" id="submit-booking-btn" class="gold-block-btn">Lock In Session Request</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- GLOBAL LIGHTBOX POPUP SYSTEM -->
+    <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged View">
+    </div>
+
+    <!-- FEEDBACK ALERT POPUP MODAL -->
     <div id="alert-modal" class="modal-overlay">
         <div class="modal-box-brand">
             <div class="modal-success-icon">✓</div>
@@ -161,83 +316,209 @@
         </div>
     </div>
 
+    <!-- GLOBAL FOOTER TERMINATION -->
     <footer>
-        <p class="fancy-text">Impressor Creatives</p>
-        <p>&copy; 2026. Designed for elite runway and photography architecture.</p>
+        <p class="fancy-title-chomsky" style="font-size: 1.4rem; color: #d4af37; margin-bottom: 0.5rem;">Impressor Creatives</p>
+        <p>&copy; 2026. Custom portfolio configuration engine.</p>
     </footer>
 
+    <!-- INTERACTION & ADMIN ENGINE LOGIC BLOCK -->
     <script>
-        const alertModal = document.getElementById('alert-modal');
-        const closeAlertBtn = document.getElementById('close-alert-btn');
+        let isAdmin = false;
+        const ADMIN_PASSKEY = "admin123"; // Change this string anytime to restrict access
 
+        // VIEW NAVIGATION CONTROLLER
+        function switchView(viewId) {
+            document.querySelectorAll('.view-section').forEach(view => {
+                view.classList.remove('active');
+            });
+            const targetView = document.getElementById(viewId);
+            if (targetView) {
+                targetView.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // SECURE ADMIN ROLE TOGGLING
+        function toggleAdminMode() {
+            if (!isAdmin) {
+                const check = prompt("Input Security Passkey for Authorization:");
+                if (check === ADMIN_PASSKEY) {
+                    isAdmin = true;
+                    document.body.classList.add('admin-active');
+                    document.getElementById('admin-gate-btn').innerText = "Exit Admin Mode";
+                    alert("Authorization Granted. Control fields active.");
+                } else {
+                    alert("Authorization Refused.");
+                }
+            } else {
+                isAdmin = false;
+                document.body.classList.remove('admin-active');
+                document.getElementById('admin-gate-btn').innerText = "Admin Login";
+            }
+        }
+
+        // EDITABLE STORY FUNCTION
+        function editStoryContent() {
+            if (!isAdmin) return;
+            const container = document.getElementById('story-display-content');
+            const currentText = container.innerText;
+            const newText = prompt("Revise your brand bio text description below:", currentText);
+            if (newText) {
+                container.innerHTML = `<p class="lead-text">${newText}</p>`;
+                localStorage.setItem('impressorArtistStory', newText);
+            }
+        }
+
+        // LIGHTBOX CONTROLS
+        function openLightbox(url) {
+            const lb = document.getElementById('lightbox');
+            document.getElementById('lightbox-img').src = url;
+            lb.classList.add('active');
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        // INJECTED DATA DISMISS MODAL
+        const alertModal = document.getElementById('alert-modal');
         function showAlert(title, message) {
             document.getElementById('alert-title').innerText = title;
             document.getElementById('alert-message').innerText = message;
             alertModal.classList.add('active');
         }
+        document.getElementById('close-alert-btn').addEventListener('click', () => alertModal.classList.remove('active'));
 
-        if (closeAlertBtn) {
-            closeAlertBtn.addEventListener('click', () => alertModal.classList.remove('active'));
-        }
-
-        // --- SECTION A: REVIEWS CACHE AND RENDERING MANAGEMENT ---
+        // TESTIMONIAL DISPLAY ROUTINES
         const reviewBtn = document.getElementById('submit-review-btn');
-        
         function renderReviews() {
             const container = document.getElementById('reviews-container');
             if(!container) return;
             
-            // Starter placeholder reviews to keep layout populated gracefully
-            const baselineReviews = [
-                { name: "Sema Nami Pageant Reviewer", text: "Stellar performance bounds and exceptional presence on stage during contemporary modeling lineups." },
-                { name: "Creative Brand Editorial", text: "The production color grading on the short intro sequence was incredibly clean. Highly recommended for high-tier media editing projects." }
+            const defaults = [
+                { name: "Sema Nami Representative", email: "", text: "Incredible command of stage symmetry and presentation flow." }
             ];
-
-            let savedReviews = JSON.parse(localStorage.getItem('impressorReviews')) || baselineReviews;
+            let stored = JSON.parse(localStorage.getItem('impressorReviews')) || defaults;
             container.innerHTML = '';
-
-            savedReviews.forEach(review => {
+            
+            stored.forEach((rev, idx) => {
                 const card = document.createElement('div');
                 card.className = 'review-card-brand';
                 card.innerHTML = `
-                    <p class="quote-text">"${review.text}"</p>
-                    <p class="reviewer-signature">- ${review.name || "Anonymous Reviewer"}</p>
+                    <p class="quote-text">"${rev.text}"</p>
+                    <p class="reviewer-signature">- ${rev.name || "Anonymous Friend"} ${rev.email ? `(${rev.email})` : ''}</p>
+                    <button class="admin-only admin-delete-item-btn" onclick="deleteReview(${idx})">❌ Delete Critique</button>
                 `;
                 container.appendChild(card);
             });
         }
 
-        if (reviewBtn) {
+        if(reviewBtn) {
             reviewBtn.addEventListener('click', () => {
-                const nameInput = document.getElementById('reviewer-name');
-                const textInput = document.getElementById('reviewer-text');
-                const name = nameInput.value.trim();
-                const text = textInput.value.trim();
+                const name = document.getElementById('reviewer-name').value.trim();
+                const email = document.getElementById('reviewer-email').value.trim();
+                const text = document.getElementById('reviewer-text').value.trim();
+                if(!text) return alert("Write your thoughts before posting.");
 
-                if (!text) {
-                    alert("Please write your review comment text before executing.");
-                    return;
-                }
-
-                let savedReviews = JSON.parse(localStorage.getItem('impressorReviews')) || [
-                    { name: "Sema Nami Pageant Reviewer", text: "Stellar performance bounds and exceptional presence on stage during contemporary modeling lineups." },
-                    { name: "Creative Brand Editorial", text: "The production color grading on the short intro sequence was incredibly clean. Highly recommended for high-tier media editing projects." }
-                ];
+                let stored = JSON.parse(localStorage.getItem('impressorReviews')) || [];
+                stored.unshift({name, email, text});
+                localStorage.setItem('impressorReviews', JSON.stringify(stored));
                 
-                savedReviews.unshift({ name, text });
-                localStorage.setItem('impressorReviews', JSON.stringify(savedReviews));
-                
-                nameInput.value = '';
-                textInput.value = '';
-                
+                document.getElementById('reviewer-name').value = '';
+                document.getElementById('reviewer-email').value = '';
+                document.getElementById('reviewer-text').value = '';
                 renderReviews();
-                showAlert("Review Logged", "Thank you! Your feedback card has been safely posted live onto the testimonials wall layout.");
+                showAlert("Critique Logged", "Your review card has been posted onto the live display track.");
             });
         }
 
-        // --- SECTION B: EMAILJS LIVE BOOKING DEPLOYMENT ENGINE ---
-        const bookingBtn = document.getElementById('submit-booking-btn');
+        function deleteReview(idx) {
+            if(!isAdmin) return;
+            let stored = JSON.parse(localStorage.getItem('impressorReviews')) || [];
+            stored.splice(idx, 1);
+            localStorage.setItem('impressorReviews', JSON.stringify(stored));
+            renderReviews();
+        }
 
+        // DYNAMIC CONTENT DATA APPEND SYSTEM
+        function addModelMilestone() {
+            const t = document.getElementById('new-model-title').value.trim();
+            const m = document.getElementById('new-model-meta').value.trim();
+            const d = document.getElementById('new-model-desc').value.trim();
+            if(!t || !d) return alert("Fill required inputs.");
+
+            const id = "m_" + Date.now();
+            const container = document.getElementById('modelling-info-list');
+            const item = document.createElement('div');
+            item.className = "timeline-item";
+            item.setAttribute('data-id', id);
+            item.innerHTML = `
+                <div class="timeline-meta"><span class="timeline-year">${m}</span><h4>${t}</h4></div>
+                <p class="timeline-desc">${d}</p>
+                <button class="admin-only admin-delete-item-btn" onclick="deleteDataCard('modelling-info-list', '${id}')">❌ Delete Entry</button>
+            `;
+            container.appendChild(item);
+            document.getElementById('new-model-title').value = '';
+            document.getElementById('new-model-desc').value = '';
+        }
+
+        function addServicePackage() {
+            const t = document.getElementById('new-package-title').value.trim();
+            const p = document.getElementById('new-package-price').value.trim();
+            const d = document.getElementById('new-package-desc').value.trim();
+            if(!t || !p) return alert("Fill metadata entries.");
+
+            const id = "p_" + Date.now();
+            const container = document.getElementById('rates-container');
+            const card = document.createElement('div');
+            card.className = "rate-card";
+            card.setAttribute('data-id', id);
+            card.innerHTML = `
+                <h4>${t}</h4><span class="price-tag">${p}</span><p>${d}</p>
+                <button class="admin-only admin-delete-item-btn" onclick="deleteDataCard('rates-container', '${id}')">❌ Remove Package</button>
+            `;
+            container.appendChild(card);
+            document.getElementById('new-package-title').value = '';
+            document.getElementById('new-package-price').value = '';
+            document.getElementById('new-package-desc').value = '';
+        }
+
+        function addImageToGallery(galleryId, inputId) {
+            const url = document.getElementById(inputId).value.trim();
+            if(!url) return alert("Paste a valid photo web URL link layout.");
+            
+            const container = document.getElementById(galleryId);
+            const div = document.createElement('div');
+            div.className = "gallery-item";
+            div.setAttribute('onclick', `openLightbox('${url}')`);
+            div.innerHTML = `<img src="${url}"><button class="admin-only img-del-btn" onclick="event.stopPropagation(); this.parentElement.remove();">❌ Remove</button>`;
+            container.appendChild(div);
+            document.getElementById(inputId).value = '';
+        }
+
+        function addLifestyleImage() {
+            const url = document.getElementById('new-life-img-url').value.trim();
+            const cap = document.getElementById('new-life-caption').value.trim();
+            if(!url) return alert("Provide photo destination link path.");
+
+            const container = document.getElementById('lifestyle-gallery');
+            const div = document.createElement('div');
+            div.className = "gallery-item";
+            div.setAttribute('onclick', `openLightbox('${url}')`);
+            div.innerHTML = `<img src="${url}"><p class="candid-caption">${cap}</p><button class="admin-only img-del-btn" onclick="event.stopPropagation(); this.parentElement.remove();">❌ Remove</button>`;
+            container.appendChild(div);
+            document.getElementById('new-life-img-url').value = '';
+            document.getElementById('new-life-caption').value = '';
+        }
+
+        function deleteDataCard(parentContainerId, targetId) {
+            if(!isAdmin) return;
+            const card = document.querySelector(`#${parentContainerId} [data-id="${targetId}"]`);
+            if(card) card.remove();
+        }
+
+        // EMAILJS SYSTEM TRIGGER DISPATCH CONTAINER
+        const bookingBtn = document.getElementById('submit-booking-btn');
         if (bookingBtn) {
             bookingBtn.addEventListener('click', () => {
                 const email = document.getElementById('book-email').value.trim();
@@ -245,10 +526,7 @@
                 const county = document.getElementById('book-county').value.trim();
                 const service = document.getElementById('book-service').value;
 
-                if (!email || !phone || !county) {
-                    alert("Please fill all data text inputs cleanly to submit.");
-                    return;
-                }
+                if (!email || !phone || !county) return alert("Fill form text inputs cleanly.");
 
                 bookingBtn.innerText = "Transmitting Booking Alert...";
                 bookingBtn.style.opacity = "0.6";
@@ -261,26 +539,27 @@
                     applicant_country: "Kenya"
                 };
 
-                // CONNECTS TO YOUR ACTIVE EMAILJS INFRASTRUCTURE ROUTE
                 emailjs.send("service_gwh7cbe", "template_ux4ngmk", templateParams)
                     .then(function() {
-                        bookingBtn.innerText = "Submit Booking Request";
+                        bookingBtn.innerText = "Lock In Session Request";
                         bookingBtn.style.opacity = "1";
-                        
                         document.getElementById('book-email').value = '';
                         document.getElementById('book-phone').value = '';
                         document.getElementById('book-county').value = '';
-                        
-                        showAlert("Booking Inbound!", `Inquiry successfully routed. A notification tracking message copy has dropped into ${email}. I will connect with you soon!`);
-                    }, function(error) {
-                        alert("Pipeline connection dropped. Please check your account Public Key setup inside the script head node.");
-                        bookingBtn.innerText = "Submit Booking Request";
+                        showAlert("Booking Logged!", `Inquiry successfully routed. A duplicate verification has dropped into ${email}.`);
+                    }, function() {
+                        alert("Connection Refused. Verify your network endpoints token parameters.");
+                        bookingBtn.innerText = "Lock In Session Request";
                         bookingBtn.style.opacity = "1";
                     });
             });
         }
 
-        document.addEventListener('DOMContentLoaded', renderReviews);
+        document.addEventListener('DOMContentLoaded', () => {
+            renderReviews();
+            const localBio = localStorage.getItem('impressorArtistStory');
+            if(localBio) document.getElementById('story-display-content').innerHTML = `<p class="lead-text">${localBio}</p>`;
+        });
     </script>
 </body>
 </html>

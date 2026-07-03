@@ -1,4 +1,4 @@
-/* --- RESET & HIGH-END CORE STRUCTURAL BASIS --- */
+/* --- RESET CORE BASIS --- */
 * {
     margin: 0;
     padding: 0;
@@ -8,48 +8,64 @@
 html {
     scroll-behavior: smooth;
     font-family: 'Montserrat', sans-serif;
-    background-color: #1a1a1a;
+    background-color: #0d0d0d;
     color: #f3f4f6;
 }
 
-/* --- THE FANCY BRAND LOGO DESIGN LAYER --- */
+/* --- THE NEW DISTINCT TYPOGRAPHY LOGO STYLE BRANDING --- */
 .logo-brand {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.3rem;
+    cursor: pointer;
 }
 
-.logo-brand .logo-icon {
-    font-size: 1.3rem;
-}
-
-.logo-brand .fancy-text {
+/* Chomsky Alternative Style: Rich Blackletter Gothic Display font */
+.logo-brand .fancy-title-chomsky {
     font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    font-weight: 600;
-    font-style: italic;
-    letter-spacing: 1px;
-    color: #d4af37; /* Pure Luxury Gold Accent Code */
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: -0.5px;
+    color: #d4af37;
+    text-transform: capitalize;
 }
 
-.logo-brand .sub-text {
+/* Capture It Style: Heavy industrial technical secondary branding text */
+.logo-brand .sub-title-capture {
     font-size: 0.8rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
     color: #ffffff;
-    margin-left: 0.3rem;
-    border-left: 1px solid #4b5563;
-    padding-left: 0.6rem;
+    border-left: 2px solid #374151;
+    padding-left: 0.5rem;
+    margin-left: 0.2rem;
 }
 
-/* --- HEADER NAVIGATION STRUCTURAL BAR --- */
+/* --- GLOBAL VIEW CONTROL ACTION MODES --- */
+.view-section {
+    display: none;
+    min-height: 90vh;
+}
+
+.view-section.active {
+    display: block;
+    animation: fadeInView 0.4s ease-in-out;
+}
+
+@keyframes fadeInView {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- FIXED APPLICATION NAVIGATION NAVIGATION HEADER --- */
 header {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    background-color: rgba(17, 17, 17, 0.95);
-    border-bottom: 1px solid #2a2a2a;
+    background-color: #0a0a0a;
+    border-bottom: 1px solid #1c1c1c;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -59,22 +75,51 @@ header {
 header nav a {
     color: #9ca3af;
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-left: 2rem;
+    margin-left: 1.5rem;
     transition: color 0.3s;
 }
 
-header nav a:hover {
+header nav a:hover, header nav a.nav-book-highlight {
     color: #d4af37;
 }
 
-/* --- ULTRA HERO LOOKBOOK HEADER WORKSPACE --- */
+#admin-gate-btn {
+    background: transparent;
+    border: 1px solid #374151;
+    color: #9ca3af;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#admin-gate-btn:hover {
+    border-color: #d4af37;
+    color: #d4af37;
+}
+
+/* --- ADMIN SECURITY PROTECTION SYSTEM VISIBILITY LAWS --- */
+.admin-controls, .admin-only {
+    display: none !important;
+}
+
+body.admin-active .admin-controls {
+    display: block !important;
+}
+
+body.admin-active .admin-only {
+    display: inline-block !important;
+}
+
+/* --- HERO PROFILE DISPLAY DECOR --- */
 .hero-brand {
     position: relative;
-    height: 85vh;
+    height: 75vh;
     background: url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
     display: flex;
     align-items: center;
@@ -88,419 +133,168 @@ header nav a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba(10, 10, 10, 0.9), rgba(20, 20, 20, 0.4));
+    background: linear-gradient(to top, #0d0d0d, rgba(13, 13, 13, 0.4));
 }
 
 .hero-content {
     position: relative;
     z-index: 10;
-    max-width: 700px;
+    max-width: 800px;
 }
 
 .hero-content h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
     color: #ffffff;
+    font-weight: 700;
 }
 
 .hero-content p {
-    font-size: 1.1rem;
-    color: #d1d5db;
-    margin-bottom: 2.5rem;
-    font-weight: 300;
-    letter-spacing: 1px;
-}
-
-/* --- BUTTON MATRIX ELEMENTS --- */
-.gold-cta {
-    background-color: #d4af37;
-    color: #111111;
-    text-decoration: none;
-    padding: 0.9rem 2rem;
-    font-weight: 600;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-radius: 2px;
-    margin-right: 1rem;
-    display: inline-block;
-    transition: transform 0.3s, background-color 0.3s;
-}
-
-.gold-cta:hover {
-    background-color: #f3cf65;
-    transform: translateY(-2px);
-}
-
-.outline-cta {
-    border: 1px solid #ffffff;
-    color: #ffffff;
-    text-decoration: none;
-    padding: 0.9rem 2rem;
-    font-weight: 600;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-radius: 2px;
-    display: inline-block;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.outline-cta:hover {
-    background-color: #ffffff;
-    color: #111111;
-}
-
-/* --- THE VISUAL SECTIONS DECOR --- */
-section {
-    padding: 6rem 8%;
-}
-
-h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    text-align: center;
-    color: #ffffff;
-    margin-bottom: 0.5rem;
-}
-
-.section-subtitle {
-    text-align: center;
-    color: #9ca3af;
-    font-size: 0.95rem;
-    margin-bottom: 4rem;
-    font-weight: 300;
-    letter-spacing: 1px;
-}
-
-/* ABOUT CONTENT SPACE */
-.about-brand {
-    background-color: #111111;
-    text-align: center;
-}
-
-.about-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.about-container .lead-text {
-    font-size: 1.2rem;
-    color: #d4af37;
-    margin-bottom: 1.5rem;
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-}
-
-.about-container p {
     font-size: 1rem;
-    line-height: 1.8;
     color: #9ca3af;
-    font-weight: 300;
-}
-
-/* --- LOOKBOOK GRID INFRASTRUCTURE --- */
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2.5rem;
-}
-
-.portfolio-card {
-    background-color: #111111;
-    border: 1px solid #222222;
-    overflow: hidden;
-    transition: transform 0.3s;
-}
-
-.portfolio-card:hover {
-    transform: translateY(-5px);
-}
-
-.media-wrapper {
-    height: 400px;
-    width: 100%;
-    overflow: hidden;
-}
-
-.media-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s;
-}
-
-.portfolio-card:hover .media-wrapper img {
-    transform: scale(1.05);
-}
-
-.card-meta {
-    padding: 1.5rem;
-}
-
-.card-meta .tag {
-    color: #d4af37;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.card-meta h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    color: #ffffff;
-    font-weight: 400;
-}
-
-/* --- REVIEWS TESTIMONIALS STRUCTURE --- */
-.reviews-brand {
-    background-color: #111111;
-}
-
-.reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-bottom: 5rem;
-}
-
-.review-card-brand {
-    background-color: #1a1a1a;
-    border-left: 3px solid #d4af37;
-    padding: 2rem;
-}
-
-.review-card-brand .quote-text {
-    font-style: italic;
-    color: #d1d5db;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
-}
-
-.review-card-brand .reviewer-signature {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #888888;
-    font-weight: 600;
-}
-
-/* REVIEW FORM ENTRY BOX */
-.review-form-wrapper {
-    background-color: #1a1a1a;
-    border: 1px solid #222222;
-    padding: 3rem;
-    max-width: 750px;
-    margin: 0 auto;
-}
-
-.review-form-wrapper h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-/* --- THE LUXURY FORMS SYSTEM LAYOUT --- */
-.form-group-brand {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1.25rem;
-}
-
-.form-group-brand label {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 0.5rem;
-    color: #9ca3af;
-}
-
-.form-group-brand input, .form-group-brand textarea, .form-group-brand select {
-    background-color: #111111;
-    border: 1px solid #2a2a2a;
-    padding: 0.8rem 1rem;
-    color: #ffffff;
-    font-family: inherit;
-    font-size: 0.95rem;
-    outline: none;
-    border-radius: 0;
-}
-
-.form-group-brand input:focus, .form-group-brand textarea:focus, .form-group-brand select:focus {
-    border-color: #d4af37;
-}
-
-.gold-submit-btn {
-    background-color: transparent;
-    border: 1px solid #d4af37;
-    color: #d4af37;
-    padding: 0.8rem 2rem;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    width: 100%;
-}
-
-.gold-submit-btn:hover {
-    background-color: #d4af37;
-    color: #111111;
-}
-
-/* --- BOOKING WORKSPACE LAYOUT CONTAINER --- */
-.contact-card-box {
-    background-color: #111111;
-    border: 1px solid #222222;
-    padding: 4rem 5%;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.contact-card-box h2 {
-    margin-bottom: 1rem;
-}
-
-.contact-card-box p {
-    text-align: center;
-    color: #9ca3af;
-    margin-bottom: 3rem;
-    font-weight: 300;
-    font-size: 0.95rem;
-}
-
-.form-row-brand {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.form-row-brand .form-group-brand {
-    flex: 1;
-}
-
-.gold-block-btn {
-    background-color: #d4af37;
-    border: none;
-    color: #111111;
-    width: 100%;
-    padding: 1rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    cursor: pointer;
-    margin-top: 1rem;
-    transition: background-color 0.3s;
-}
-
-.gold-block-btn:hover {
-    background-color: #f3cf65;
-}
-
-/* --- FEEDBACK DIALOG RECEIPT BLOCK --- */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.85);
-    z-index: 2000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s;
-}
-
-.modal-overlay.active {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.modal-box-brand {
-    background-color: #111111;
-    border: 1px solid #2a2a2a;
-    padding: 3rem;
-    max-width: 450px;
-    width: 90%;
-    text-align: center;
-}
-
-.modal-success-icon {
-    width: 50px;
-    height: 50px;
-    border: 2px solid #d4af37;
-    color: #d4af37;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    margin: 0 auto 1.5rem auto;
-}
-
-.modal-box-brand h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    margin-bottom: 0.5rem;
-}
-
-.modal-box-brand p {
-    color: #9ca3af;
-    font-size: 0.9rem;
-    line-height: 1.5;
     margin-bottom: 2rem;
+    letter-spacing: 1px;
 }
 
-.modal-dismiss-btn {
-    background-color: transparent;
-    border: 1px solid #4b5563;
-    color: #9ca3af;
-    padding: 0.6rem 2rem;
-    font-size: 0.75rem;
+/* CORE SUBPAGE BANNER HEADERS */
+.subpage-header {
+    position: relative;
+    height: 35vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 3rem 6%;
+    margin-top: 60px;
+}
+
+.modelling-bg { background: url('https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover; }
+.productions-bg { background: url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover; }
+.lifestyle-bg { background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover; }
+
+.subpage-header-content { position: relative; z-index: 5; }
+.subpage-header-content h2 { text-align: left; font-size: 2.8rem; margin: 0; }
+.subpage-header-content p { color: #d4af37; font-size: 0.95rem; letter-spacing: 1px; margin-top: 0.3rem;}
+
+/* --- CTA BUTTON BUTTON CONTROLS --- */
+.gold-cta, .outline-cta {
+    padding: 0.8rem 1.8rem;
+    font-weight: 600;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     cursor: pointer;
+    border-radius: 0;
+    transition: all 0.3s;
 }
 
-.modal-dismiss-btn:hover {
-    border-color: #ffffff;
-    color: #ffffff;
-}
+.gold-cta { background: #d4af37; border: none; color: #111111; margin-right: 1rem;}
+.gold-cta:hover { background: #f3cf65; }
+.outline-cta { background: transparent; border: 1px solid #ffffff; color: #ffffff; }
+.outline-cta:hover { background: #ffffff; color: #111111; }
 
-/* --- FOOTER TERMINATION --- */
-footer {
-    background-color: #0a0a0a;
-    border-top: 1px solid #1a1a1a;
-    text-align: center;
-    padding: 3rem;
-}
+/* ABOUT LOG LAYOUT */
+.about-brand { padding: 5rem 6%; background: #0a0a0a; }
+.about-container { max-width: 800px; margin: 0 auto; text-align: center; }
+.story-subtitle { font-family: 'Playfair Display', serif; font-style: italic; color: #d4af37; margin-bottom: 2rem; font-weight: 400; font-size: 1.3rem;}
+.editable-text-wrapper p { font-size: 0.95rem; line-height: 1.8; color: #9ca3af; margin-bottom: 1.5rem; font-weight: 300;}
 
-footer .fancy-text {
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
-    color: #d4af37;
-}
+/* ADVOCACY METRICS BANNER CARD */
+.advocacy-banner { padding: 4rem 6%; display: flex; justify-content: center; }
+.advocacy-card { background: #0a0a0a; border: 1px dashed #d4af37; padding: 3rem; text-align: center; max-width: 750px; }
+.advocacy-badge { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: #d4af37; display: block; margin-bottom: 0.5rem; }
+.advocacy-card h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #ffffff; margin-bottom: 1rem; }
+.advocacy-card p { font-size: 0.9rem; color: #9ca3af; line-height: 1.7; font-weight: 300; }
 
-footer p {
-    font-size: 0.75rem;
-    color: #4b5563;
-    letter-spacing: 1px;
-}
+/* --- TIMELINE PROFILE LOGS & ACCORDIONS --- */
+.portfolio-details { padding: 4rem 6%; max-width: 1000px; margin: 0 auto; }
+.section-header-left h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 0.3rem; }
+.section-header-left p { color: #6b7280; font-size: 0.9rem; margin-bottom: 2.5rem; }
 
-/* RESPONSIVE BREAKPOINT DESIGN ELEMENTS */
+.info-timeline { margin-bottom: 3rem; }
+.timeline-item { background: #0a0a0a; border-left: 2px solid #374151; padding: 1.5rem 2rem; position: relative; margin-bottom: 1rem; }
+.timeline-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+.timeline-year { font-size: 0.75rem; color: #d4af37; font-weight: 600; text-transform: uppercase; }
+.timeline-item h4 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #ffffff; }
+.timeline-desc { font-size: 0.9rem; color: #9ca3af; line-height: 1.6; }
+
+/* --- VISUAL LOOKBOOK PRODUCTION RATES PANELS --- */
+.rates-section { padding: 5rem 6%; background: #0a0a0a; text-align: center; }
+.rates-section h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 3rem; }
+.rates-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto 3rem auto; }
+.rate-card { background: #121212; border: 1px solid #1c1c1c; padding: 2.5rem 2rem; text-align: center; position: relative; }
+.rate-card h4 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 0.5rem; }
+.price-tag { display: block; color: #d4af37; font-weight: 600; font-size: 1.1rem; margin-bottom: 1.5rem; }
+.rate-card p { font-size: 0.85rem; color: #9ca3af; line-height: 1.6; font-weight: 300; }
+
+/* --- CURATED GRID GALLERY ARCHITECTURE --- */
+.gallery-title-divider { text-align: center; font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 4rem 0 2rem 0; }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+.gallery-item { position: relative; height: 300px; overflow: hidden; background: #0a0a0a; border: 1px solid #1c1c1c; cursor: pointer; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.gallery-item:hover img { transform: scale(1.03); }
+.candid-caption { position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.7); padding: 0.5rem; font-size: 0.75rem; text-align: center; color: #d1d5db; }
+
+/* --- ADMIN DYNAMIC CONTROLS FORMS PANELS --- */
+.form-add-wrapper { background: #121212; border: 1px dashed #374151; padding: 2rem; margin-top: 2rem; text-align: left; }
+.form-add-wrapper h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; color: #d4af37; }
+.form-add-wrapper input, .form-add-wrapper textarea { width: 100%; background: #0a0a0a; border: 1px solid #262626; padding: 0.6rem 1rem; color: white; font-family: inherit; margin-bottom: 0.8rem; font-size: 0.85rem; }
+.admin-save-btn { background: #d4af37; border: none; color: #111111; padding: 0.5rem 1.5rem; font-size: 0.75rem; font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 1px;}
+.admin-delete-item-btn { margin-top: 1rem; background: transparent; border: 1px solid #dc2626; color: #ef4444; padding: 0.3rem 0.8rem; font-size: 0.7rem; cursor: pointer; }
+.img-del-btn { position: absolute; top: 5px; right: 5px; background: rgba(0,0,0,0.8); border: 1px solid red; color: red; padding: 0.2rem 0.5rem; font-size: 0.65rem; cursor: pointer; z-index: 10; }
+
+/* --- REVIEWS TESTIMONIALS ARCHITECTURE --- */
+.reviews-brand { padding: 5rem 6%; background: #0d0d0d; border-top: 1px solid #121212; }
+.section-subtitle { text-align: center; color: #6b7280; font-size: 0.85rem; margin-bottom: 3.5rem; letter-spacing: 1px;}
+.reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 4rem; }
+.review-card-brand { background: #0a0a0a; border-left: 2px solid #d4af37; padding: 2rem; position: relative; }
+.review-card-brand .quote-text { font-style: italic; color: #d1d5db; line-height: 1.6; margin-bottom: 0.8rem; font-size: 0.9rem; }
+.review-card-brand .reviewer-signature { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #6b7280; font-weight: 600; }
+
+/* REVIEWS FORM WRAPPER */
+.review-form-wrapper { background: #0a0a0a; border: 1px solid #1a1a1a; padding: 2.5rem; max-width: 750px; margin: 0 auto; }
+.review-form-wrapper h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 1.5rem; text-align: center;}
+
+/* LUXURY FORMS INPUT LOGISTICS */
+.form-group-brand { display: flex; flex-direction: column; margin-bottom: 1rem; width: 100%;}
+.form-group-brand label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.4rem; color: #9ca3af; }
+.form-group-brand input, .form-group-brand textarea, .form-group-brand select { background: #0d0d0d; border: 1px solid #222222; padding: 0.7rem 1rem; color: #ffffff; font-family: inherit; font-size: 0.9rem; outline: none; }
+.form-group-brand input:focus, .form-group-brand textarea:focus, .form-group-brand select:focus { border-color: #d4af37; }
+.gold-submit-btn { background: transparent; border: 1px solid #d4af37; color: #d4af37; padding: 0.8rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; cursor: pointer; width: 100%; transition: background 0.3s, color 0.3s; }
+.gold-submit-btn:hover { background: #d4af37; color: #111111; }
+.form-row-brand { display: flex; gap: 1rem; width: 100%; }
+
+/* --- BOOKING WORKSPACE LAYOUT --- */
+.contact-card-box { background: #0a0a0a; border: 1px solid #1a1a1a; padding: 3.5rem 5%; max-width: 850px; margin: 0 auto; }
+.contact-card-box h2 { font-family: 'Playfair Display', serif; font-size: 2rem; text-align: center; margin-bottom: 0.5rem; }
+.contact-card-box p { text-align: center; color: #6b7280; margin-bottom: 2.5rem; font-size: 0.85rem; font-weight: 300;}
+.gold-block-btn { background: #d4af37; border: none; color: #111111; width: 100%; padding: 0.9rem; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; margin-top: 1rem; }
+
+/* --- GLOBAL LIGHTBOX VIEWER --- */
+.lightbox-overlay { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.95); z-index: 3000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+.lightbox-overlay.active { opacity: 1; pointer-events: auto; }
+.lightbox-img { max-width: 90%; max-height: 85vh; object-fit: contain; }
+.lightbox-close { position: absolute; top: 20px; right: 30px; font-size: 2.5rem; color: white; cursor: pointer; }
+
+/* --- ALERTS PROCESSOR OVERLAYS --- */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2500; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
+.modal-box-brand { background: #0a0a0a; border: 1px solid #222222; padding: 2.5rem; max-width: 400px; width: 90%; text-align: center; }
+.modal-success-icon { width: 44px; height: 44px; border: 2px solid #d4af37; color: #d4af37; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin: 0 auto 1.2rem auto; }
+.modal-box-brand h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 0.5rem; }
+.modal-box-brand p { color: #9ca3af; font-size: 0.85rem; margin-bottom: 1.5rem; }
+.modal-dismiss-btn { background: transparent; border: 1px solid #4b5563; color: #9ca3af; padding: 0.5rem 1.5rem; font-size: 0.7rem; text-transform: uppercase; cursor: pointer; }
+
+/* FOOTER TERMINATION BAR */
+footer { background: #050505; border-top: 1px solid #111111; text-align: center; padding: 2.5rem; }
+footer p { font-size: 0.7rem; color: #4b5563; letter-spacing: 1px; }
+
+/* MOBILE RESPONSIVE ADAPTATIONS */
 @media (max-width: 768px) {
-    header nav { display: none; } /* Mobile navbar can be built out dynamically later */
-    .hero-content h1 { font-size: 2.3rem; }
+    header nav { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin: 0.5rem 0; }
+    header { flex-direction: column; padding: 1rem; position: static; }
+    .hero-brand { margin-top: 0; height: auto; padding: 4rem 5%; }
+    .hero-content h1 { font-size: 1.9rem; }
     .form-row-brand { flex-direction: column; gap: 0; }
-    .review-form-wrapper, .contact-card-box { padding: 2rem 5%; }
+    .subpage-header { margin-top: 0; height: 25vh; }
 }
