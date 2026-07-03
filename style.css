@@ -20,7 +20,6 @@ html {
     cursor: pointer;
 }
 
-/* Chomsky Alternative Style: Rich Blackletter Gothic Display font */
 .logo-brand .fancy-title-chomsky {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
@@ -30,7 +29,6 @@ html {
     text-transform: capitalize;
 }
 
-/* Capture It Style: Heavy industrial technical secondary branding text */
 .logo-brand .sub-title-capture {
     font-size: 0.8rem;
     font-weight: 600;
@@ -58,7 +56,7 @@ html {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- FIXED APPLICATION NAVIGATION NAVIGATION HEADER --- */
+/* --- FIXED NAVIGATION HEADER --- */
 header {
     position: fixed;
     top: 0;
@@ -103,7 +101,7 @@ header nav a:hover, header nav a.nav-book-highlight {
     color: #d4af37;
 }
 
-/* --- ADMIN SECURITY PROTECTION SYSTEM VISIBILITY LAWS --- */
+/* --- SECURE HIDING OF FORMS PANELS --- */
 .admin-controls, .admin-only {
     display: none !important;
 }
@@ -136,19 +134,12 @@ body.admin-active .admin-only {
     background: linear-gradient(to top, #0d0d0d, rgba(13, 13, 13, 0.4));
 }
 
-.hero-content {
-    position: relative;
-    z-index: 10;
-    max-width: 800px;
-}
-
 .hero-content h1 {
     font-family: 'Playfair Display', serif;
     font-size: 2.8rem;
     line-height: 1.2;
     margin-bottom: 1rem;
     color: #ffffff;
-    font-weight: 700;
 }
 
 .hero-content p {
@@ -158,7 +149,7 @@ body.admin-active .admin-only {
     letter-spacing: 1px;
 }
 
-/* CORE SUBPAGE BANNER HEADERS */
+/* SUBPAGE HEADER DECOR */
 .subpage-header {
     position: relative;
     height: 35vh;
@@ -173,10 +164,10 @@ body.admin-active .admin-only {
 .lifestyle-bg { background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover; }
 
 .subpage-header-content { position: relative; z-index: 5; }
-.subpage-header-content h2 { text-align: left; font-size: 2.8rem; margin: 0; }
-.subpage-header-content p { color: #d4af37; font-size: 0.95rem; letter-spacing: 1px; margin-top: 0.3rem;}
+.subpage-header-content h2 { text-align: left; font-size: 2.8rem; }
+.subpage-header-content p { color: #d4af37; font-size: 0.95rem; }
 
-/* --- CTA BUTTON BUTTON CONTROLS --- */
+/* BUTTON SYSTEMS */
 .gold-cta, .outline-cta {
     padding: 0.8rem 1.8rem;
     font-weight: 600;
@@ -184,117 +175,83 @@ body.admin-active .admin-only {
     text-transform: uppercase;
     letter-spacing: 2px;
     cursor: pointer;
-    border-radius: 0;
     transition: all 0.3s;
 }
-
 .gold-cta { background: #d4af37; border: none; color: #111111; margin-right: 1rem;}
-.gold-cta:hover { background: #f3cf65; }
 .outline-cta { background: transparent; border: 1px solid #ffffff; color: #ffffff; }
 .outline-cta:hover { background: #ffffff; color: #111111; }
 
-/* ABOUT LOG LAYOUT */
+/* STORY WRAPPER Layout */
 .about-brand { padding: 5rem 6%; background: #0a0a0a; }
 .about-container { max-width: 800px; margin: 0 auto; text-align: center; }
-.story-subtitle { font-family: 'Playfair Display', serif; font-style: italic; color: #d4af37; margin-bottom: 2rem; font-weight: 400; font-size: 1.3rem;}
-.editable-text-wrapper p { font-size: 0.95rem; line-height: 1.8; color: #9ca3af; margin-bottom: 1.5rem; font-weight: 300;}
+.story-subtitle { font-family: 'Playfair Display', serif; font-style: italic; color: #d4af37; margin-bottom: 2rem; }
+.editable-text-wrapper p { font-size: 0.95rem; line-height: 1.8; color: #9ca3af; margin-bottom: 1.5rem; }
+.admin-edit-btn { background: #d4af37; color:#111; border:none; padding:0.6rem 1.2rem; font-weight:600; text-transform:uppercase; font-size:0.75rem; cursor:pointer; }
 
-/* ADVOCACY METRICS BANNER CARD */
+/* ADVOCACY CARD STYLE */
 .advocacy-banner { padding: 4rem 6%; display: flex; justify-content: center; }
 .advocacy-card { background: #0a0a0a; border: 1px dashed #d4af37; padding: 3rem; text-align: center; max-width: 750px; }
 .advocacy-badge { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: #d4af37; display: block; margin-bottom: 0.5rem; }
 .advocacy-card h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #ffffff; margin-bottom: 1rem; }
-.advocacy-card p { font-size: 0.9rem; color: #9ca3af; line-height: 1.7; font-weight: 300; }
+.advocacy-card p { font-size: 0.9rem; color: #9ca3af; line-height: 1.7; }
 
-/* --- TIMELINE PROFILE LOGS & ACCORDIONS --- */
+/* PORTFOLIO STRUCTURES */
 .portfolio-details { padding: 4rem 6%; max-width: 1000px; margin: 0 auto; }
-.section-header-left h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 0.3rem; }
+.section-header-left h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; }
 .section-header-left p { color: #6b7280; font-size: 0.9rem; margin-bottom: 2.5rem; }
 
-.info-timeline { margin-bottom: 3rem; }
-.timeline-item { background: #0a0a0a; border-left: 2px solid #374151; padding: 1.5rem 2rem; position: relative; margin-bottom: 1rem; }
-.timeline-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
-.timeline-year { font-size: 0.75rem; color: #d4af37; font-weight: 600; text-transform: uppercase; }
-.timeline-item h4 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #ffffff; }
-.timeline-desc { font-size: 0.9rem; color: #9ca3af; line-height: 1.6; }
+.timeline-item { background: #0a0a0a; border-left: 2px solid #374151; padding: 1.5rem 2rem; margin-bottom: 1rem; position: relative; }
+.timeline-meta { display: flex; justify-content: space-between; }
+.timeline-year { font-size: 0.75rem; color: #d4af37; font-weight: 600; }
+.timeline-item h4 { font-family: 'Playfair Display', serif; font-size: 1.2rem; }
+.timeline-desc { font-size: 0.9rem; color: #9ca3af; margin-top: 0.5rem; }
 
-/* --- VISUAL LOOKBOOK PRODUCTION RATES PANELS --- */
+/* RATES STYLING PACKAGES */
 .rates-section { padding: 5rem 6%; background: #0a0a0a; text-align: center; }
 .rates-section h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 3rem; }
 .rates-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto 3rem auto; }
-.rate-card { background: #121212; border: 1px solid #1c1c1c; padding: 2.5rem 2rem; text-align: center; position: relative; }
-.rate-card h4 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 0.5rem; }
-.price-tag { display: block; color: #d4af37; font-weight: 600; font-size: 1.1rem; margin-bottom: 1.5rem; }
-.rate-card p { font-size: 0.85rem; color: #9ca3af; line-height: 1.6; font-weight: 300; }
+.rate-card { background: #121212; border: 1px solid #1c1c1c; padding: 2.5rem 2rem; position: relative; }
+.price-tag { display: block; color: #d4af37; font-weight: 600; margin-bottom: 1.5rem; }
 
-/* --- CURATED GRID GALLERY ARCHITECTURE --- */
+/* LOOKBOOK GALLERIES GRID */
 .gallery-title-divider { text-align: center; font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 4rem 0 2rem 0; }
 .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
-.gallery-item { position: relative; height: 300px; overflow: hidden; background: #0a0a0a; border: 1px solid #1c1c1c; cursor: pointer; }
-.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
-.gallery-item:hover img { transform: scale(1.03); }
-.candid-caption { position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.7); padding: 0.5rem; font-size: 0.75rem; text-align: center; color: #d1d5db; }
-
-/* --- ADMIN DYNAMIC CONTROLS FORMS PANELS --- */
-.form-add-wrapper { background: #121212; border: 1px dashed #374151; padding: 2rem; margin-top: 2rem; text-align: left; }
-.form-add-wrapper h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; color: #d4af37; }
-.form-add-wrapper input, .form-add-wrapper textarea { width: 100%; background: #0a0a0a; border: 1px solid #262626; padding: 0.6rem 1rem; color: white; font-family: inherit; margin-bottom: 0.8rem; font-size: 0.85rem; }
-.admin-save-btn { background: #d4af37; border: none; color: #111111; padding: 0.5rem 1.5rem; font-size: 0.75rem; font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 1px;}
-.admin-delete-item-btn { margin-top: 1rem; background: transparent; border: 1px solid #dc2626; color: #ef4444; padding: 0.3rem 0.8rem; font-size: 0.7rem; cursor: pointer; }
+.gallery-item { position: relative; height: 300px; overflow: hidden; border: 1px solid #1c1c1c; cursor: pointer; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; }
 .img-del-btn { position: absolute; top: 5px; right: 5px; background: rgba(0,0,0,0.8); border: 1px solid red; color: red; padding: 0.2rem 0.5rem; font-size: 0.65rem; cursor: pointer; z-index: 10; }
 
-/* --- REVIEWS TESTIMONIALS ARCHITECTURE --- */
-.reviews-brand { padding: 5rem 6%; background: #0d0d0d; border-top: 1px solid #121212; }
-.section-subtitle { text-align: center; color: #6b7280; font-size: 0.85rem; margin-bottom: 3.5rem; letter-spacing: 1px;}
+/* FORM SYSTEMS CORES */
+.form-add-wrapper { background: #121212; border: 1px dashed #374151; padding: 2rem; margin-top: 2rem; }
+.form-add-wrapper input, .form-add-wrapper textarea { width: 100%; background: #0a0a0a; border: 1px solid #262626; padding: 0.6rem 1rem; color: white; font-family: inherit; margin-bottom: 0.8rem; }
+.admin-save-btn { background: #d4af37; border: none; color: #111111; padding: 0.5rem 1.5rem; font-size: 0.75rem; font-weight: 600; cursor: pointer; }
+.admin-delete-item-btn { margin-top: 1rem; background: transparent; border: 1px solid #dc2626; color: #ef4444; padding: 0.3rem 0.8rem; font-size: 0.7rem; cursor: pointer; }
+
+/* REVIEWS & FEEDBACK */
+.reviews-brand { padding: 5rem 6%; background: #0d0d0d; }
+.section-subtitle { text-align: center; color: #6b7280; font-size: 0.85rem; margin-bottom: 3.5rem; }
 .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 4rem; }
 .review-card-brand { background: #0a0a0a; border-left: 2px solid #d4af37; padding: 2rem; position: relative; }
-.review-card-brand .quote-text { font-style: italic; color: #d1d5db; line-height: 1.6; margin-bottom: 0.8rem; font-size: 0.9rem; }
-.review-card-brand .reviewer-signature { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #6b7280; font-weight: 600; }
+.review-card-brand .quote-text { font-style: italic; color: #d1d5db; margin-bottom: 0.8rem; font-size: 0.9rem; }
+.review-card-brand .reviewer-signature { font-size: 0.75rem; color: #6b7280; }
 
-/* REVIEWS FORM WRAPPER */
 .review-form-wrapper { background: #0a0a0a; border: 1px solid #1a1a1a; padding: 2.5rem; max-width: 750px; margin: 0 auto; }
-.review-form-wrapper h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 1.5rem; text-align: center;}
-
-/* LUXURY FORMS INPUT LOGISTICS */
 .form-group-brand { display: flex; flex-direction: column; margin-bottom: 1rem; width: 100%;}
-.form-group-brand label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.4rem; color: #9ca3af; }
-.form-group-brand input, .form-group-brand textarea, .form-group-brand select { background: #0d0d0d; border: 1px solid #222222; padding: 0.7rem 1rem; color: #ffffff; font-family: inherit; font-size: 0.9rem; outline: none; }
-.form-group-brand input:focus, .form-group-brand textarea:focus, .form-group-brand select:focus { border-color: #d4af37; }
-.gold-submit-btn { background: transparent; border: 1px solid #d4af37; color: #d4af37; padding: 0.8rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; cursor: pointer; width: 100%; transition: background 0.3s, color 0.3s; }
-.gold-submit-btn:hover { background: #d4af37; color: #111111; }
+.form-group-brand label { font-size: 0.75rem; text-transform: uppercase; margin-bottom: 0.4rem; color: #9ca3af; }
+.form-group-brand input, .form-group-brand textarea, .form-group-brand select { background: #0d0d0d; border: 1px solid #222222; padding: 0.7rem 1rem; color: #ffffff; font-family: inherit; }
+.gold-submit-btn { background: transparent; border: 1px solid #d4af37; color: #d4af37; padding: 0.8rem; font-size: 0.75rem; text-transform: uppercase; font-weight: 600; cursor: pointer; width: 100%; }
 .form-row-brand { display: flex; gap: 1rem; width: 100%; }
 
-/* --- BOOKING WORKSPACE LAYOUT --- */
+/* BOOKINGS BOX */
 .contact-card-box { background: #0a0a0a; border: 1px solid #1a1a1a; padding: 3.5rem 5%; max-width: 850px; margin: 0 auto; }
-.contact-card-box h2 { font-family: 'Playfair Display', serif; font-size: 2rem; text-align: center; margin-bottom: 0.5rem; }
-.contact-card-box p { text-align: center; color: #6b7280; margin-bottom: 2.5rem; font-size: 0.85rem; font-weight: 300;}
-.gold-block-btn { background: #d4af37; border: none; color: #111111; width: 100%; padding: 0.9rem; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; margin-top: 1rem; }
+.contact-card-box h2 { font-family: 'Playfair Display', serif; font-size: 2rem; text-align: center; }
+.contact-card-box p { text-align: center; color: #6b7280; margin-bottom: 2.5rem; font-size: 0.85rem; }
+.gold-block-btn { background: #d4af37; border: none; color: #111111; width: 100%; padding: 0.9rem; font-weight: 600; text-transform: uppercase; cursor: pointer; }
 
-/* --- GLOBAL LIGHTBOX VIEWER --- */
+/* LIGHTBOX INTERFACES */
 .lightbox-overlay { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.95); z-index: 3000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
 .lightbox-overlay.active { opacity: 1; pointer-events: auto; }
-.lightbox-img { max-width: 90%; max-height: 85vh; object-fit: contain; }
+#lightbox-img { max-width: 90%; max-height: 85vh; object-fit: contain; }
 .lightbox-close { position: absolute; top: 20px; right: 30px; font-size: 2.5rem; color: white; cursor: pointer; }
 
-/* --- ALERTS PROCESSOR OVERLAYS --- */
-.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2500; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
-.modal-overlay.active { opacity: 1; pointer-events: auto; }
-.modal-box-brand { background: #0a0a0a; border: 1px solid #222222; padding: 2.5rem; max-width: 400px; width: 90%; text-align: center; }
-.modal-success-icon { width: 44px; height: 44px; border: 2px solid #d4af37; color: #d4af37; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin: 0 auto 1.2rem auto; }
-.modal-box-brand h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 0.5rem; }
-.modal-box-brand p { color: #9ca3af; font-size: 0.85rem; margin-bottom: 1.5rem; }
-.modal-dismiss-btn { background: transparent; border: 1px solid #4b5563; color: #9ca3af; padding: 0.5rem 1.5rem; font-size: 0.7rem; text-transform: uppercase; cursor: pointer; }
-
-/* FOOTER TERMINATION BAR */
-footer { background: #050505; border-top: 1px solid #111111; text-align: center; padding: 2.5rem; }
-footer p { font-size: 0.7rem; color: #4b5563; letter-spacing: 1px; }
-
-/* MOBILE RESPONSIVE ADAPTATIONS */
-@media (max-width: 768px) {
-    header nav { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin: 0.5rem 0; }
-    header { flex-direction: column; padding: 1rem; position: static; }
-    .hero-brand { margin-top: 0; height: auto; padding: 4rem 5%; }
-    .hero-content h1 { font-size: 1.9rem; }
-    .form-row-brand { flex-direction: column; gap: 0; }
-    .subpage-header { margin-top: 0; height: 25vh; }
-}
+/* MODALS ALERTS */
+.modal-overlay { position: fixed;

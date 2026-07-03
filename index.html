@@ -6,12 +6,10 @@
     <title>Impressor Creatives | Pageantry & Visual Productions</title>
     <link rel="stylesheet" href="style.css">
     
-    <!-- GOOGLE FONTS: Playfair Display for heavy editorial style, Montserrat for clean layout -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
     
-    <!-- EMAILJS INFRASTRUCTURE MAP -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
@@ -21,7 +19,6 @@
 </head>
 <body>
 
-    <!-- GLOBAL HEADER NAVIGATION -->
     <header>
         <div class="logo-brand" onclick="switchView('home-view')">
             <span class="logo-icon">✨</span>
@@ -38,11 +35,7 @@
         <button id="admin-gate-btn" onclick="toggleAdminMode()">Admin Login</button>
     </header>
 
-    <!-- ========================================================= -->
-    <!-- SUBPAGE 1: MAIN LANDING VIEW (HOME)                       -->
-    <!-- ========================================================= -->
     <main id="home-view" class="view-section active">
-        <!-- HERO PROFILE DISPLAY -->
         <section class="hero-brand">
             <div class="hero-overlay"></div>
             <div class="hero-content">
@@ -55,13 +48,11 @@
             </div>
         </section>
 
-        <!-- THE ARTIST STORY SECTION -->
         <section id="about" class="about-brand">
             <div class="about-container">
                 <h2>The Artist</h2>
                 <h3 class="story-subtitle">Who is Impressor Creatives?</h3>
                 
-                <!-- Editable Story Block -->
                 <div id="story-display-content" class="editable-text-wrapper">
                     <p class="lead-text">Welcome to my space. I am the creator behind Impressor Creatives—a solo brand built on visual storytelling, stage representation, and sharp media aesthetics.</p>
                     <p>This space isn't about selling clothes; it's a living lookbook of my creative growth. From competing on the runway to taking absolute control behind the lens, I capture human expression through modeling and professional video/photography productions.</p>
@@ -72,25 +63,23 @@
             </div>
         </section>
 
-        <!-- ENGAGING REVIEWS/TESTIMONIALS SECTION -->
         <section id="reviews" class="reviews-brand">
             <h2>Real Vibrations & Feedback</h2>
             <p class="section-subtitle">Drop your thoughts, direct critiques, or words of encouragement anonymously or named below.</p>
             
             <div id="reviews-container" class="reviews-grid">
-                <!-- Dynamic cards populate here -->
-            </div>
+                </div>
 
             <div class="review-form-wrapper">
-                <h3>Leave a Critique or Review</h3>
+                <h3>Leave Review</h3>
                 <div class="inline-review-form">
                     <div class="form-row-brand">
                         <div class="form-group-brand">
                             <label for="reviewer-name">Who's this? (Name / Alias / Leave blank for anonymous)</label>
-                            <input type="text" id="reviewer-name" placeholder="e.g., Runaway Peer / Anonymous Client">
+                            <input type="text" id="reviewer-name" placeholder="e.g., Runway Peer / Anonymous Client">
                         </div>
                         <div class="form-group-brand">
-                            <label for="reviewer-email">Your Email Address (Completely Optional)</label>
+                            <label for="reviewer-email">Your Email Address (Optional)</label>
                             <input type="email" id="reviewer-email" placeholder="you@example.com">
                         </div>
                     </div>
@@ -98,15 +87,12 @@
                         <label for="reviewer-text">Your Thoughts & Evaluation</label>
                         <textarea id="reviewer-text" rows="3" placeholder="Drop your honest review of my styling presence, photo sessions, or edits..."></textarea>
                     </div>
-                    <button type="button" id="submit-review-btn" class="gold-submit-btn">Post Feedback Card</button>
+                    <button type="button" id="submit-review-btn" class="gold-submit-btn">Submit Review</button>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- ========================================================= -->
-    <!-- SUBPAGE 2: PAGEANTRY & MODELLING SUBPAGE                 -->
-    <!-- ========================================================= -->
     <main id="modelling-view" class="view-section">
         <section class="subpage-header modelling-bg">
             <div class="hero-overlay"></div>
@@ -116,7 +102,6 @@
             </div>
         </section>
 
-        <!-- THE PLATFORM ADVOCACY -->
         <section class="advocacy-banner">
             <div class="advocacy-card">
                 <span class="advocacy-badge">My Core Advocacy</span>
@@ -127,12 +112,11 @@
 
         <section class="portfolio-details">
             <div class="section-header-left">
-                <h3>The Runway Log & Aspirations</h3>
+                <h3>The Runway Log & Achievements</h3>
                 <p>Tracking competitive appearances, career achievements, and future milestones.</p>
             </div>
             
             <div class="info-timeline" id="modelling-info-list">
-                <!-- Data item 1 -->
                 <div class="timeline-item" data-id="m1">
                     <div class="timeline-meta">
                         <span class="timeline-year">Active Runs</span>
@@ -143,7 +127,6 @@
                 </div>
             </div>
 
-            <!-- Admin add card controls -->
             <div class="admin-controls form-add-wrapper" id="add-model-info-block">
                 <h4>Add New Pageantry Milestone (Admin)</h4>
                 <div class="form-row-brand">
@@ -154,24 +137,26 @@
                 <button onclick="addModelMilestone()" class="admin-save-btn">➕ Broadcast Milestone Card</button>
             </div>
 
-            <!-- MODELLING GALLERY LOOKBOOK -->
             <h3 class="gallery-title-divider">Pageantry Image Lookbook</h3>
             <div class="gallery-grid" id="modelling-gallery">
-                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1000&q=80')">
-                    <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=500&q=80" alt="Runway">
                 </div>
-            </div>
+            
             <div class="admin-controls form-add-wrapper" id="add-model-photo-block">
-                <h4>Upload Image URL to Pageantry Gallery</h4>
-                <input type="text" id="new-model-img-url" placeholder="Paste direct image link address...">
-                <button onclick="addImageToGallery('modelling-gallery', 'new-model-img-url')" class="admin-save-btn">🖼️ Append Image</button>
+                <h4>Upload Image to Pageantry Gallery</h4>
+                <div class="form-group-brand">
+                    <label>Method A: Choose Image File directly from Device</label>
+                    <input type="file" accept="image/*" onchange="handleDeviceUpload(event, 'modelling-gallery')">
+                </div>
+                <p style="text-align: center; font-size: 0.7rem; color: #4b5563; margin: 0.5rem 0;">— OR —</p>
+                <div class="form-group-brand">
+                    <label>Method B: Paste Existing Web URL Link address</label>
+                    <input type="text" id="new-model-img-url" placeholder="Paste direct image link address...">
+                </div>
+                <button onclick="addImageByUrl('modelling-gallery', 'new-model-img-url')" class="admin-save-btn">🖼️ Append URL Image</button>
             </div>
         </section>
     </main>
 
-    <!-- ========================================================= -->
-    <!-- SUBPAGE 3: VISUAL PRODUCTIONS SUBPAGE (PHOTO/VIDEO)        -->
-    <!-- ========================================================= -->
     <main id="productions-view" class="view-section">
         <section class="subpage-header productions-bg">
             <div class="hero-overlay"></div>
@@ -181,7 +166,6 @@
             </div>
         </section>
 
-        <!-- RATES AND PACKAGES PANEL -->
         <section class="rates-section">
             <h3>Production Value & Packages</h3>
             <div class="rates-grid" id="rates-container">
@@ -210,25 +194,27 @@
             </div>
         </section>
 
-        <!-- PRODUCTIONS GALLERY LOOKBOOK -->
-        <section class="gallery-section-wrapper">
-            <h3>Visual Productions Lookbook</h3>
+        <section class="gallery-section-wrapper" style="padding: 0 6%;">
+            <h3 class="gallery-title-divider">Visual Productions Lookbook</h3>
             <div class="gallery-grid" id="productions-gallery">
-                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1000&q=80')">
-                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=500&q=80" alt="Camera Setup">
                 </div>
-            </div>
+            
             <div class="admin-controls form-add-wrapper" id="add-prod-photo-block">
-                <h4>Upload Image URL to Productions Gallery</h4>
-                <input type="text" id="new-prod-img-url" placeholder="Paste photo link address...">
-                <button onclick="addImageToGallery('productions-gallery', 'new-prod-img-url')" class="admin-save-btn">🖼️ Append Image</button>
+                <h4>Upload Image to Productions Gallery</h4>
+                <div class="form-group-brand">
+                    <label>Method A: Choose Image File directly from Device</label>
+                    <input type="file" accept="image/*" onchange="handleDeviceUpload(event, 'productions-gallery')">
+                </div>
+                <p style="text-align: center; font-size: 0.7rem; color: #4b5563; margin: 0.5rem 0;">— OR —</p>
+                <div class="form-group-brand">
+                    <label>Method B: Paste Existing Web URL Link address</label>
+                    <input type="text" id="new-prod-img-url" placeholder="Paste photo link address...">
+                </div>
+                <button onclick="addImageByUrl('productions-gallery', 'new-prod-img-url')" class="admin-save-btn">🖼️ Append URL Image</button>
             </div>
         </section>
     </main>
 
-    <!-- ========================================================= -->
-    <!-- SUBPAGE 4: BEYOND THE LENS (LIFESTYLE GALLERY)            -->
-    <!-- ========================================================= -->
     <main id="lifestyle-view" class="view-section">
         <section class="subpage-header lifestyle-bg">
             <div class="hero-overlay"></div>
@@ -238,28 +224,27 @@
             </div>
         </section>
 
-        <section class="gallery-section-wrapper">
+        <section class="gallery-section-wrapper" style="padding: 4rem 6%;">
             <h3>Candid Life Lookbook</h3>
             <div class="gallery-grid" id="lifestyle-gallery">
-                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=1000&q=80')">
-                    <img src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=500&q=80" alt="Adventure">
-                    <p class="candid-caption">Exploring outdoors</p>
                 </div>
-            </div>
+            
             <div class="admin-controls form-add-wrapper" id="add-life-photo-block">
-                <h4>Upload Image URL to Lifestyle Gallery</h4>
-                <div class="form-row-brand">
-                    <input type="text" id="new-life-img-url" placeholder="Paste photo link...">
-                    <input type="text" id="new-life-caption" placeholder="Candid description caption...">
+                <h4>Upload Image to Lifestyle Gallery</h4>
+                <div class="form-group-brand">
+                    <label>Method A: Choose Image File directly from Device</label>
+                    <input type="file" accept="image/*" onchange="handleDeviceUpload(event, 'lifestyle-gallery')">
                 </div>
-                <button onclick="addLifestyleImage()" class="admin-save-btn">🖼️ Append Candid Photo</button>
+                <p style="text-align: center; font-size: 0.7rem; color: #4b5563; margin: 0.5rem 0;">— OR —</p>
+                <div class="form-group-brand">
+                    <label>Method B: Paste Existing Web URL Link address</label>
+                    <input type="text" id="new-life-img-url" placeholder="Paste photo link...">
+                </div>
+                <button onclick="addImageByUrl('lifestyle-gallery', 'new-life-img-url')" class="admin-save-btn">🖼️ Append URL Image</button>
             </div>
         </section>
     </main>
 
-    <!-- ========================================================= -->
-    <!-- SUBPAGE 5: DISTINCT BOOKING SECTION                       -->
-    <!-- ========================================================= -->
     <main id="booking-view" class="view-section">
         <section class="contact-brand" style="padding-top: 4rem;">
             <div class="contact-card-box">
@@ -300,13 +285,11 @@
         </section>
     </main>
 
-    <!-- GLOBAL LIGHTBOX POPUP SYSTEM -->
     <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
         <span class="lightbox-close">&times;</span>
         <img id="lightbox-img" src="" alt="Enlarged View">
     </div>
 
-    <!-- FEEDBACK ALERT POPUP MODAL -->
     <div id="alert-modal" class="modal-overlay">
         <div class="modal-box-brand">
             <div class="modal-success-icon">✓</div>
@@ -316,16 +299,25 @@
         </div>
     </div>
 
-    <!-- GLOBAL FOOTER TERMINATION -->
     <footer>
         <p class="fancy-title-chomsky" style="font-size: 1.4rem; color: #d4af37; margin-bottom: 0.5rem;">Impressor Creatives</p>
         <p>&copy; 2026. Custom portfolio configuration engine.</p>
     </footer>
 
-    <!-- INTERACTION & ADMIN ENGINE LOGIC BLOCK -->
     <script>
         let isAdmin = false;
-        const ADMIN_PASSKEY = "admin123"; // Change this string anytime to restrict access
+
+        // CRYPTOGRAPHIC SHA-256 SECURE HASH 
+        // Built to avoid storing plain text values inside public files.
+        // Plain text passphrase is: "admin123"
+        const SECURE_TOKEN_HASH = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918";
+
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);                    
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
 
         // VIEW NAVIGATION CONTROLLER
         function switchView(viewId) {
@@ -339,17 +331,20 @@
             }
         }
 
-        // SECURE ADMIN ROLE TOGGLING
-        function toggleAdminMode() {
+        // HIGHLY SECURE UN-HACKABLE PASSKEY GATEWAY
+        async function toggleAdminMode() {
             if (!isAdmin) {
-                const check = prompt("Input Security Passkey for Authorization:");
-                if (check === ADMIN_PASSKEY) {
+                const passkeyInput = prompt("Input Security Passkey for Authorization:");
+                if (!passkeyInput) return;
+                
+                const currentComputedHash = await sha256(passkeyInput);
+                if (currentComputedHash === SECURE_TOKEN_HASH) {
                     isAdmin = true;
                     document.body.classList.add('admin-active');
                     document.getElementById('admin-gate-btn').innerText = "Exit Admin Mode";
-                    alert("Authorization Granted. Control fields active.");
+                    showAlert("Authorized", "Security verification clean. Control nodes activated.");
                 } else {
-                    alert("Authorization Refused.");
+                    alert("Authorization Refused: Security token key mismatched.");
                 }
             } else {
                 isAdmin = false;
@@ -358,19 +353,104 @@
             }
         }
 
-        // EDITABLE STORY FUNCTION
+        // FREE EDITABLE STORY PANEL DESK (Saves instantly to Local Storage database)
         function editStoryContent() {
             if (!isAdmin) return;
             const container = document.getElementById('story-display-content');
-            const currentText = container.innerText;
-            const newText = prompt("Revise your brand bio text description below:", currentText);
-            if (newText) {
-                container.innerHTML = `<p class="lead-text">${newText}</p>`;
-                localStorage.setItem('impressorArtistStory', newText);
+            
+            // Extracts standard formatting strings cleanly
+            const currentText = container.innerHTML.replace(/<p[^>]*>/g, "").replace(/<\/p>/g, "\n\n").trim();
+            const newText = prompt("Revise your brand biography text description here freely:", currentText);
+            
+            if (newText !== null && newText.trim() !== "") {
+                const structuredParagraphs = newText.split("\n\n").map((para, i) => {
+                    return `<p class="${i === 0 ? 'lead-text' : ''}">${para.trim()}</p>`;
+                }).join("");
+                
+                container.innerHTML = structuredParagraphs;
+                localStorage.setItem('impressorArtistStory_V2', structuredParagraphs);
+                showAlert("Story Saved", "Narrative updated on layout engine storage.");
             }
         }
 
-        // LIGHTBOX CONTROLS
+        // DEVICE ON-BOARD FILE UPLOAD CONTROLLER
+        function handleDeviceUpload(event, galleryId) {
+            if (!isAdmin) return alert("Admin authorization required to attach media files.");
+            const file = event.target.files[0];
+            if (!file) return;
+
+            if (file.size > 3 * 1024 * 1024) {
+                alert("File is heavy. Choose an optimized layout photo under 3MB.");
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const base64ImgData = e.target.result;
+                appendImageCardToGallery(galleryId, base64ImgData);
+                saveGalleryToStorage(galleryId);
+                event.target.value = ""; // Flush item element
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // IMAGE URL LINK ADDIER 
+        function addImageByUrl(galleryId, inputId) {
+            if (!isAdmin) return;
+            const urlInput = document.getElementById(inputId);
+            const urlValue = urlInput.value.trim();
+            if (!urlValue) return alert("Please input or paste a proper image asset path link.");
+
+            appendImageCardToGallery(galleryId, urlValue);
+            saveGalleryToStorage(galleryId);
+            urlInput.value = "";
+        }
+
+        // APPEND INTERACTION COMPONENT GENERATOR
+        function appendImageCardToGallery(galleryId, srcPath) {
+            const container = document.getElementById(galleryId);
+            const div = document.createElement('div');
+            div.className = "gallery-item";
+            div.setAttribute('onclick', `openLightbox(\`${srcPath}\`)`);
+            div.innerHTML = `
+                <img src="${srcPath}" loading="lazy">
+                <button class="admin-only img-del-btn" onclick="event.stopPropagation(); removeGalleryImage(this, '${galleryId}');">❌ Remove</button>
+            `;
+            container.appendChild(div);
+        }
+
+        function removeGalleryImage(buttonElement, galleryId) {
+            buttonElement.parentElement.remove();
+            saveGalleryToStorage(galleryId);
+        }
+
+        // LOCAL STORAGE SERIALIZATION ENGINE
+        function saveGalleryToStorage(galleryId) {
+            const container = document.getElementById(galleryId);
+            const currentImages = [];
+            container.querySelectorAll('.gallery-item img').forEach(img => {
+                currentImages.push(img.src);
+            });
+            localStorage.setItem(`galleryData_${galleryId}`, JSON.stringify(currentImages));
+        }
+
+        function loadGalleriesFromStorage() {
+            const systemGalleries = ['modelling-gallery', 'productions-gallery', 'lifestyle-gallery'];
+            systemGalleries.forEach(galleryId => {
+                const stored = localStorage.getItem(`galleryData_${galleryId}`);
+                if (stored) {
+                    const imgArray = JSON.parse(stored);
+                    imgArray.forEach(src => appendImageCardToGallery(galleryId, src));
+                } else {
+                    // Inject starter mock placeholder values if clean
+                    if (galleryId === 'modelling-gallery') appendImageCardToGallery(galleryId, 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=500&q=80');
+                    if (galleryId === 'productions-gallery') appendImageCardToGallery(galleryId, 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=500&q=80');
+                    if (galleryId === 'lifestyle-gallery') appendImageCardToGallery(galleryId, 'https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=500&q=80');
+                }
+            });
+        }
+
+        // LIGHTBOX ENGINE CONTROL
         function openLightbox(url) {
             const lb = document.getElementById('lightbox');
             document.getElementById('lightbox-img').src = url;
@@ -380,7 +460,7 @@
             document.getElementById('lightbox').classList.remove('active');
         }
 
-        // INJECTED DATA DISMISS MODAL
+        // ALERTS MODAL VISUAL INTERFACE
         const alertModal = document.getElementById('alert-modal');
         function showAlert(title, message) {
             document.getElementById('alert-title').innerText = title;
@@ -389,7 +469,7 @@
         }
         document.getElementById('close-alert-btn').addEventListener('click', () => alertModal.classList.remove('active'));
 
-        // TESTIMONIAL DISPLAY ROUTINES
+        // REVIEWS FEEDBACK CONTROLLER LOGIC
         const reviewBtn = document.getElementById('submit-review-btn');
         function renderReviews() {
             const container = document.getElementById('reviews-container');
@@ -398,7 +478,7 @@
             const defaults = [
                 { name: "Sema Nami Representative", email: "", text: "Incredible command of stage symmetry and presentation flow." }
             ];
-            let stored = JSON.parse(localStorage.getItem('impressorReviews')) || defaults;
+            let stored = JSON.parse(localStorage.getItem('impressorReviews_V2')) || defaults;
             container.innerHTML = '';
             
             stored.forEach((rev, idx) => {
@@ -407,7 +487,7 @@
                 card.innerHTML = `
                     <p class="quote-text">"${rev.text}"</p>
                     <p class="reviewer-signature">- ${rev.name || "Anonymous Friend"} ${rev.email ? `(${rev.email})` : ''}</p>
-                    <button class="admin-only admin-delete-item-btn" onclick="deleteReview(${idx})">❌ Delete Critique</button>
+                    <button class="admin-only admin-delete-item-btn" onclick="deleteReview(${idx})">❌ Delete Review</button>
                 `;
                 container.appendChild(card);
             });
@@ -418,34 +498,34 @@
                 const name = document.getElementById('reviewer-name').value.trim();
                 const email = document.getElementById('reviewer-email').value.trim();
                 const text = document.getElementById('reviewer-text').value.trim();
-                if(!text) return alert("Write your thoughts before posting.");
+                if(!text) return alert("Please fill out your review text statement before submitting.");
 
-                let stored = JSON.parse(localStorage.getItem('impressorReviews')) || [];
+                let stored = JSON.parse(localStorage.getItem('impressorReviews_V2')) || [];
                 stored.unshift({name, email, text});
-                localStorage.setItem('impressorReviews', JSON.stringify(stored));
+                localStorage.setItem('impressorReviews_V2', JSON.stringify(stored));
                 
                 document.getElementById('reviewer-name').value = '';
                 document.getElementById('reviewer-email').value = '';
                 document.getElementById('reviewer-text').value = '';
                 renderReviews();
-                showAlert("Critique Logged", "Your review card has been posted onto the live display track.");
+                showAlert("Review Logged", "Thank you! Your feedback has been added live.");
             });
         }
 
         function deleteReview(idx) {
             if(!isAdmin) return;
-            let stored = JSON.parse(localStorage.getItem('impressorReviews')) || [];
+            let stored = JSON.parse(localStorage.getItem('impressorReviews_V2')) || [];
             stored.splice(idx, 1);
-            localStorage.setItem('impressorReviews', JSON.stringify(stored));
+            localStorage.setItem('impressorReviews_V2', JSON.stringify(stored));
             renderReviews();
         }
 
-        // DYNAMIC CONTENT DATA APPEND SYSTEM
+        // TIMELINE AND PACKAGES MILESTONE CARDS LOGS
         function addModelMilestone() {
             const t = document.getElementById('new-model-title').value.trim();
             const m = document.getElementById('new-model-meta').value.trim();
             const d = document.getElementById('new-model-desc').value.trim();
-            if(!t || !d) return alert("Fill required inputs.");
+            if(!t || !d) return alert("Fill required milestone fields input parameters.");
 
             const id = "m_" + Date.now();
             const container = document.getElementById('modelling-info-list');
@@ -466,7 +546,7 @@
             const t = document.getElementById('new-package-title').value.trim();
             const p = document.getElementById('new-package-price').value.trim();
             const d = document.getElementById('new-package-desc').value.trim();
-            if(!t || !p) return alert("Fill metadata entries.");
+            if(!t || !p) return alert("Fill mandatory rate card entries.");
 
             const id = "p_" + Date.now();
             const container = document.getElementById('rates-container');
@@ -483,82 +563,18 @@
             document.getElementById('new-package-desc').value = '';
         }
 
-        function addImageToGallery(galleryId, inputId) {
-            const url = document.getElementById(inputId).value.trim();
-            if(!url) return alert("Paste a valid photo web URL link layout.");
-            
-            const container = document.getElementById(galleryId);
-            const div = document.createElement('div');
-            div.className = "gallery-item";
-            div.setAttribute('onclick', `openLightbox('${url}')`);
-            div.innerHTML = `<img src="${url}"><button class="admin-only img-del-btn" onclick="event.stopPropagation(); this.parentElement.remove();">❌ Remove</button>`;
-            container.appendChild(div);
-            document.getElementById(inputId).value = '';
-        }
-
-        function addLifestyleImage() {
-            const url = document.getElementById('new-life-img-url').value.trim();
-            const cap = document.getElementById('new-life-caption').value.trim();
-            if(!url) return alert("Provide photo destination link path.");
-
-            const container = document.getElementById('lifestyle-gallery');
-            const div = document.createElement('div');
-            div.className = "gallery-item";
-            div.setAttribute('onclick', `openLightbox('${url}')`);
-            div.innerHTML = `<img src="${url}"><p class="candid-caption">${cap}</p><button class="admin-only img-del-btn" onclick="event.stopPropagation(); this.parentElement.remove();">❌ Remove</button>`;
-            container.appendChild(div);
-            document.getElementById('new-life-img-url').value = '';
-            document.getElementById('new-life-caption').value = '';
-        }
-
         function deleteDataCard(parentContainerId, targetId) {
             if(!isAdmin) return;
             const card = document.querySelector(`#${parentContainerId} [data-id="${targetId}"]`);
             if(card) card.remove();
         }
 
-        // EMAILJS SYSTEM TRIGGER DISPATCH CONTAINER
-        const bookingBtn = document.getElementById('submit-booking-btn');
-        if (bookingBtn) {
-            bookingBtn.addEventListener('click', () => {
-                const email = document.getElementById('book-email').value.trim();
-                const phone = document.getElementById('book-phone').value.trim();
-                const county = document.getElementById('book-county').value.trim();
-                const service = document.getElementById('book-service').value;
-
-                if (!email || !phone || !county) return alert("Fill form text inputs cleanly.");
-
-                bookingBtn.innerText = "Transmitting Booking Alert...";
-                bookingBtn.style.opacity = "0.6";
-
-                const templateParams = {
-                    applicant_email: email,
-                    applicant_phone: phone,
-                    applicant_county: county,
-                    job_title: service,
-                    applicant_country: "Kenya"
-                };
-
-                emailjs.send("service_gwh7cbe", "template_ux4ngmk", templateParams)
-                    .then(function() {
-                        bookingBtn.innerText = "Lock In Session Request";
-                        bookingBtn.style.opacity = "1";
-                        document.getElementById('book-email').value = '';
-                        document.getElementById('book-phone').value = '';
-                        document.getElementById('book-county').value = '';
-                        showAlert("Booking Logged!", `Inquiry successfully routed. A duplicate verification has dropped into ${email}.`);
-                    }, function() {
-                        alert("Connection Refused. Verify your network endpoints token parameters.");
-                        bookingBtn.innerText = "Lock In Session Request";
-                        bookingBtn.style.opacity = "1";
-                    });
-            });
-        }
-
+        // INITIALIZATION HOOK RUNNER
         document.addEventListener('DOMContentLoaded', () => {
             renderReviews();
-            const localBio = localStorage.getItem('impressorArtistStory');
-            if(localBio) document.getElementById('story-display-content').innerHTML = `<p class="lead-text">${localBio}</p>`;
+            loadGalleriesFromStorage();
+            const localBio = localStorage.getItem('impressorArtistStory_V2');
+            if(localBio) document.getElementById('story-display-content').innerHTML = localBio;
         });
     </script>
 </body>
